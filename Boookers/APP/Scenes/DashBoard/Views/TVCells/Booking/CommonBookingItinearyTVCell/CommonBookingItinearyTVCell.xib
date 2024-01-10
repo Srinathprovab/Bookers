@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CommonBookingItinearyTVCell" customModule="BestFares365App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PU-kA-UYf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xo8-Gm-obv">
+                                <rect key="frame" x="12" y="5" width="296" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Ihb-56-RvO"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Xo8-Gm-obv" secondAttribute="bottom" constant="5" id="GkH-La-gDz"/>
+                            <constraint firstItem="Xo8-Gm-obv" firstAttribute="leading" secondItem="4PU-kA-UYf" secondAttribute="leading" constant="12" id="OX8-dR-yPn"/>
+                            <constraint firstItem="Xo8-Gm-obv" firstAttribute="top" secondItem="4PU-kA-UYf" secondAttribute="top" constant="5" id="UFz-9y-sxi"/>
+                            <constraint firstAttribute="trailing" secondItem="Xo8-Gm-obv" secondAttribute="trailing" constant="12" id="ggU-h8-TOu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="4PU-kA-UYf" secondAttribute="bottom" id="4WF-Rn-Je6"/>
+                    <constraint firstItem="4PU-kA-UYf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ble-C2-QLn"/>
+                    <constraint firstAttribute="trailing" secondItem="4PU-kA-UYf" secondAttribute="trailing" id="H8E-zg-8HO"/>
+                    <constraint firstItem="4PU-kA-UYf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vAF-9a-bWc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bookingInfoTV" destination="Xo8-Gm-obv" id="Lhx-5H-N9F"/>
+                <outlet property="holderView" destination="4PU-kA-UYf" id="fun-bl-i3k"/>
+                <outlet property="tvheight" destination="Ihb-56-RvO" id="kQk-5T-vps"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
