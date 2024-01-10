@@ -26,10 +26,16 @@ class Loader {
                 }
                 
             }else {
-                if loderBool == false {
-                    loaderShow(loder:"newloder",v:view)
-                }else {
-                    loaderShow(loder:"loderimg",v:view)
+//                if loderBool == false {
+//                    loaderShow(loder:"newloder",v:view)
+//                }else {
+//                    loaderShow(loder:"loderimg",v:view)
+//                }
+                
+                DispatchQueue.main.async {
+                    ProgressHUD.animationType = .lineSpinFade
+                    ProgressHUD.colorAnimation = .AppNavBackColor
+                    ProgressHUD.show()
                 }
             }
             

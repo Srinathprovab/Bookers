@@ -223,6 +223,9 @@ class BaseTableVC: UIViewController, ButtonTVCellDelegate,TextfieldTVCellDelegat
     func didTapOnSubmitBtnAction(cell: ContactUsTVCell) {}
     func textViewDidChange(textView: UITextView) {}
     func didTapOnViewDetailsBtnAction(cell:SearchFlightResultInfoTVCell){}
+    func didTapOnViewDetailsBtnAction(cell: RoundTripTVcell) {}
+    
+   
 }
 
 extension BaseTableVC: UITableViewDelegate {

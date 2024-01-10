@@ -183,13 +183,13 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     
     func setupUI() {
         holderView.backgroundColor = .AppHolderViewColor
-        cvHolderView.backgroundColor = .AppNavBackColor
+        cvHolderView.backgroundColor = .clear
         commonTableView.backgroundColor = .AppHolderViewColor
         
         setupCV()
         
         if screenHeight > 835 {
-            navHeight.constant = 185
+            navHeight.constant = 250
         }else {
             navHeight.constant = 150
         }

@@ -18,7 +18,6 @@ class RoundTripTVcell: TableViewCell {
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var flightDetailsTV: UITableView!
     @IBOutlet weak var tvHeight: NSLayoutConstraint!
-    @IBOutlet weak var refundView: UIView!
     @IBOutlet weak var refundlbl: UILabel!
     @IBOutlet weak var kwdPricelbl: UILabel!
     @IBOutlet weak var viewDetailsbtn: UIButton!
@@ -49,6 +48,13 @@ class RoundTripTVcell: TableViewCell {
         kwdPricelbl.text = cellInfo?.kwdprice
         refundlbl.text = cellInfo?.refundable
         
+        
+        if refundlbl.text == "Refundable" {
+            refundlbl.textColor = .Refundcolor
+        }else {
+            refundlbl.textColor = .AppBtnColor
+        }
+        
         summery1 = cellInfo?.moreData as! [Summary]
         tvHeight.constant = CGFloat((summery1.count * 115))
         flightDetailsTV.reloadData()
@@ -62,13 +68,7 @@ class RoundTripTVcell: TableViewCell {
         holderView.backgroundColor = .WhiteColor
         holderView.addCornerRadiusWithShadow(color: .clear, borderColor: .AppBorderColor, cornerRadius: 6)
         setupTV()
-        refundView.backgroundColor = .AppBackgroundColor
-        refundView.layer.cornerRadius = 6
-        refundView.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMaxYCorner]
-        refundView.clipsToBounds = true
-        setuplabels(lbl: kwdPricelbl, text: "", textcolor: .WhiteColor, font: .oswaldRegular(size: 16), align: .right)
-        setuplabels(lbl: refundlbl, text: "", textcolor: .WhiteColor, font: .oswaldRegular(size: 13), align: .left)
-        
+
         viewDetailsbtn.layer.cornerRadius = 4
     }
     
@@ -113,7 +113,10 @@ extension RoundTripTVcell:UITableViewDelegate,UITableViewDataSource {
             cell.toCityNamelbl.text = data.destination?.city
             cell.hourslbl.text = data.duration
             cell.noOfStopslbl.text = "\(data.no_of_stops ?? 0) Stops"
-            cell.inNolbl.text = "\(data.operator_name ?? "") (\(data.operator_code ?? "")-\(data.flight_number ?? ""))"
+            cell.inNolbl.text = "\(data.operator_code ?? "")-\(data.flight_number ?? "")"
+            cell.airlinelbl.text = "\(data.operator_name ?? "")"
+            
+            
             cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             
             switch data.no_of_stops {
@@ -140,7 +143,7 @@ extension RoundTripTVcell:UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didTaponRoundTripCell(cell: self)
+       // delegate?.didTaponRoundTripCell(cell: self)
     }
     
 }

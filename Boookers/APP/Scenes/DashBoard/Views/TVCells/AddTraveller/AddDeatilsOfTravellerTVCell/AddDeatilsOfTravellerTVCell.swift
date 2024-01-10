@@ -487,7 +487,7 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
                     }
                     
                     
-                   
+                    
                 }
                 
                 
@@ -528,10 +528,10 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
                 
                 if let lastIndex = depatureDatesArray.last {
                     
-                if let newdate = formatter.date(from: lastIndex) {
-                    
-                    
-                   
+                    if let newdate = formatter.date(from: lastIndex) {
+                        
+                        
+                        
                         components.year = -2 // Allow selecting a date at least 2 years in the past
                         dobDatePicker.maximumDate = calendar.date(byAdding: components, to: newdate)
                         
@@ -540,338 +540,338 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
                         components1.year = -12 // Allow selecting a date at most 11 years in the past
                         dobDatePicker.minimumDate = calendar.date(byAdding: components1, to: newdate)
                     }
-                   
+                    
                 }
                 
             }
-                
-                
-                
-                
-            case .infant:
-                
-                
-                components1.day = +1
-                components1.year = -2 // Allow selecting a date at most 11 years in the past
-                dobDatePicker.minimumDate = calendar.date(byAdding: components1, to: Date())
-                
+            
+            
+            
+            
+        case .infant:
+            
+            
+            components1.day = +1
+            components1.year = -2 // Allow selecting a date at most 11 years in the past
+            dobDatePicker.minimumDate = calendar.date(byAdding: components1, to: Date())
+            
+        }
+        
+        // ToolBar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
+        
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
+        
+        dobTF.inputAccessoryView = toolbar
+        dobTF.inputView = dobDatePicker
+    }
+    
+    
+    
+    
+    func showexpirDatePicker() {
+        // Formate Date
+        passportDatePicker.datePickerMode = .date
+        passportDatePicker.minimumDate = Date()
+        passportDatePicker.preferredDatePickerStyle = .wheels
+        
+        // ToolBar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
+        
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
+        
+        passportExpireDateTF.inputAccessoryView = toolbar
+        passportExpireDateTF.inputView = passportDatePicker
+    }
+    
+    
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        
+        if dobTF.isFirstResponder {
+            dobTF.text = formatter.string(from: dobDatePicker.date)
+            if travelerArray.count <= indexposition {
+                travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
             }
             
-            // ToolBar
-            let toolbar = UIToolbar()
-            toolbar.sizeToFit()
+            // Update the gender property of the Traveler object at the specified index
+            travelerArray[indexposition].dob = dobTF.text
+            self.dobTF.resignFirstResponder()
+            self.dobView.layer.borderColor = UIColor.AppBorderColor.cgColor
+            self.passportnoTF.becomeFirstResponder()
             
-            let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
-            let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
+        } else if passportExpireDateTF.isFirstResponder {
             
-            toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
+            let calendar = Calendar.current
+            var components = DateComponents()
             
-            dobTF.inputAccessoryView = toolbar
-            dobTF.inputView = dobDatePicker
-        }
-        
-        
-        
-        
-        func showexpirDatePicker() {
-            // Formate Date
-            passportDatePicker.datePickerMode = .date
-            passportDatePicker.minimumDate = Date()
-            passportDatePicker.preferredDatePickerStyle = .wheels
             
-            // ToolBar
-            let toolbar = UIToolbar()
-            toolbar.sizeToFit()
+            let newdate = Date()
+            components.day = +1
+            passportDatePicker.minimumDate = calendar.date(byAdding: components, to: newdate)
+            passportExpireDateTF.text = formatter.string(from: passportDatePicker.date)
             
-            let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
-            let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-            let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
             
-            toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
-            
-            passportExpireDateTF.inputAccessoryView = toolbar
-            passportExpireDateTF.inputView = passportDatePicker
-        }
-        
-        
-        @objc func donedatePicker(){
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy"
-            
-            if dobTF.isFirstResponder {
-                dobTF.text = formatter.string(from: dobDatePicker.date)
-                if travelerArray.count <= indexposition {
-                    travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
-                }
-                
-                // Update the gender property of the Traveler object at the specified index
-                travelerArray[indexposition].dob = dobTF.text
-                self.dobTF.resignFirstResponder()
-                self.dobView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                self.passportnoTF.becomeFirstResponder()
-                
-            } else if passportExpireDateTF.isFirstResponder {
-                
-                let calendar = Calendar.current
-                var components = DateComponents()
-                
-                
-                let newdate = Date()
-                components.day = +1
-                passportDatePicker.minimumDate = calendar.date(byAdding: components, to: newdate)
-                passportExpireDateTF.text = formatter.string(from: passportDatePicker.date)
-                
-                
-                
-                if travelerArray.count <= indexposition {
-                    travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
-                }
-                
-                // Update the gender property of the Traveler object at the specified index
-                travelerArray[indexposition].passportExpireDate = passportExpireDateTF.text
-                self.passportexpireView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                self.passportExpireDateTF.resignFirstResponder()
-                
-                
-                // Assuming passportExpireDateTF.text contains the passport expiration date as a string
-                if let passportExpireDate = formatter.date(from: (passportExpireDateTF.text ?? "")) {
-                    
-                    
-                    let currentDate = Date()
-                    
-                    // Calculate the date 3 months from now
-                    if let threeMonthsLater = calendar.date(byAdding: .month, value: 3, to: currentDate) {
-                        
-                        if passportExpireDate == Date()  {
-                            // Passport expires within the next 3 months, print invalid expiry
-                            print("Invalid expiry. Passport expires within the next 3 months.")
-                            passportExpireDateBool = false
-                            passportexpireView.layer.borderColor = UIColor.red.cgColor
-                            NotificationCenter.default.post(name: NSNotification.Name("passportexpiry"), object: "Invalid expiry. Passport expires within the next 3 months.")
-                            
-                            
-                        } else if passportExpireDate > currentDate && passportExpireDate <= threeMonthsLater {
-                            // Passport expires within the next 3 months, print invalid expiry
-                            print("Invalid expiry. Passport expires within the next 3 months.")
-                            passportExpireDateBool = false
-                            passportexpireView.layer.borderColor = UIColor.red.cgColor
-                            NotificationCenter.default.post(name: NSNotification.Name("passportexpiry"), object: "Invalid expiry. Passport expires within the next 3 months.")
-                            
-                            
-                        } else{
-                            // Passport is valid
-                            print("Valid expiry. Passport expires after 3 months.")
-                            passportExpireDateBool = true
-                            passportexpireView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                            
-                        }
-                    }
-                    
-                    
-                    
-                } else {
-                    // Handle invalid date format in passportExpireDateTF.text
-                    print("Invalid date format in passport expiration date.")
-                }
-                
-                
-                
-            }
-            
-            delegate?.donedatePicker(cell: self)
-        }
-        
-        @objc func cancelDatePicker(){
-            delegate?.cancelDatePicker(cell: self)
-        }
-        
-        
-        
-        override func textFieldDidBeginEditing(_ textField: UITextField) {
-            if textField == dobTF {
-                if let cellInfo = cellInfo {
-                    if cellInfo.key == "adult" {
-                        ageCategory = AgeCategory.adult
-                    } else if cellInfo.key == "child" {
-                        ageCategory = AgeCategory.child
-                    } else {
-                        ageCategory = AgeCategory.infant
-                    }
-                    showdobDatePicker()
-                }
-            }
-            
-            else if textField == passportIssuingCountryTF {
-                // loadCountryNamesAndCode()
-            }
-        }
-        
-        
-        
-        
-        @objc func editingTextField1(textField: UITextField) {
             
             if travelerArray.count <= indexposition {
                 travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
             }
             
-            if let text = textField.text, !text.isEmpty {
+            // Update the gender property of the Traveler object at the specified index
+            travelerArray[indexposition].passportExpireDate = passportExpireDateTF.text
+            self.passportexpireView.layer.borderColor = UIColor.AppBorderColor.cgColor
+            self.passportExpireDateTF.resignFirstResponder()
+            
+            
+            // Assuming passportExpireDateTF.text contains the passport expiration date as a string
+            if let passportExpireDate = formatter.date(from: (passportExpireDateTF.text ?? "")) {
                 
-                switch textField {
-                case fnameTF:
-                    fnameView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                    travelerArray[indexposition].firstName = text
-                    break
+                
+                let currentDate = Date()
+                
+                // Calculate the date 3 months from now
+                if let threeMonthsLater = calendar.date(byAdding: .month, value: 3, to: currentDate) {
                     
-                case lnameTF:
-                    lnameView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                    travelerArray[indexposition].lastName = text
-                    break
-                    
-                    
-                case passportnoTF:
-                    passportnoView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                    travelerArray[indexposition].passportno = text
-                    break
-                    
-                    
-                    
-                default:
-                    break
+                    if passportExpireDate == Date()  {
+                        // Passport expires within the next 3 months, print invalid expiry
+                        print("Invalid expiry. Passport expires within the next 3 months.")
+                        passportExpireDateBool = false
+                        passportexpireView.layer.borderColor = UIColor.red.cgColor
+                        NotificationCenter.default.post(name: NSNotification.Name("passportexpiry"), object: "Invalid expiry. Passport expires within the next 3 months.")
+                        
+                        
+                    } else if passportExpireDate > currentDate && passportExpireDate <= threeMonthsLater {
+                        // Passport expires within the next 3 months, print invalid expiry
+                        print("Invalid expiry. Passport expires within the next 3 months.")
+                        passportExpireDateBool = false
+                        passportexpireView.layer.borderColor = UIColor.red.cgColor
+                        NotificationCenter.default.post(name: NSNotification.Name("passportexpiry"), object: "Invalid expiry. Passport expires within the next 3 months.")
+                        
+                        
+                    } else{
+                        // Passport is valid
+                        print("Valid expiry. Passport expires after 3 months.")
+                        passportExpireDateBool = true
+                        passportexpireView.layer.borderColor = UIColor.AppBorderColor.cgColor
+                        
+                    }
                 }
                 
+                
+                
+            } else {
+                // Handle invalid date format in passportExpireDateTF.text
+                print("Invalid date format in passport expiration date.")
             }
             
             
+            
         }
         
+        delegate?.donedatePicker(cell: self)
+    }
+    
+    @objc func cancelDatePicker(){
+        delegate?.cancelDatePicker(cell: self)
+    }
+    
+    
+    
+    override func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == dobTF {
+            if let cellInfo = cellInfo {
+                if cellInfo.key == "adult" {
+                    ageCategory = AgeCategory.adult
+                } else if cellInfo.key == "child" {
+                    ageCategory = AgeCategory.child
+                } else {
+                    ageCategory = AgeCategory.infant
+                }
+                showdobDatePicker()
+            }
+        }
         
+        else if textField == passportIssuingCountryTF {
+            // loadCountryNamesAndCode()
+        }
+    }
+    
+    
+    
+    
+    @objc func editingTextField1(textField: UITextField) {
         
-        private func getIndexPath() -> IndexPath? {
-            guard let tableView = superview as? UITableView else {
-                return nil
+        if travelerArray.count <= indexposition {
+            travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
+        }
+        
+        if let text = textField.text, !text.isEmpty {
+            
+            switch textField {
+            case fnameTF:
+                fnameView.layer.borderColor = UIColor.AppBorderColor.cgColor
+                travelerArray[indexposition].firstName = text
+                break
+                
+            case lnameTF:
+                lnameView.layer.borderColor = UIColor.AppBorderColor.cgColor
+                travelerArray[indexposition].lastName = text
+                break
+                
+                
+            case passportnoTF:
+                passportnoView.layer.borderColor = UIColor.AppBorderColor.cgColor
+                travelerArray[indexposition].passportno = text
+                break
+                
+                
+                
+            default:
+                break
             }
             
-            return tableView.indexPath(for: self)
         }
         
         
+    }
+    
+    
+    
+    private func getIndexPath() -> IndexPath? {
+        guard let tableView = superview as? UITableView else {
+            return nil
+        }
         
-        @IBAction func didTapOnExpandAdultViewbtnAction(_ sender: Any) {
-            delegate?.didTapOnExpandAdultViewbtnAction(cell: self)
+        return tableView.indexPath(for: self)
+    }
+    
+    
+    
+    @IBAction func didTapOnExpandAdultViewbtnAction(_ sender: Any) {
+        delegate?.didTapOnExpandAdultViewbtnAction(cell: self)
+    }
+    
+    
+    @objc func searchTextBegin(textField: UITextField) {
+        textField.text = ""
+        filterdcountrylist.removeAll()
+        filterdcountrylist = countrylist
+        loadCountryNamesAndCode()
+        dropDown1.show()
+    }
+    
+    @objc func searchTextChanged(textField: UITextField) {
+        searchText = textField.text ?? ""
+        filterContentForSearchText(searchText)
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        
+        filterdcountrylist.removeAll()
+        filterdcountrylist = countrylist.filter { thing in
+            return "\(thing.name?.lowercased() ?? "")".contains(searchText.lowercased())
+        }
+        
+        loadCountryNamesAndCode()
+        dropDown1.show()
+        
+    }
+    
+    func loadCountryNamesAndCode(){
+        countryNames.removeAll()
+        countrycodesArray.removeAll()
+        isocountrycodeArray.removeAll()
+        originArray.removeAll()
+        
+        filterdcountrylist.forEach { i in
+            countryNames.append(i.name ?? "")
+            countrycodesArray.append(i.country_code ?? "")
+            isocountrycodeArray.append(i.iso_country_code ?? "")
+            originArray.append(i.origin ?? "")
         }
         
         
-        @objc func searchTextBegin(textField: UITextField) {
-            textField.text = ""
-            filterdcountrylist.removeAll()
-            filterdcountrylist = countrylist
-            loadCountryNamesAndCode()
-            dropDown1.show()
+        DispatchQueue.main.async {[self] in
+            dropDown1.dataSource = countryNames
         }
         
-        @objc func searchTextChanged(textField: UITextField) {
-            searchText = textField.text ?? ""
-            filterContentForSearchText(searchText)
-        }
+    }
+    
+    
+    
+    @IBAction func didTapOnTitileSelectBtnAction(_ sender: Any) {
+        titledropDown.show()
+    }
+    
+    
+    @IBAction func didTapOnFlyerProgramBtnAction(_ sender: Any) {
+        flyerdropDown.show()
+    }
+    
+    
+    
+}
+
+
+extension AddDeatilsOfTravellerTVCell {
+    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        func filterContentForSearchText(_ searchText: String) {
+        
+        if textField == passportnoTF {
             
-            filterdcountrylist.removeAll()
-            filterdcountrylist = countrylist.filter { thing in
-                return "\(thing.name?.lowercased() ?? "")".contains(searchText.lowercased())
+            // Define a character set that includes numbers and alphabets
+            let allowedCharacterSet = CharacterSet(charactersIn: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+            
+            // Check if the replacementString contains only allowed characters
+            if string.rangeOfCharacter(from: allowedCharacterSet.inverted) != nil {
+                return false // Reject the change
             }
             
-            loadCountryNamesAndCode()
-            dropDown1.show()
+            // Make sure the combined text (current text + replacement) doesn't exceed a certain length
+            let currentText = textField.text ?? ""
+            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+            return updatedText.count <= maxLength
             
-        }
-        
-        func loadCountryNamesAndCode(){
-            countryNames.removeAll()
-            countrycodesArray.removeAll()
-            isocountrycodeArray.removeAll()
-            originArray.removeAll()
+        }else {
             
-            filterdcountrylist.forEach { i in
-                countryNames.append(i.name ?? "")
-                countrycodesArray.append(i.country_code ?? "")
-                isocountrycodeArray.append(i.iso_country_code ?? "")
-                originArray.append(i.origin ?? "")
-            }
+            let currentString: NSString = (textField.text ?? "") as NSString
+            let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
             
-            
-            DispatchQueue.main.async {[self] in
-                dropDown1.dataSource = countryNames
-            }
-            
-        }
-        
-        
-        
-        @IBAction func didTapOnTitileSelectBtnAction(_ sender: Any) {
-            titledropDown.show()
-        }
-        
-        
-        @IBAction func didTapOnFlyerProgramBtnAction(_ sender: Any) {
-            flyerdropDown.show()
+            return newString.length <= maxLength
         }
         
         
         
     }
     
-    
-    extension AddDeatilsOfTravellerTVCell {
-        override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            
-            
-            if textField == passportnoTF {
-                
-                // Define a character set that includes numbers and alphabets
-                let allowedCharacterSet = CharacterSet(charactersIn: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
-                
-                // Check if the replacementString contains only allowed characters
-                if string.rangeOfCharacter(from: allowedCharacterSet.inverted) != nil {
-                    return false // Reject the change
-                }
-                
-                // Make sure the combined text (current text + replacement) doesn't exceed a certain length
-                let currentText = textField.text ?? ""
-                let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
-                return updatedText.count <= maxLength
-                
-            }else {
-                
-                let currentString: NSString = (textField.text ?? "") as NSString
-                let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
-                
-                return newString.length <= maxLength
-            }
-            
-            
-            
-        }
+    func setAttributedText(str1:String,str2:String)  {
         
-        func setAttributedText(str1:String,str2:String)  {
-            
-            let atter1 = [NSAttributedString.Key.foregroundColor:UIColor.AppLabelColor,NSAttributedString.Key.font:UIFont.LatoRegular(size: 14)] as [NSAttributedString.Key : Any]
-            let atter2 = [NSAttributedString.Key.foregroundColor:UIColor.AppNavBackColor,NSAttributedString.Key.font:UIFont.LatoRegular(size: 10)] as [NSAttributedString.Key : Any]
-            
-            let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
-            let atterStr2 = NSMutableAttributedString(string: str2, attributes: atter2)
-            
-            
-            let combination = NSMutableAttributedString()
-            combination.append(atterStr1)
-            combination.append(atterStr2)
-            
-            titlelbl.attributedText = combination
-            
-        }
+        let atter1 = [NSAttributedString.Key.foregroundColor:UIColor.AppLabelColor,NSAttributedString.Key.font:UIFont.LatoRegular(size: 14)] as [NSAttributedString.Key : Any]
+        let atter2 = [NSAttributedString.Key.foregroundColor:UIColor.AppNavBackColor,NSAttributedString.Key.font:UIFont.LatoRegular(size: 10)] as [NSAttributedString.Key : Any]
+        
+        let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
+        let atterStr2 = NSMutableAttributedString(string: str2, attributes: atter2)
+        
+        
+        let combination = NSMutableAttributedString()
+        combination.append(atterStr1)
+        combination.append(atterStr2)
+        
+        titlelbl.attributedText = combination
+        
     }
-    
-    
-    
+}
+
+
+

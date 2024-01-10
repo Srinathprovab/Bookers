@@ -110,7 +110,7 @@ class checkOptionsTVCell: TableViewCell {
     
     
     func sele() {
-        if let image = UIImage(named: "chk")?.withRenderingMode(.alwaysOriginal) {
+        if let image = UIImage(named: "chk")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor) {
             checkImg.image = image
         } else {
             print("Image not found or nil for 'chk'")

@@ -90,7 +90,6 @@
 		65AD17C42B4EAC6D0064E8B0 /* AmenitiesCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65AD15AB2B4EAC680064E8B0 /* AmenitiesCVCell.xib */; };
 		65AD17C52B4EAC6D0064E8B0 /* AmenitiesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15AC2B4EAC680064E8B0 /* AmenitiesCVCell.swift */; };
 		65AD17C62B4EAC6D0064E8B0 /* Hotel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AD15AD2B4EAC680064E8B0 /* Hotel.storyboard */; };
-		65AD17C72B4EAC6D0064E8B0 /* Calender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AD15AF2B4EAC680064E8B0 /* Calender.storyboard */; };
 		65AD17C82B4EAC6D0064E8B0 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15B02B4EAC680064E8B0 /* PopupVC.swift */; };
 		65AD17C92B4EAC6D0064E8B0 /* Calvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15B12B4EAC680064E8B0 /* Calvc.swift */; };
 		65AD17CA2B4EAC6D0064E8B0 /* GetMealsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15B42B4EAC680064E8B0 /* GetMealsListViewModel.swift */; };
@@ -413,6 +412,7 @@
 		65AD190D2B4EAC6E0064E8B0 /* clist.json in Resources */ = {isa = PBXBuildFile; fileRef = 65AD177A2B4EAC6A0064E8B0 /* clist.json */; };
 		65AD190E2B4EAC6E0064E8B0 /* currencylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 65AD177B2B4EAC6A0064E8B0 /* currencylist.json */; };
 		65AD19102B4EC9240064E8B0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65AD190F2B4EC8F80064E8B0 /* Poppins-Regular.ttf */; };
+		65F035EC2B4EF61700D43A46 /* Calender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F035EB2B4EF61700D43A46 /* Calender.storyboard */; };
 		CB7D46616BECADBED7A27DFE /* Pods_BoookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC790B14B3005CBB50A219B /* Pods_BoookersTests.framework */; };
 		CE7B82E8F1307C93E0B1BD9F /* Pods_Boookers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7907B6E3CF7BEA5F5B8C65C /* Pods_Boookers.framework */; };
 /* End PBXBuildFile section */
@@ -526,7 +526,6 @@
 		65AD15AB2B4EAC680064E8B0 /* AmenitiesCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmenitiesCVCell.xib; sourceTree = "<group>"; };
 		65AD15AC2B4EAC680064E8B0 /* AmenitiesCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmenitiesCVCell.swift; sourceTree = "<group>"; };
 		65AD15AD2B4EAC680064E8B0 /* Hotel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hotel.storyboard; sourceTree = "<group>"; };
-		65AD15AF2B4EAC680064E8B0 /* Calender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calender.storyboard; sourceTree = "<group>"; };
 		65AD15B02B4EAC680064E8B0 /* PopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		65AD15B12B4EAC680064E8B0 /* Calvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calvc.swift; sourceTree = "<group>"; };
 		65AD15B42B4EAC680064E8B0 /* GetMealsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMealsListViewModel.swift; sourceTree = "<group>"; };
@@ -849,6 +848,7 @@
 		65AD177A2B4EAC6A0064E8B0 /* clist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clist.json; sourceTree = "<group>"; };
 		65AD177B2B4EAC6A0064E8B0 /* currencylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencylist.json; sourceTree = "<group>"; };
 		65AD190F2B4EC8F80064E8B0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		65F035EB2B4EF61700D43A46 /* Calender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calender.storyboard; path = ../../../../../../KuwaitWays/KuwaitWays/APP/Scenes/Calender/Calender.storyboard; sourceTree = "<group>"; };
 		8A8FAD627E625663A768C8C6 /* Pods-Boookers-BoookersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boookers-BoookersUITests.debug.xcconfig"; path = "Target Support Files/Pods-Boookers-BoookersUITests/Pods-Boookers-BoookersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7907B6E3CF7BEA5F5B8C65C /* Pods_Boookers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boookers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB6DD1C463E6D7D174E87AA /* Pods-Boookers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boookers.debug.xcconfig"; path = "Target Support Files/Pods-Boookers/Pods-Boookers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -970,11 +970,11 @@
 		65AD15482B4EAC680064E8B0 /* Hotel */ = {
 			isa = PBXGroup;
 			children = (
+				65AD19122B4EF5A90064E8B0 /* SB */,
 				65AD15492B4EAC680064E8B0 /* ViewModel */,
 				65AD154E2B4EAC680064E8B0 /* Models */,
 				65AD157A2B4EAC680064E8B0 /* ViewController */,
 				65AD15832B4EAC680064E8B0 /* Views */,
-				65AD15AD2B4EAC680064E8B0 /* Hotel.storyboard */,
 			);
 			path = Hotel;
 			sourceTree = "<group>";
@@ -1260,7 +1260,7 @@
 		65AD15AE2B4EAC680064E8B0 /* Calender */ = {
 			isa = PBXGroup;
 			children = (
-				65AD15AF2B4EAC680064E8B0 /* Calender.storyboard */,
+				65AD19132B4EF5B50064E8B0 /* SB */,
 				65AD15B02B4EAC680064E8B0 /* PopupVC.swift */,
 				65AD15B12B4EAC680064E8B0 /* Calvc.swift */,
 			);
@@ -1270,9 +1270,9 @@
 		65AD15B22B4EAC680064E8B0 /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				65AD19112B4EF5990064E8B0 /* SB */,
 				65AD15B32B4EAC680064E8B0 /* ViewModel */,
 				65AD15C22B4EAC680064E8B0 /* Models */,
-				65AD16162B4EAC690064E8B0 /* Main.storyboard */,
 				65AD16182B4EAC690064E8B0 /* ViewController */,
 				65AD16332B4EAC690064E8B0 /* Views */,
 			);
@@ -2606,6 +2606,30 @@
 			path = CurrencyListJson;
 			sourceTree = "<group>";
 		};
+		65AD19112B4EF5990064E8B0 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				65AD16162B4EAC690064E8B0 /* Main.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		65AD19122B4EF5A90064E8B0 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				65AD15AD2B4EAC680064E8B0 /* Hotel.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		65AD19132B4EF5B50064E8B0 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				65F035EB2B4EF61700D43A46 /* Calender.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
 		9932099FE32130CD69041D82 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2787,9 +2811,9 @@
 				65AD183A2B4EAC6D0064E8B0 /* SliderTVCell.xib in Resources */,
 				65AD18A02B4EAC6E0064E8B0 /* FareBreakdownTVCell.xib in Resources */,
 				65AD18FC2B4EAC6E0064E8B0 /* Poppins-ExtraBold.ttf in Resources */,
+				65F035EC2B4EF61700D43A46 /* Calender.storyboard in Resources */,
 				65AD18AF2B4EAC6E0064E8B0 /* HotelDealsCVCell.xib in Resources */,
 				65AD18AB2B4EAC6E0064E8B0 /* BaggageDateCVCell.xib in Resources */,
-				65AD17C72B4EAC6D0064E8B0 /* Calender.storyboard in Resources */,
 				65AD18822B4EAC6E0064E8B0 /* AdvancedSearchTVCell.xib in Resources */,
 				65AD18C42B4EAC6E0064E8B0 /* MenuBGTVCell.xib in Resources */,
 				65AD18B92B4EAC6E0064E8B0 /* Login.storyboard in Resources */,

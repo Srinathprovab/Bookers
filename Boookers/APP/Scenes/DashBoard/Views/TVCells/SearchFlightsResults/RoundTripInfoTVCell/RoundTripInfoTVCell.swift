@@ -14,6 +14,7 @@ class RoundTripInfoTVCell: UITableViewCell {
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var logoImg: UIImageView!
     @IBOutlet weak var inNolbl: UILabel!
+    @IBOutlet weak var airlinelbl: UILabel!
     @IBOutlet weak var fromCityTimelbl: UILabel!
     @IBOutlet weak var fromCityNamelbl: UILabel!
     @IBOutlet weak var toCityTimelbl: UILabel!
@@ -45,7 +46,6 @@ class RoundTripInfoTVCell: UITableViewCell {
       //  holderView.addCornerRadiusWithShadow(color: .clear, borderColor: .AppBorderColor, cornerRadius: 6)
         logoImg.image = UIImage(named: "indigo")?.withRenderingMode(.alwaysOriginal)
         logoImg.contentMode = .scaleToFill
-        setuplabels(lbl: inNolbl, text: "", textcolor: .AppLabelColor, font: .OpenSansRegular(size: 12), align: .left)
         setuplabels(lbl: fromCityTimelbl, text: "", textcolor: .AppLabelColor, font: .OswaldSemiBold(size: 22), align: .left)
         setuplabels(lbl: toCityTimelbl, text: "", textcolor: .AppLabelColor, font: .OswaldSemiBold(size: 22), align: .right)
         setuplabels(lbl: fromCityNamelbl, text: "", textcolor: .AppLabelColor, font: .OpenSansMedium(size: 14), align: .left)

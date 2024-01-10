@@ -11,12 +11,18 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
     
     
     @IBOutlet weak var holderView: UIView!
-    @IBOutlet weak var nav: NavBar!
-    @IBOutlet weak var navHeight: NSLayoutConstraint!
     @IBOutlet weak var sessonlbl: UILabel!
     @IBOutlet weak var flightsFoundlbl: UILabel!
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterBtn: UIButton!
+    
+    
+    @IBOutlet weak var fromcityloclbl: UILabel!
+    @IBOutlet weak var tocityloclbl: UILabel!
+    @IBOutlet weak var fromcityairportlbl: UILabel!
+    @IBOutlet weak var tocityairportlbl: UILabel!
+    @IBOutlet weak var triplbl: UILabel!
+    @IBOutlet weak var economylbl: UILabel!
     
     
     static var newInstance: SearchFlightResultVC? {
@@ -72,6 +78,7 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
     
     func callAPI() {
         
+        holderView.isHidden = true
         journyType = defaults.string(forKey: UserDefaultsKeys.journeyType) ?? "oneway"
         
         
@@ -114,23 +121,8 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
     
     
     func setupUI() {
-        if screenHeight > 835 {
-            navHeight.constant = 190
-        }else {
-            navHeight.constant = 150
-        }
         
-        view.backgroundColor = HexColor("#CBE4FE")
-        holderView.isHidden = true
-        holderView.backgroundColor = .AppHolderViewColor
-        nav.titlelbl.text = "Search Result"
-        nav.backBtn.addTarget(self, action: #selector(gotoBackScreen), for: .touchUpInside)
-        nav.citylbl.isHidden = false
-        nav.datelbl.isHidden = false
-        nav.travellerlbl.isHidden = false
-        
-        nav.editView.isHidden = false
-        nav.editBtn.addTarget(self, action: #selector(didTapOnEditSearchFlight(_:)), for: .touchUpInside)
+       
         
         sessonlbl.text = "Your Session Expires In: 14:15"
         sessonlbl.textColor = .AppLabelColor
@@ -160,28 +152,14 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
         
     }
     
-    @objc func gotoBackScreen() {
-        TimerManager.shared.sessionStop()
-        callapibool = false
-        guard let vc = BookFlightVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false)
-    }
-    
+ 
     
     
     override func didTapOnRefunduableBtn(cell: SearchFlightResultInfoTVCell) {
         print("didTapOnRefunduableBtn")
     }
     
-    
-    @objc func didTapOnEditSearchFlight(_ sender:UIButton) {
-        guard let vc = ModifySearchVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: false)
-    }
-    
-    
+
     
     func goToFlightInfoVC() {
         guard let vc = SelectedFlightInfoVC.newInstance.self else {return}
@@ -192,6 +170,12 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
     
     
     override func didTaponRoundTripCell(cell: RoundTripTVcell) {
+//        accesskey = cell.access_key1
+//        defaults.set( cell.refundlbl.text, forKey: UserDefaultsKeys.flightrefundtype)
+//        goToFlightInfoVC()
+    }
+    
+    override func didTapOnViewDetailsBtnAction(cell:RoundTripTVcell){
         accesskey = cell.access_key1
         defaults.set( cell.refundlbl.text, forKey: UserDefaultsKeys.flightrefundtype)
         goToFlightInfoVC()
@@ -204,6 +188,22 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
         vc.filterTapKey = "sort"
         self.present(vc, animated: false)
     }
+    
+    @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        TimerManager.shared.sessionStop()
+        callapibool = false
+        guard let vc = BookFlightVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false)
+    }
+    
+    
+    @IBAction func didTapOnEditSearchBtnAction(_ sender: Any) {
+        guard let vc = ModifySearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
     
 }
 
@@ -322,7 +322,12 @@ extension SearchFlightResultVC:FlightListViewModelDelegate {
             
             oneWayFlights = response.data?.j_flight_list ?? [[]]
             
-            
+            self.fromcityloclbl.text = response.data?.search_params?.from_loc ?? ""
+            self.tocityloclbl.text = response.data?.search_params?.to_loc ?? ""
+            self.fromcityairportlbl.text = response.data?.search_params?.from ?? ""
+            self.tocityairportlbl.text = response.data?.search_params?.to ?? ""
+            self.triplbl.text = response.data?.search_params?.trip_type ?? ""
+            self.economylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? "")"
             
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
             switch journyType {
@@ -332,9 +337,11 @@ extension SearchFlightResultVC:FlightListViewModelDelegate {
                 defaults.set("\(defaults.string(forKey: UserDefaultsKeys.fromcityname) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tocityname) ?? "")", forKey: UserDefaultsKeys.journeyCitys)
                 defaults.set("\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM"))", forKey: UserDefaultsKeys.journeyDates)
                 
-                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
-                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
-                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
+//                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
+//                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
+//                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
+                
+               
                 
                 appendValues(jfl: oneWayFlights)
                 
@@ -345,9 +352,9 @@ extension SearchFlightResultVC:FlightListViewModelDelegate {
                 defaults.set("\(defaults.string(forKey: UserDefaultsKeys.fromcityname) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tocityname) ?? "")", forKey: UserDefaultsKeys.journeyCitys)
                 defaults.set("\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM")) - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM"))", forKey: UserDefaultsKeys.journeyDates)
                 
-                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
-                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
-                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
+//                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
+//                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
+//                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
                 
                 appendValues(jfl: oneWayFlights)
                 break
@@ -359,9 +366,9 @@ extension SearchFlightResultVC:FlightListViewModelDelegate {
                 defaults.set("\(response.data?.search_params?.from_loc ?? "") - \(response.data?.search_params?.to_loc ?? "")", forKey: UserDefaultsKeys.journeyCitys)
                 defaults.set("\(convertDateFormat(inputDate: response.data?.search_params?.depature ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM")) - \(convertDateFormat(inputDate: response.data?.search_params?.freturn ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM"))", forKey: UserDefaultsKeys.journeyDates)
                 
-                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
-                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
-                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
+//                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
+//                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
+//                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
                 
                 appendValues(jfl: oneWayFlights)
                 break

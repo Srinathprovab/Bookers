@@ -104,7 +104,7 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
     func setupUI() {
         
         if screenHeight > 835 {
-            navHeight.constant = 185
+            navHeight.constant = 250
         }else {
             navHeight.constant = 145
         }
