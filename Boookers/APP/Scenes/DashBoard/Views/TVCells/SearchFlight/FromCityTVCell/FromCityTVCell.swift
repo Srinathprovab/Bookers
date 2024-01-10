@@ -35,7 +35,7 @@ class FromCityTVCell: TableViewCell {
     func setupUI() {
         
         holderView.backgroundColor = .WhiteColor
-        plainImg.image = UIImage(named: "flight")?.withRenderingMode(.alwaysOriginal).withTintColor(HexColor("#4FA0CA"))
+        plainImg.image = UIImage(named: "flight")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
         setuplabels(lbl: titlelbl, text: cellInfo?.title ?? "", textcolor: .AppLabelColor, font: .OpenSansRegular(size: 16), align: .left)
 
     }

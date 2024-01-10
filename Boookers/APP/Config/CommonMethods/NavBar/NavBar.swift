@@ -45,7 +45,7 @@ class NavBar: UIView {
     
     
     func setupuiview(){
-        contentView.backgroundColor = .AppBackgroundColor
+        contentView.backgroundColor = .clear
         backBtn.setTitle("", for: .normal)
         editBtn.setTitle("", for: .normal)
         filterBtn.setTitle("", for: .normal)
@@ -59,9 +59,9 @@ class NavBar: UIView {
         setupLabels(lbl: datelbl, text: "", textcolor: .WhiteColor, font: .OpenSansRegular(size: 12))
         setupLabels(lbl: travellerlbl, text: "", textcolor: .WhiteColor, font: .OpenSansRegular(size: 12))
         
-        setupViews(v: editView, radius: 4, color: .AppJournyTabSelectColor)
+        setupViews(v: editView, radius: 4, color: .clear)
         editView.isHidden = true
-        editView.backgroundColor = .AppJournyTabSelectColor
+        editView.backgroundColor = .clear
         setupViews(v: filterView, radius: 4, color: .AppJournyTabSelectColor)
         filterView.isHidden = true
         filterView.backgroundColor = .AppJournyTabSelectColor

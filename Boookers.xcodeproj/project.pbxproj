@@ -412,6 +412,7 @@
 		65AD190C2B4EAC6E0064E8B0 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD17772B4EAC6A0064E8B0 /* StoryboardExtension.swift */; };
 		65AD190D2B4EAC6E0064E8B0 /* clist.json in Resources */ = {isa = PBXBuildFile; fileRef = 65AD177A2B4EAC6A0064E8B0 /* clist.json */; };
 		65AD190E2B4EAC6E0064E8B0 /* currencylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 65AD177B2B4EAC6A0064E8B0 /* currencylist.json */; };
+		65AD19102B4EC9240064E8B0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65AD190F2B4EC8F80064E8B0 /* Poppins-Regular.ttf */; };
 		CB7D46616BECADBED7A27DFE /* Pods_BoookersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC790B14B3005CBB50A219B /* Pods_BoookersTests.framework */; };
 		CE7B82E8F1307C93E0B1BD9F /* Pods_Boookers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7907B6E3CF7BEA5F5B8C65C /* Pods_Boookers.framework */; };
 /* End PBXBuildFile section */
@@ -847,6 +848,7 @@
 		65AD17772B4EAC6A0064E8B0 /* StoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
 		65AD177A2B4EAC6A0064E8B0 /* clist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clist.json; sourceTree = "<group>"; };
 		65AD177B2B4EAC6A0064E8B0 /* currencylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencylist.json; sourceTree = "<group>"; };
+		65AD190F2B4EC8F80064E8B0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		8A8FAD627E625663A768C8C6 /* Pods-Boookers-BoookersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boookers-BoookersUITests.debug.xcconfig"; path = "Target Support Files/Pods-Boookers-BoookersUITests/Pods-Boookers-BoookersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7907B6E3CF7BEA5F5B8C65C /* Pods_Boookers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boookers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB6DD1C463E6D7D174E87AA /* Pods-Boookers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boookers.debug.xcconfig"; path = "Target Support Files/Pods-Boookers/Pods-Boookers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1847,8 +1849,8 @@
 		65AD16862B4EAC690064E8B0 /* SearchFlightResultInfoTVCell */ = {
 			isa = PBXGroup;
 			children = (
-				65AD16872B4EAC690064E8B0 /* SearchFlightResultInfoTVCell.xib */,
 				65AD16882B4EAC690064E8B0 /* SearchFlightResultInfoTVCell.swift */,
+				65AD16872B4EAC690064E8B0 /* SearchFlightResultInfoTVCell.xib */,
 			);
 			path = SearchFlightResultInfoTVCell;
 			sourceTree = "<group>";
@@ -1865,8 +1867,8 @@
 		65AD168C2B4EAC690064E8B0 /* RoundTripTVcell */ = {
 			isa = PBXGroup;
 			children = (
-				65AD168D2B4EAC690064E8B0 /* RoundTripTVcell.xib */,
 				65AD168E2B4EAC690064E8B0 /* RoundTripTVcell.swift */,
+				65AD168D2B4EAC690064E8B0 /* RoundTripTVcell.xib */,
 			);
 			path = RoundTripTVcell;
 			sourceTree = "<group>";
@@ -2548,6 +2550,7 @@
 		65AD17602B4EAC6A0064E8B0 /* Poppins */ = {
 			isa = PBXGroup;
 			children = (
+				65AD190F2B4EC8F80064E8B0 /* Poppins-Regular.ttf */,
 				65AD17612B4EAC6A0064E8B0 /* Roboto-Medium.ttf */,
 				65AD17622B4EAC6A0064E8B0 /* Poppins-Light.ttf */,
 				65AD17632B4EAC6A0064E8B0 /* Poppins-Medium.ttf */,
@@ -2727,6 +2730,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AD19102B4EC9240064E8B0 /* Poppins-Regular.ttf in Resources */,
 				65AD186C2B4EAC6D0064E8B0 /* RoundTripInfoTVCell.xib in Resources */,
 				65AD18FA2B4EAC6E0064E8B0 /* Poppins-Medium.ttf in Resources */,
 				65AD18F72B4EAC6E0064E8B0 /* Lato-Medium.ttf in Resources */,

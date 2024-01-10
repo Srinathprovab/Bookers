@@ -35,6 +35,14 @@ extension UIColor {
         }
     }
     
+    
+    public static var AppBtnColor : UIColor {
+        
+        get {
+            return UIColor(named: "AppBtnColor")!
+        }
+    }
+    
     public static var AppLabelColor : UIColor {
         
         get {

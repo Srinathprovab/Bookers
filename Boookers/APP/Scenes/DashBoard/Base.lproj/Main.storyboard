@@ -27,7 +27,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,29 +35,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYB-et-dc4">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qj1-eB-kon">
-                                        <rect key="frame" x="0.0" y="328" width="414" height="240"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoname" translatesAutoresizingMaskIntoConstraints="NO" id="dq8-gJ-4pq">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flash" translatesAutoresizingMaskIntoConstraints="NO" id="Sfi-7O-owz">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoname" translatesAutoresizingMaskIntoConstraints="NO" id="bVx-88-q83">
+                                        <rect key="frame" x="67" y="413" width="280" height="70"/>
                                         <constraints>
-                                            <constraint firstItem="dq8-gJ-4pq" firstAttribute="top" secondItem="Qj1-eB-kon" secondAttribute="top" id="2D1-sI-d37"/>
-                                            <constraint firstAttribute="height" constant="240" id="BDd-8u-hc4"/>
-                                            <constraint firstItem="dq8-gJ-4pq" firstAttribute="leading" secondItem="Qj1-eB-kon" secondAttribute="leading" id="CLf-4u-y14"/>
-                                            <constraint firstAttribute="trailing" secondItem="dq8-gJ-4pq" secondAttribute="trailing" id="WH3-I1-pB6"/>
-                                            <constraint firstAttribute="bottom" secondItem="dq8-gJ-4pq" secondAttribute="bottom" id="gh7-ll-djL"/>
+                                            <constraint firstAttribute="width" constant="280" id="36N-sq-Epx"/>
+                                            <constraint firstAttribute="height" constant="70" id="3I2-Q3-Wyj"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Qj1-eB-kon" firstAttribute="centerX" secondItem="UYB-et-dc4" secondAttribute="centerX" id="12p-dE-rYt"/>
-                                    <constraint firstItem="Qj1-eB-kon" firstAttribute="centerY" secondItem="UYB-et-dc4" secondAttribute="centerY" id="QEI-rR-vTN"/>
-                                    <constraint firstItem="Qj1-eB-kon" firstAttribute="leading" secondItem="UYB-et-dc4" secondAttribute="leading" id="UAT-K1-DJd"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qj1-eB-kon" secondAttribute="trailing" id="mY7-Sn-MXf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sfi-7O-owz" secondAttribute="bottom" id="Ac3-bF-OLS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sfi-7O-owz" secondAttribute="trailing" id="GDf-ZQ-gYi"/>
+                                    <constraint firstItem="Sfi-7O-owz" firstAttribute="leading" secondItem="UYB-et-dc4" secondAttribute="leading" id="iRw-TL-Mrb"/>
+                                    <constraint firstItem="bVx-88-q83" firstAttribute="centerX" secondItem="UYB-et-dc4" secondAttribute="centerX" id="irQ-Xu-ONJ"/>
+                                    <constraint firstItem="Sfi-7O-owz" firstAttribute="top" secondItem="UYB-et-dc4" secondAttribute="top" id="sAc-LY-fbp"/>
+                                    <constraint firstItem="bVx-88-q83" firstAttribute="centerY" secondItem="UYB-et-dc4" secondAttribute="centerY" id="uAP-SL-oub"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -78,7 +74,7 @@
         <!--Book FlightVC-->
         <scene sceneID="My7-A5-Sic">
             <objects>
-                <viewController storyboardIdentifier="BookFlightVC" id="WHF-8c-Ydo" customClass="BookFlightVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookFlightVC" id="WHF-8c-Ydo" customClass="BookFlightVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5b-jw-adO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +190,7 @@
                                         <rect key="frame" x="0.0" y="150" width="414" height="746"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXe-PY-9e4" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXe-PY-9e4" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -251,12 +247,12 @@
         <!--Item 2-->
         <scene sceneID="nnK-Gx-xPb">
             <objects>
-                <viewController storyboardIdentifier="MyBookingVC" id="n3J-fK-QAO" customClass="MyBookingVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyBookingVC" id="n3J-fK-QAO" customClass="MyBookingVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kRt-3p-rZn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-Xv-D2c" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-Xv-D2c" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -490,7 +486,7 @@
         <!--Item 1-->
         <scene sceneID="aOn-wp-EcE">
             <objects>
-                <viewController storyboardIdentifier="DashBoardVC" id="w3W-Wa-3yc" customClass="DashBoardVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashBoardVC" id="w3W-Wa-3yc" customClass="DashBoardVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eQa-oh-m3q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,7 +529,7 @@
         <!--Item-->
         <scene sceneID="c5O-Qh-KL5">
             <objects>
-                <viewController id="3Tz-Lb-mVw" customClass="MyAccountVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Tz-Lb-mVw" customClass="MyAccountVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFG-3N-A85">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -541,7 +537,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDC-g7-lWJ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0O-Rg-N4a" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0O-Rg-N4a" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -663,7 +659,7 @@
         <!--Tabbar Controller-->
         <scene sceneID="Ive-Ij-FM7">
             <objects>
-                <tabBarController storyboardIdentifier="DBTabbarController" id="gDi-Ds-gze" customClass="DBTabbarController" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DBTabbarController" id="gDi-Ds-gze" customClass="DBTabbarController" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NyA-1c-XdW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -683,7 +679,7 @@
         <!--Select From CityVC-->
         <scene sceneID="n2k-91-tsq">
             <objects>
-                <viewController storyboardIdentifier="SelectFromCityVC" id="yQe-1f-Dzg" customClass="SelectFromCityVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectFromCityVC" id="yQe-1f-Dzg" customClass="SelectFromCityVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Pk-1a-d64">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -691,7 +687,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciF-Y1-2UJ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4A2-ge-7Wo" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4A2-ge-7Wo" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -770,7 +766,7 @@
         <!--No Internet ConnectionVC-->
         <scene sceneID="ZW0-wZ-a0f">
             <objects>
-                <viewController storyboardIdentifier="NoInternetConnectionVC" id="Vs1-oQ-tXw" customClass="NoInternetConnectionVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoInternetConnectionVC" id="Vs1-oQ-tXw" customClass="NoInternetConnectionVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jss-of-pQ1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -867,7 +863,7 @@
         <!--Selected Flight InfoVC-->
         <scene sceneID="Eqd-XN-pFJ">
             <objects>
-                <viewController storyboardIdentifier="SelectedFlightInfoVC" id="d2N-e9-7WC" customClass="SelectedFlightInfoVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectedFlightInfoVC" id="d2N-e9-7WC" customClass="SelectedFlightInfoVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwu-Oa-6cD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -875,7 +871,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-hf-Sgc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVf-mx-K0Y" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVf-mx-K0Y" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1009,7 +1005,7 @@
         <!--Pay NowVC-->
         <scene sceneID="mjT-P9-qlk">
             <objects>
-                <viewController storyboardIdentifier="PayNowVC" id="U5K-et-8Ne" customClass="PayNowVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PayNowVC" id="U5K-et-8Ne" customClass="PayNowVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1t2-mn-gud">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1017,7 +1013,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lu-YS-8fr">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBj-0m-YDZ" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBj-0m-YDZ" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1167,7 +1163,7 @@
         <!--Filter SearchVC-->
         <scene sceneID="F7e-Zi-K3c">
             <objects>
-                <viewController storyboardIdentifier="FilterSearchVC" id="OtL-YE-sJt" customClass="FilterSearchVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterSearchVC" id="OtL-YE-sJt" customClass="FilterSearchVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="plH-rS-K2K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1419,7 +1415,7 @@
         <!--CalenderVC-->
         <scene sceneID="d7P-Pp-kIt">
             <objects>
-                <viewController storyboardIdentifier="CalenderVC" id="aMz-sY-0Bz" customClass="CalenderVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalenderVC" id="aMz-sY-0Bz" customClass="CalenderVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WRZ-5q-xzl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1650,7 +1646,7 @@
                                             <constraint firstItem="V0K-LY-Srh" firstAttribute="top" secondItem="Whw-PH-KQn" secondAttribute="bottom" constant="10" id="yLp-MK-m9V"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCs-c3-Obs" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCs-c3-Obs" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1752,7 +1748,7 @@
         <!--Traveller EconomyVC-->
         <scene sceneID="EEf-4E-BNY">
             <objects>
-                <viewController storyboardIdentifier="TravellerEconomyVC" id="6ds-57-xB0" customClass="TravellerEconomyVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TravellerEconomyVC" id="6ds-57-xB0" customClass="TravellerEconomyVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VAC-2j-F6u">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1764,7 +1760,7 @@
                                         <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-As-LtE" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-As-LtE" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1807,7 +1803,7 @@
         <!--Search Flight ResultVC-->
         <scene sceneID="3Qr-kM-agm">
             <objects>
-                <viewController storyboardIdentifier="SearchFlightResultVC" id="Sno-lg-z6q" customClass="SearchFlightResultVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchFlightResultVC" id="Sno-lg-z6q" customClass="SearchFlightResultVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dge-4g-UpQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1815,11 +1811,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSh-ea-Q2E">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51I-0R-0Bl" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51I-0R-0Bl" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newbg" translatesAutoresizingMaskIntoConstraints="NO" id="77S-t0-XQ2">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="77S-t0-XQ2" firstAttribute="top" secondItem="51I-0R-0Bl" secondAttribute="top" id="3qi-h3-BTS"/>
                                             <constraint firstAttribute="height" constant="170" id="Trf-fU-HQr"/>
+                                            <constraint firstAttribute="trailing" secondItem="77S-t0-XQ2" secondAttribute="trailing" id="Yo8-s7-tvz"/>
+                                            <constraint firstItem="77S-t0-XQ2" firstAttribute="leading" secondItem="51I-0R-0Bl" secondAttribute="leading" id="fe3-dG-j9c"/>
+                                            <constraint firstAttribute="bottom" secondItem="77S-t0-XQ2" secondAttribute="bottom" id="p4y-uG-9q1"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qPd-1d-stS">
@@ -1913,7 +1918,7 @@
         <!--Side MenuVC-->
         <scene sceneID="cyg-n9-dye">
             <objects>
-                <viewController storyboardIdentifier="SideMenuVC" id="jMP-Wm-hao" customClass="SideMenuVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SideMenuVC" id="jMP-Wm-hao" customClass="SideMenuVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i6v-p5-J5I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1956,7 +1961,7 @@
         <!--Select LanguageVC-->
         <scene sceneID="IU1-2s-Jf5">
             <objects>
-                <viewController storyboardIdentifier="SelectLanguageVC" id="mr9-6f-LjS" customClass="SelectLanguageVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectLanguageVC" id="mr9-6f-LjS" customClass="SelectLanguageVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qDp-Lf-ONJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2119,7 +2124,7 @@
         <!--About UsVC-->
         <scene sceneID="4Dw-NL-4wN">
             <objects>
-                <viewController storyboardIdentifier="AboutUsVC" id="Ztq-3c-Wa5" customClass="AboutUsVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsVC" id="Ztq-3c-Wa5" customClass="AboutUsVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S5X-98-Uft">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2127,7 +2132,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1e-Zm-l1a">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wa-Mg-lDb" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wa-Mg-lDb" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                         <color key="backgroundColor" name="AppBackgroundColor"/>
                                         <constraints>
@@ -2184,7 +2189,7 @@
         <!--Modify SearchVC-->
         <scene sceneID="QCP-1c-lkF">
             <objects>
-                <viewController storyboardIdentifier="ModifySearchVC" id="seU-0w-T2u" customClass="ModifySearchVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ModifySearchVC" id="seU-0w-T2u" customClass="ModifySearchVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jNK-zF-2Wz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2366,7 +2371,7 @@
         <!--Save Travellers DetailsVC-->
         <scene sceneID="n7s-Un-8cd">
             <objects>
-                <viewController storyboardIdentifier="SaveTravellersDetailsVC" id="05Q-CW-Kwn" customClass="SaveTravellersDetailsVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SaveTravellersDetailsVC" id="05Q-CW-Kwn" customClass="SaveTravellersDetailsVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D2a-hS-oa6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2374,7 +2379,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7VU-nh-Hkw">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6D-rC-F3g" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6D-rC-F3g" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -2421,7 +2426,7 @@
         <!--Load Web ViewVC-->
         <scene sceneID="B5X-Tq-mUP">
             <objects>
-                <viewController storyboardIdentifier="LoadWebViewVC" id="hkT-mH-7B8" customClass="LoadWebViewVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadWebViewVC" id="hkT-mH-7B8" customClass="LoadWebViewVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAs-wm-nZM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2429,7 +2434,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rke-nv-4mu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHo-g5-Fzd" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHo-g5-Fzd" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -2480,7 +2485,7 @@
         <!--Booking ConfirmedVC-->
         <scene sceneID="hJM-Qv-zD7">
             <objects>
-                <viewController storyboardIdentifier="BookingConfirmedVC" id="atS-pV-ExH" customClass="BookingConfirmedVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingConfirmedVC" id="atS-pV-ExH" customClass="BookingConfirmedVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yrp-CM-uA9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2488,7 +2493,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Uu-ix-RvP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2n-Sr-SQ4" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2n-Sr-SQ4" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -2534,7 +2539,7 @@
         <!--View Flight DetailsVC-->
         <scene sceneID="N9h-Pu-mDK">
             <objects>
-                <viewController storyboardIdentifier="ViewFlightDetailsVC" id="mC1-pl-GuE" customClass="ViewFlightDetailsVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewFlightDetailsVC" id="mC1-pl-GuE" customClass="ViewFlightDetailsVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YEk-7G-qAn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2542,7 +2547,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSp-sL-3Wq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDm-SH-88f" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDm-SH-88f" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -2589,7 +2594,7 @@
         <!--Contact InfoVC-->
         <scene sceneID="Oxw-Hg-J8P">
             <objects>
-                <viewController storyboardIdentifier="ContactInfoVC" id="qmV-6S-H3O" customClass="ContactInfoVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactInfoVC" id="qmV-6S-H3O" customClass="ContactInfoVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xhb-k6-SEz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2597,7 +2602,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-es-rfh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzc-6G-TOA" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzc-6G-TOA" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -2677,7 +2682,7 @@
         <!--NationalityVC-->
         <scene sceneID="Sg9-Rs-0aG">
             <objects>
-                <viewController storyboardIdentifier="NationalityVC" id="bT8-gK-Eth" customClass="NationalityVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NationalityVC" id="bT8-gK-Eth" customClass="NationalityVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Swe-rM-nXZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2685,7 +2690,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPE-ym-fgX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfS-kt-jL9" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfS-kt-jL9" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -2766,7 +2771,7 @@
         <!--Contact UsVC-->
         <scene sceneID="EEy-4K-PEi">
             <objects>
-                <viewController storyboardIdentifier="ContactUsVC" id="1hV-pp-ihW" customClass="ContactUsVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactUsVC" id="1hV-pp-ihW" customClass="ContactUsVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8ur-8q-vJ2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2865,24 +2870,26 @@
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="123"/>
         <image name="bird" width="3579" height="2389"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="filter" width="30" height="30"/>
+        <image name="filter" width="40" height="40"/>
         <image name="filter1" width="20" height="20"/>
-        <image name="logoname" width="487.5" height="303"/>
+        <image name="flash" width="1440" height="3200"/>
+        <image name="logoname" width="280" height="68"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="newbg" width="360" height="110"/>
         <image name="sort" width="19.5" height="23"/>
         <image name="wifi" catalog="system" width="128" height="90"/>
         <namedColor name="AppBGColor">
             <color red="0.90200001001358032" green="0.9100000262260437" blue="0.90600001811981201" alpha="0.64800000190734863" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppBackgroundColor">
-            <color red="0.067000001668930054" green="0.19599999487400055" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.066666666666666666" green="0.19607843137254902" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppBtnColor">
-            <color red="0.067000001668930054" green="0.19599999487400055" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85098039215686272" green="0.1764705882352941" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppJournyTabSelectColor">
-            <color red="0.31000000238418579" green="0.62699997425079346" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85098039215686272" green="0.1764705882352941" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="WhiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

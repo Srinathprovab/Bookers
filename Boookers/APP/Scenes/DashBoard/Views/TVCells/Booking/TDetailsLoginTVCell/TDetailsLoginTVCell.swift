@@ -35,7 +35,7 @@ class TDetailsLoginTVCell: TableViewCell {
     
     func setupUI() {
         contentView.backgroundColor = .AppBGcolor
-        holderView.backgroundColor = .AppJournyTabSelectColor
+        holderView.backgroundColor = HexColor("#101856")
         holderView.layer.borderWidth = 0.4
         holderView.layer.borderColor = UIColor.AppBorderColor.cgColor
         holderView.layer.cornerRadius = 4

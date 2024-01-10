@@ -10,6 +10,7 @@ import SDWebImage
 
 protocol SearchFlightResultInfoTVCellDelegate {
     func didTapOnRefunduableBtn(cell:SearchFlightResultInfoTVCell)
+    func didTapOnViewDetailsBtnAction(cell:SearchFlightResultInfoTVCell)
 }
 
 
@@ -32,6 +33,7 @@ class SearchFlightResultInfoTVCell: TableViewCell {
     @IBOutlet weak var round3: UIImageView!
     @IBOutlet weak var bottomViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var viewDetailsbtn: UIButton!
     
     var access_key1 = String()
     var delegate:SearchFlightResultInfoTVCellDelegate?
@@ -110,6 +112,11 @@ class SearchFlightResultInfoTVCell: TableViewCell {
         round1.isHidden = true
         round2.isHidden = true
         round3.isHidden = true
+    }
+    
+    
+    @IBAction func didTapOnViewDetailsBtnAction(_ sender: Any) {
+        delegate?.didTapOnViewDetailsBtnAction(cell: self)
     }
     
     

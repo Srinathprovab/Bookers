@@ -10,6 +10,7 @@ import UIKit
 
 protocol RoundTripTVcellDelegate {
     func didTaponRoundTripCell(cell:RoundTripTVcell)
+    func didTapOnViewDetailsBtnAction(cell:RoundTripTVcell)
 }
 
 class RoundTripTVcell: TableViewCell {
@@ -20,6 +21,7 @@ class RoundTripTVcell: TableViewCell {
     @IBOutlet weak var refundView: UIView!
     @IBOutlet weak var refundlbl: UILabel!
     @IBOutlet weak var kwdPricelbl: UILabel!
+    @IBOutlet weak var viewDetailsbtn: UIButton!
     
     
     var delegate:RoundTripTVcellDelegate?
@@ -66,6 +68,8 @@ class RoundTripTVcell: TableViewCell {
         refundView.clipsToBounds = true
         setuplabels(lbl: kwdPricelbl, text: "", textcolor: .WhiteColor, font: .oswaldRegular(size: 16), align: .right)
         setuplabels(lbl: refundlbl, text: "", textcolor: .WhiteColor, font: .oswaldRegular(size: 13), align: .left)
+        
+        viewDetailsbtn.layer.cornerRadius = 4
     }
     
     
@@ -78,6 +82,12 @@ class RoundTripTVcell: TableViewCell {
         flightDetailsTV.showsHorizontalScrollIndicator = false
         flightDetailsTV.separatorStyle = .singleLine
         flightDetailsTV.isScrollEnabled = false
+    }
+    
+    
+    
+    @IBAction func didTapOnViewDetailsBtnAction(_ sender: Any) {
+        delegate?.didTapOnViewDetailsBtnAction(cell: self)
     }
     
 }
