@@ -47,7 +47,14 @@ class checkOptionsTVCell: TableViewCell {
         if cellInfo?.key == "menu" {
             sunImg.isHidden = false
             checkImg.isHidden = true
-            sunImg.image = UIImage(named: cellInfo?.image ?? "")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppJournyTabSelectColor)
+            sunImg.image = UIImage(named: cellInfo?.image ?? "")?.withRenderingMode(.alwaysOriginal)
+            menuOttionBtn.isHidden = false
+        }
+        
+        if cellInfo?.key == "menu22" {
+            sunImg.isHidden = false
+            checkImg.isHidden = true
+            sunImg.image = UIImage(named: cellInfo?.image ?? "")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
             menuOttionBtn.isHidden = false
         }
         

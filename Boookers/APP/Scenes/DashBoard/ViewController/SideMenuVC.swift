@@ -98,14 +98,15 @@ class SideMenuVC: BaseTableVC, ProfileUpdateViewModelDelegate {
         tablerow.append(TableRow(cellType:.MenuBGTVCell))
         tablerow.append(TableRow(height:30,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"Bookings",key: "ourproducts", image: "",cellType:.MenuTitleTVCell))
-        tablerow.append(TableRow(title:"Flights",key: "menu", image: "menu5",cellType:.checkOptionsTVCell))
-        tablerow.append(TableRow(title:"Hotels",key: "menu", image: "menu6",cellType:.checkOptionsTVCell))
+        tablerow.append(TableRow(title:"Flights",key: "menu", image: "m1",cellType:.checkOptionsTVCell))
+        tablerow.append(TableRow(title:"Hotels",key: "menu", image: "m2",cellType:.checkOptionsTVCell))
+        tablerow.append(TableRow(title:"Holidays",key: "menu", image: "m3",cellType:.checkOptionsTVCell))
+        tablerow.append(TableRow(title:"Insurence",key: "menu", image: "m4",cellType:.checkOptionsTVCell))
         
         let loginstatus = defaults.bool(forKey: UserDefaultsKeys.loggedInStatus)
         if loginstatus == true {
-            tablerow.append(TableRow(title:"Check My Bookings",key: "menu", image: "menu1",cellType:.checkOptionsTVCell))
+            tablerow.append(TableRow(title:"Check My Bookings",key: "menu22", image: "menu1",cellType:.checkOptionsTVCell))
         }
-        
         
         //        tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         //        tablerow.append(TableRow(title:"Traveler Tools",key: "ourproducts", image: "",cellType:.MenuTitleTVCell))
@@ -121,8 +122,8 @@ class SideMenuVC: BaseTableVC, ProfileUpdateViewModelDelegate {
         
         if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == true {
             tablerow.append(TableRow(height:30,cellType:.EmptyTVCell))
-            tablerow.append(TableRow(title:"Delete Account",key: "menu", image: "deleteacc",cellType:.checkOptionsTVCell))
-            tablerow.append(TableRow(title:"Logout",key: "menu", image: "logout",cellType:.checkOptionsTVCell))
+            tablerow.append(TableRow(title:"Delete Account",key: "menu22", image: "deleteacc",cellType:.checkOptionsTVCell))
+            tablerow.append(TableRow(title:"Logout",key: "menu22", image: "logout",cellType:.checkOptionsTVCell))
             tablerow.append(TableRow(height:30,cellType:.EmptyTVCell))
         }else {
             tablerow.append(TableRow(height:30,cellType:.EmptyTVCell))

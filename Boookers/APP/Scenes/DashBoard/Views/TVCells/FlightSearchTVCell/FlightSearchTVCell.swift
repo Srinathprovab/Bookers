@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import DropDown
 
 protocol FlightSearchTVCellDelegate {
     
@@ -49,9 +49,10 @@ class FlightSearchTVCell: TableViewCell {
     @IBOutlet weak var infantCountlbl: UILabel!
     @IBOutlet weak var infantIncBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
+    @IBOutlet weak var onewayclassView: UIView!
     
-    
-    
+    let onewayclassDropdown = DropDown()
+    var selectClassArray = ["Economy","Premium","First","Business"]
     var infoViewbool = false
     var delegate:FlightSearchTVCellDelegate?
     let depDatePicker = UIDatePicker()
@@ -151,6 +152,8 @@ class FlightSearchTVCell: TableViewCell {
     
         searchBtn.layer.cornerRadius = 4
         searchBtn.clipsToBounds = true
+        
+        setupOnewayClassDropDown()
     }
     
     
@@ -161,10 +164,10 @@ class FlightSearchTVCell: TableViewCell {
         onewayBtn.backgroundColor = .AppBtnColor
         
         roundtripBtn.setTitleColor(.SubTitleColor, for: .normal)
-        roundtripBtn.backgroundColor = .WhiteColor
+        roundtripBtn.backgroundColor = .PlaceHolderBGColor
         
         multicityBtn.setTitleColor(.SubTitleColor, for: .normal)
-        multicityBtn.backgroundColor = .WhiteColor
+        multicityBtn.backgroundColor = .PlaceHolderBGColor
         
         retView.isHidden = true
         onewayBtn.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
@@ -176,11 +179,11 @@ class FlightSearchTVCell: TableViewCell {
     
     func roundtripBtntap() {
         onewayBtn.setTitleColor(.SubTitleColor, for: .normal)
-        onewayBtn.backgroundColor = .WhiteColor
+        onewayBtn.backgroundColor = .PlaceHolderBGColor
         roundtripBtn.setTitleColor(.WhiteColor, for: .normal)
         roundtripBtn.backgroundColor = .AppBtnColor
         multicityBtn.setTitleColor(.SubTitleColor, for: .normal)
-        multicityBtn.backgroundColor = .WhiteColor
+        multicityBtn.backgroundColor = .PlaceHolderBGColor
         
         retView.isHidden = false
         
@@ -193,10 +196,10 @@ class FlightSearchTVCell: TableViewCell {
     
     func multicityBtntap() {
         onewayBtn.setTitleColor(.SubTitleColor, for: .normal)
-        onewayBtn.backgroundColor = .WhiteColor
+        onewayBtn.backgroundColor = .PlaceHolderBGColor
         
         roundtripBtn.setTitleColor(.SubTitleColor, for: .normal)
-        roundtripBtn.backgroundColor = .WhiteColor
+        roundtripBtn.backgroundColor = .PlaceHolderBGColor
         
         multicityBtn.setTitleColor(.WhiteColor, for: .normal)
         multicityBtn.backgroundColor = .AppBtnColor
@@ -228,7 +231,8 @@ class FlightSearchTVCell: TableViewCell {
     }
     
     @IBAction func didTapOnSelectClassBtnAction(_ sender: Any) {
-        delegate?.didTapOnClassBtnAction(cell: self)
+        //delegate?.didTapOnClassBtnAction(cell: self)
+        onewayclassDropdown.show()
     }
     
     @IBAction func didTapOnSearchFlightBtnAction(_ sender: Any) {
@@ -257,6 +261,20 @@ class FlightSearchTVCell: TableViewCell {
 
 //MARK: - Adult
 extension FlightSearchTVCell {
+    
+    
+    func setupOnewayClassDropDown() {
+        onewayclassDropdown.dataSource = selectClassArray
+        onewayclassDropdown.direction = .bottom
+        onewayclassDropdown.backgroundColor = .WhiteColor
+        onewayclassDropdown.anchorView = self.onewayclassView
+        onewayclassDropdown.bottomOffset = CGPoint(x: 0, y: onewayclassView.frame.size.height + 10)
+        onewayclassDropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.classlbl.text = item
+            defaults.set(item, forKey: UserDefaultsKeys.selectClass)
+            //self?.delegate?.didTapOnClassBtnAction(cell: self!)
+        }
+    }
     
     
     @objc func didTapOnAdultIncrementBtnAction(_ sender:UIButton) {

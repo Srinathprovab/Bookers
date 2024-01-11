@@ -327,7 +327,7 @@ extension SearchFlightResultVC:FlightListViewModelDelegate {
             self.fromcityairportlbl.text = response.data?.search_params?.from ?? ""
             self.tocityairportlbl.text = response.data?.search_params?.to ?? ""
             self.triplbl.text = response.data?.search_params?.trip_type ?? ""
-            self.economylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? "")"
+            self.economylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "") Traveller - \(response.data?.search_params?.v_class ?? "Economy")"
             
             let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
             switch journyType {
@@ -337,12 +337,7 @@ extension SearchFlightResultVC:FlightListViewModelDelegate {
                 defaults.set("\(defaults.string(forKey: UserDefaultsKeys.fromcityname) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tocityname) ?? "")", forKey: UserDefaultsKeys.journeyCitys)
                 defaults.set("\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM"))", forKey: UserDefaultsKeys.journeyDates)
                 
-//                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
-//                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
-//                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
-                
-               
-                
+
                 appendValues(jfl: oneWayFlights)
                 
                 break
@@ -351,10 +346,7 @@ extension SearchFlightResultVC:FlightListViewModelDelegate {
                 
                 defaults.set("\(defaults.string(forKey: UserDefaultsKeys.fromcityname) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tocityname) ?? "")", forKey: UserDefaultsKeys.journeyCitys)
                 defaults.set("\(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM")) - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, d MMM"))", forKey: UserDefaultsKeys.journeyDates)
-                
-//                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
-//                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
-//                nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails)
+
                 
                 appendValues(jfl: oneWayFlights)
                 break

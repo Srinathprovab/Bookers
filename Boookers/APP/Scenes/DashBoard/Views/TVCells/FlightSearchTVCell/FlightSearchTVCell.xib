@@ -122,7 +122,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                         <constraints>
                                             <constraint firstItem="txF-W1-KNr" firstAttribute="leading" secondItem="usF-sl-RR8" secondAttribute="leading" id="8ax-9r-0bf"/>
                                             <constraint firstAttribute="height" constant="40" id="LML-o5-1cV"/>
@@ -185,7 +185,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                         <constraints>
                                             <constraint firstItem="2Ga-3J-T1j" firstAttribute="top" secondItem="ywg-dg-9Np" secondAttribute="top" id="IKZ-aQ-GXo"/>
                                             <constraint firstAttribute="trailing" secondItem="2Ga-3J-T1j" secondAttribute="trailing" id="Kdk-yf-tuo"/>
@@ -268,7 +268,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="J9R-9k-BGD" secondAttribute="bottom" id="2Jo-4M-WtB"/>
                                                     <constraint firstAttribute="trailing" secondItem="Yg9-TG-L2g" secondAttribute="trailing" constant="5" id="8oJ-ez-pHu"/>
@@ -324,7 +324,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="0r6-z7-VqP"/>
                                                     <constraint firstItem="w4m-rF-MRW" firstAttribute="top" secondItem="9F3-BY-r6e" secondAttribute="top" id="46g-y0-oIU"/>
@@ -409,7 +409,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                         <constraints>
                                             <constraint firstItem="RWF-UK-gyN" firstAttribute="top" secondItem="PgD-4q-2XZ" secondAttribute="top" constant="6" id="6Z8-YF-IQb"/>
                                             <constraint firstItem="fGb-la-nzl" firstAttribute="leading" secondItem="PgD-4q-2XZ" secondAttribute="leading" id="ANA-ky-GZS"/>
@@ -569,7 +569,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="3Ui-UR-iwJ"/>
                                             <constraint firstItem="dP9-fG-dvh" firstAttribute="centerY" secondItem="QaV-pN-7RW" secondAttribute="centerY" id="6Yz-57-FIJ"/>
@@ -584,7 +584,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="BorderColor"/>
+                                                <color key="value" name="AppBorderColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -712,7 +712,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                         <constraints>
                                             <constraint firstItem="xLU-Ih-Pua" firstAttribute="leading" secondItem="CRs-y9-3Ly" secondAttribute="leading" constant="13" id="2ch-Vy-9jJ"/>
                                             <constraint firstItem="WE7-7R-cKi" firstAttribute="leading" secondItem="CRs-y9-3Ly" secondAttribute="leading" constant="15" id="5Wb-6X-RDI"/>
@@ -727,7 +727,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="BorderColor"/>
+                                                <color key="value" name="AppBorderColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -860,7 +860,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                         <constraints>
                                             <constraint firstItem="9qm-wt-m2O" firstAttribute="top" secondItem="UfZ-ba-Teo" secondAttribute="bottom" constant="6" id="1bj-NC-Gjl"/>
                                             <constraint firstItem="f4s-t4-UhP" firstAttribute="leading" secondItem="9qm-wt-m2O" secondAttribute="trailing" constant="15" id="GUs-6s-DNH"/>
@@ -875,7 +875,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="BorderColor"/>
+                                                <color key="value" name="AppBorderColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -962,7 +962,7 @@
                                                 <rect key="frame" x="0.0" y="23" width="513" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWu-Zo-W83">
-                                                        <rect key="frame" x="0.0" y="11.666666666666629" width="32" height="17"/>
+                                                        <rect key="frame" x="16" y="11.666666666666629" width="32" height="17"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -998,7 +998,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="PlaceHolderBGColor"/>
                                                 <constraints>
                                                     <constraint firstItem="kmD-GZ-gNv" firstAttribute="leading" secondItem="n5o-pN-pQU" secondAttribute="leading" id="A8S-OS-8qc"/>
                                                     <constraint firstAttribute="trailing" secondItem="YcP-HC-fVb" secondAttribute="trailing" constant="15" id="B28-Lh-6hY"/>
@@ -1006,7 +1006,7 @@
                                                     <constraint firstItem="kmD-GZ-gNv" firstAttribute="top" secondItem="n5o-pN-pQU" secondAttribute="top" id="Mku-jh-mgU"/>
                                                     <constraint firstAttribute="height" constant="40" id="SvG-zw-aBY"/>
                                                     <constraint firstItem="TWu-Zo-W83" firstAttribute="centerY" secondItem="YcP-HC-fVb" secondAttribute="centerY" id="TJK-Jp-d8J"/>
-                                                    <constraint firstItem="TWu-Zo-W83" firstAttribute="leading" secondItem="n5o-pN-pQU" secondAttribute="leading" id="VIk-HK-IgR"/>
+                                                    <constraint firstItem="TWu-Zo-W83" firstAttribute="leading" secondItem="n5o-pN-pQU" secondAttribute="leading" constant="16" id="VIk-HK-IgR"/>
                                                     <constraint firstAttribute="trailing" secondItem="kmD-GZ-gNv" secondAttribute="trailing" id="YX8-Qb-cXI"/>
                                                     <constraint firstItem="YcP-HC-fVb" firstAttribute="centerY" secondItem="n5o-pN-pQU" secondAttribute="centerY" id="ney-4g-JWX"/>
                                                 </constraints>
@@ -1124,6 +1124,7 @@
                 <outlet property="infantIncBtn" destination="5g0-Rv-iGZ" id="Pbg-5O-cyG"/>
                 <outlet property="multicityBtn" destination="OZa-h8-jOA" id="URf-rU-6Ci"/>
                 <outlet property="onewayBtn" destination="UYi-Qo-IG0" id="nEx-A1-pnk"/>
+                <outlet property="onewayclassView" destination="PgD-4q-2XZ" id="PJP-na-UBL"/>
                 <outlet property="retTF" destination="w4m-rF-MRW" id="TeG-dJ-86T"/>
                 <outlet property="retView" destination="9F3-BY-r6e" id="AB1-FI-hTp"/>
                 <outlet property="roundtripBtn" destination="Iz5-G5-Npd" id="fbx-R1-Gi0"/>
@@ -1154,6 +1155,9 @@
         </namedColor>
         <namedColor name="BorderColor">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PlaceHolderBGColor">
+            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="WhiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

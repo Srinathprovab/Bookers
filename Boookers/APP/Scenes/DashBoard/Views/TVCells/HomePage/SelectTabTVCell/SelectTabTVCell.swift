@@ -11,25 +11,24 @@ protocol SelectTabTVCellDelegate {
     func didTapOnDashboardTab(cell:SelectTabTVCell)
     func didTapOnMenuBtn(cell:SelectTabTVCell)
     func didTapOnLaungageBtn(cell:SelectTabTVCell)
+    func didTapOnBackBtnAction(cell:SelectTabTVCell)
 }
 
 
 class SelectTabTVCell: TableViewCell {
     
     @IBOutlet weak var holderView: UIView!
-    @IBOutlet weak var haiImg: UIImageView!
-    @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var tabscv: UICollectionView!
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var langImg: UIImageView!
     @IBOutlet weak var langBtn: UIButton!
     @IBOutlet weak var currencylbl: UILabel!
-    @IBOutlet weak var cvLeftConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var imageHolderView: UIView!
+    @IBOutlet weak var currencyView: UIView!
     
     var delegate:SelectTabTVCellDelegate?
-    var tabNames = ["Flights","Hotels"]
-    var tabImages = ["t1","t2","t3","t4","t5","t6"]
+    var tabNames = ["Flight","Hotel","Holidays","Insurance"]
+    var tabImages = ["flightNew","hotelNew","holidaysNew","insureNew"]
     var tabImages1 = ["f1","f2","f3","f4","f5","f6"]
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,28 +45,35 @@ class SelectTabTVCell: TableViewCell {
     override func updateUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(selectedCurrency), name: NSNotification.Name("selectedCurrency"), object: nil)
         
+        
+        
+        if cellInfo?.key == "search" {
+            menuBtn.setImage(UIImage(named: "left")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            menuBtn.tag = 1
+            imageHolderView.isHidden = true
+            currencyView.isHidden = true
+        }else {
+            menuBtn.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor), for: .normal)
+            menuBtn.tag = 2
+            imageHolderView.isHidden = false
+            currencyView.isHidden = false
+        }
+        
+        
     }
     
     @objc func selectedCurrency() {
-        setuplabels(lbl: currencylbl, text: defaults.string(forKey: UserDefaultsKeys.selectedCurrencyType) ?? "KWD", textcolor: .WhiteColor, font: .OpenSansRegular(size: 14), align: .left)
+        setuplabels(lbl: currencylbl, text: defaults.string(forKey: UserDefaultsKeys.selectedCurrencyType) ?? "KWD", textcolor: .AppLabelColor, font: .OpenSansRegular(size: 14), align: .left)
     }
     
     
     func setupUI() {
-        
-        if screenHeight > 835 {
-            cvLeftConstraint.constant = 110
-        }else {
-            cvLeftConstraint.constant = 100
-        }
+        currencylbl.textColor = .AppLabelColor
+
         
         holderView.backgroundColor = .AppBackgroundColor
-        haiImg.image = UIImage(named: "menu")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
-        langImg.image = UIImage(named: "lang")?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
-        setuplabels(lbl: currencylbl, text: defaults.string(forKey: UserDefaultsKeys.selectedCurrencyType) ?? "KWD", textcolor: .WhiteColor, font: .OswaldSemiBold(size: 14), align: .left)
-        titlelbl.text = "Welcome"
-        titlelbl.textColor = .WhiteColor
-        titlelbl.font = .LatoRegular(size: 24)
+        setuplabels(lbl: currencylbl, text: defaults.string(forKey: UserDefaultsKeys.selectedCurrencyType) ?? "KWD", textcolor: .AppLabelColor, font: .OpenSansRegular(size: 14), align: .left)
+       
         langBtn.setTitle("", for: .normal)
         menuBtn.setTitle("", for: .normal)
         setupCV()
@@ -76,14 +82,14 @@ class SelectTabTVCell: TableViewCell {
     
     
     func setupCV() {
-        holderView.backgroundColor = .AppBackgroundColor
+        holderView.backgroundColor = .white
         let nib = UINib(nibName: "SelectTabCVCell", bundle: nil)
         tabscv.register(nib, forCellWithReuseIdentifier: "cell")
         tabscv.delegate = self
         tabscv.dataSource = self
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 85, height: 100)
-        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: tabscv.frame.width / 4 , height: 100)
+        layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -97,23 +103,25 @@ class SelectTabTVCell: TableViewCell {
     }
     
     
-
-    
-    
     @IBAction func didTapOnMenuBtn(_ sender: Any) {
-        delegate?.didTapOnMenuBtn(cell: self)
+       
+        if menuBtn.tag == 1 {
+            delegate?.didTapOnBackBtnAction(cell: self)
+        }else {
+            delegate?.didTapOnMenuBtn(cell: self)
+        }
     }
     
     
     @IBAction func didTapOnLaungageBtn(_ sender: Any) {
-       // delegate?.didTapOnLaungageBtn(cell: self)
+        delegate?.didTapOnLaungageBtn(cell: self)
     }
     
     
 }
 
 
-extension SelectTabTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
+extension SelectTabTVCell:UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,8 +132,16 @@ extension SelectTabTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
         var commonCell = UICollectionViewCell()
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SelectTabCVCell {
             cell.titlelbl.text = tabNames[indexPath.row]
-            cell.tabImg.image = UIImage(named: tabImages[indexPath.row])?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
-            cell.bgImg.image = UIImage(named: tabImages1[indexPath.row])
+            cell.titlelbl.textColor = HexColor("#343434")
+            cell.titlelbl.font = .poppinsRegular(size: 14)
+            cell.bgImg.image = UIImage(named: tabImages[indexPath.row])
+            
+            
+            if cell.titlelbl.text == defaults.string(forKey: UserDefaultsKeys.tabselect) {
+                cell.selected()
+                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+            }
+            
             commonCell = cell
         }
         return commonCell
@@ -134,23 +150,18 @@ extension SelectTabTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? SelectTabCVCell {
-           
-            if tabNames[indexPath.row] == "Flights" {
-                defaults.set("Flight", forKey: UserDefaultsKeys.tabselect)
-            }else {
-                defaults.set("Hotel", forKey: UserDefaultsKeys.tabselect)
-            }
-           
-            delegate?.didTapOnDashboardTab(cell: self)
+            
+            cell.selected()
+            defaults.set("\(cell.titlelbl.text ?? "")", forKey: UserDefaultsKeys.tabselect)
+            
+            self.delegate?.didTapOnDashboardTab(cell: self)
         }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? SelectTabCVCell {
-            cell.imgHolderView.layer.borderColor = UIColor.WhiteColor.cgColor
-            cell.imgHolderView.layer.borderWidth = 0
-            cell.tabImg.image = UIImage(named: tabImages[indexPath.row])?.withRenderingMode(.alwaysOriginal).withTintColor(.WhiteColor)
+            cell.deselected()
         }
     }
     

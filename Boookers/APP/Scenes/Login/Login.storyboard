@@ -18,7 +18,7 @@
         <!--LoginVC-->
         <scene sceneID="hF2-8p-dRS">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="JKX-b5-njP" customClass="LoginVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="JKX-b5-njP" customClass="LoginVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h76-fT-SyD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
         <!--Create AccountVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="CreateAccountVC" id="Y6W-OH-hqX" customClass="CreateAccountVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccountVC" id="Y6W-OH-hqX" customClass="CreateAccountVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +124,7 @@
         <!--Reset PasswordVC-->
         <scene sceneID="QDj-zv-EaA">
             <objects>
-                <viewController storyboardIdentifier="ResetPasswordVC" id="geu-ua-Dvo" customClass="ResetPasswordVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPasswordVC" id="geu-ua-Dvo" customClass="ResetPasswordVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0rn-sa-3qg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,7 +177,7 @@
         <!--Edit ProfileVC-->
         <scene sceneID="CKK-g1-yyk">
             <objects>
-                <viewController storyboardIdentifier="EditProfileVC" id="J6c-0h-s7Q" customClass="EditProfileVC" customModule="KuwaitWays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileVC" id="J6c-0h-s7Q" customClass="EditProfileVC" customModule="Boookers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Meh-BI-pTx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,9 +189,9 @@
                                         <rect key="frame" x="0.0" y="281.5" width="414" height="614.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amW-RH-xws" customClass="NavBar" customModule="KuwaitWays" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amW-RH-xws" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="MenuBGColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="Cl1-NE-gIg"/>
                                         </constraints>
@@ -298,6 +298,9 @@
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MenuBGColor">
+            <color red="0.062745098039215685" green="0.094117647058823528" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

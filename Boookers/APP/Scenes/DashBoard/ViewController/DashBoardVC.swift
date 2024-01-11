@@ -135,7 +135,7 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
     func appendTVCells() {
         tablerow.removeAll()
         
-        tablerow.append(TableRow(cellType:.SelectTabTVCell))
+        tablerow.append(TableRow(key:"dash",cellType:.SelectTabTVCell))
         tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"BEST DEALS FLIGHTS ",key: "deals", text:imgPath, height:50,cellType:.LabelTVCell))
         tablerow.append(TableRow(height:18,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
@@ -317,6 +317,7 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
         return .lightContent
     }
     
+
 }
 
 

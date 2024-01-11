@@ -31,5 +31,17 @@ class SelectTabCVCell: UICollectionViewCell {
         
         bgImg.image = UIImage(named: "f1")?.withRenderingMode(.alwaysOriginal)
     }
+    
+    
+    func selected() {
+        imgHolderView.layer.borderColor = UIColor.AppBtnColor.cgColor
+        imgHolderView.layer.borderWidth = 1
+    }
+    
+    
+    func deselected() {
+        imgHolderView.layer.borderColor = UIColor.AppBorderColor.cgColor
+        imgHolderView.layer.borderWidth = 1
+    }
 
 }

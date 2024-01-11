@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		05D91191F6D782C5E7097CF8 /* Pods_Boookers_BoookersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344473AED61DF3B80C80ED04 /* Pods_Boookers_BoookersUITests.framework */; };
 		655A28102B4FC12F0060E12E /* FlightSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A280F2B4FC12E0060E12E /* FlightSearchVC.swift */; };
+		655A281D2B5005570060E12E /* SelectTabTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A281B2B5005560060E12E /* SelectTabTVCell.swift */; };
+		655A281E2B5005570060E12E /* SelectTabTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 655A281C2B5005570060E12E /* SelectTabTVCell.xib */; };
 		65AD15172B4EAC0D0064E8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15162B4EAC0D0064E8B0 /* AppDelegate.swift */; };
 		65AD15192B4EAC0D0064E8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15182B4EAC0D0064E8B0 /* SceneDelegate.swift */; };
 		65AD15202B4EAC0F0064E8B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65AD151F2B4EAC0F0064E8B0 /* Assets.xcassets */; };
@@ -219,8 +221,6 @@
 		65AD18452B4EAC6D0064E8B0 /* BookNowTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD164B2B4EAC690064E8B0 /* BookNowTVCell.swift */; };
 		65AD18462B4EAC6D0064E8B0 /* SelectLanguageTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65AD164D2B4EAC690064E8B0 /* SelectLanguageTVCell.xib */; };
 		65AD18472B4EAC6D0064E8B0 /* SelectLanguageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD164E2B4EAC690064E8B0 /* SelectLanguageTVCell.swift */; };
-		65AD18482B4EAC6D0064E8B0 /* SelectTabTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD16502B4EAC690064E8B0 /* SelectTabTVCell.swift */; };
-		65AD18492B4EAC6D0064E8B0 /* SelectTabTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65AD16512B4EAC690064E8B0 /* SelectTabTVCell.xib */; };
 		65AD184A2B4EAC6D0064E8B0 /* TDetailsLoginTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD16542B4EAC690064E8B0 /* TDetailsLoginTVCell.swift */; };
 		65AD184B2B4EAC6D0064E8B0 /* TDetailsLoginTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65AD16552B4EAC690064E8B0 /* TDetailsLoginTVCell.xib */; };
 		65AD184C2B4EAC6D0064E8B0 /* CommonBookingItinearyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD16572B4EAC690064E8B0 /* CommonBookingItinearyTVCell.swift */; };
@@ -445,6 +445,8 @@
 		344473AED61DF3B80C80ED04 /* Pods_Boookers_BoookersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boookers_BoookersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D29F1418C8A1CF2DD2076C0 /* Pods-BoookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoookersTests.debug.xcconfig"; path = "Target Support Files/Pods-BoookersTests/Pods-BoookersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		655A280F2B4FC12E0060E12E /* FlightSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchVC.swift; sourceTree = "<group>"; };
+		655A281B2B5005560060E12E /* SelectTabTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTabTVCell.swift; sourceTree = "<group>"; };
+		655A281C2B5005570060E12E /* SelectTabTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTabTVCell.xib; sourceTree = "<group>"; };
 		65AD15132B4EAC0D0064E8B0 /* Boookers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boookers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AD15162B4EAC0D0064E8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AD15182B4EAC0D0064E8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -659,8 +661,6 @@
 		65AD164B2B4EAC690064E8B0 /* BookNowTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookNowTVCell.swift; sourceTree = "<group>"; };
 		65AD164D2B4EAC690064E8B0 /* SelectLanguageTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLanguageTVCell.xib; sourceTree = "<group>"; };
 		65AD164E2B4EAC690064E8B0 /* SelectLanguageTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLanguageTVCell.swift; sourceTree = "<group>"; };
-		65AD16502B4EAC690064E8B0 /* SelectTabTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTabTVCell.swift; sourceTree = "<group>"; };
-		65AD16512B4EAC690064E8B0 /* SelectTabTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTabTVCell.xib; sourceTree = "<group>"; };
 		65AD16542B4EAC690064E8B0 /* TDetailsLoginTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDetailsLoginTVCell.swift; sourceTree = "<group>"; };
 		65AD16552B4EAC690064E8B0 /* TDetailsLoginTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDetailsLoginTVCell.xib; sourceTree = "<group>"; };
 		65AD16572B4EAC690064E8B0 /* CommonBookingItinearyTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonBookingItinearyTVCell.swift; sourceTree = "<group>"; };
@@ -1295,10 +1295,10 @@
 			isa = PBXGroup;
 			children = (
 				65AD19112B4EF5990064E8B0 /* SB */,
+				65AD16332B4EAC690064E8B0 /* Views */,
+				65AD16182B4EAC690064E8B0 /* ViewController */,
 				65AD15B32B4EAC680064E8B0 /* ViewModel */,
 				65AD15C22B4EAC680064E8B0 /* Models */,
-				65AD16182B4EAC690064E8B0 /* ViewController */,
-				65AD16332B4EAC690064E8B0 /* Views */,
 			);
 			path = DashBoard;
 			sourceTree = "<group>";
@@ -1509,6 +1509,7 @@
 			isa = PBXGroup;
 			children = (
 				65AD161F2B4EAC690064E8B0 /* DBTabbarController.swift */,
+				65AD162F2B4EAC690064E8B0 /* DashBoardVC.swift */,
 				65AD16252B4EAC690064E8B0 /* BookFlightVC.swift */,
 				65AD16322B4EAC690064E8B0 /* ModifySearchVC.swift */,
 				65AD16232B4EAC690064E8B0 /* SearchFlightResultVC.swift */,
@@ -1530,7 +1531,6 @@
 				65AD162C2B4EAC690064E8B0 /* MyAccountVC.swift */,
 				65AD162D2B4EAC690064E8B0 /* commonFunctions.swift */,
 				65AD162E2B4EAC690064E8B0 /* ViewFlightDetailsVC.swift */,
-				65AD162F2B4EAC690064E8B0 /* DashBoardVC.swift */,
 				65AD16302B4EAC690064E8B0 /* FilterSearchVC.swift */,
 				65AD16312B4EAC690064E8B0 /* NationalityVC.swift */,
 				655A280F2B4FC12E0060E12E /* FlightSearchVC.swift */,
@@ -1673,8 +1673,8 @@
 		65AD164F2B4EAC690064E8B0 /* SelectTabTVCell */ = {
 			isa = PBXGroup;
 			children = (
-				65AD16502B4EAC690064E8B0 /* SelectTabTVCell.swift */,
-				65AD16512B4EAC690064E8B0 /* SelectTabTVCell.xib */,
+				655A281B2B5005560060E12E /* SelectTabTVCell.swift */,
+				655A281C2B5005570060E12E /* SelectTabTVCell.xib */,
 			);
 			path = SelectTabTVCell;
 			sourceTree = "<group>";
@@ -2550,12 +2550,12 @@
 		65AD17552B4EAC6A0064E8B0 /* UIFonts */ = {
 			isa = PBXGroup;
 			children = (
+				65AD176F2B4EAC6A0064E8B0 /* ColorManager.swift */,
 				65AD17562B4EAC6A0064E8B0 /* FontManager.swift */,
 				65AD17572B4EAC6A0064E8B0 /* UIColorManager.swift */,
 				65AD17582B4EAC6A0064E8B0 /* Oswald */,
 				65AD17602B4EAC6A0064E8B0 /* Poppins */,
 				65AD176A2B4EAC6A0064E8B0 /* OpenSans */,
-				65AD176F2B4EAC6A0064E8B0 /* ColorManager.swift */,
 			);
 			path = UIFonts;
 			sourceTree = "<group>";
@@ -2833,7 +2833,6 @@
 				65AD18442B4EAC6D0064E8B0 /* BookNowTVCell.xib in Resources */,
 				65AD18782B4EAC6D0064E8B0 /* AboutustitleTVCell.xib in Resources */,
 				65AD18722B4EAC6D0064E8B0 /* ContactUsTVCell.xib in Resources */,
-				65AD18492B4EAC6D0064E8B0 /* SelectTabTVCell.xib in Resources */,
 				65AD18D72B4EAC6E0064E8B0 /* EmptyTVCell.xib in Resources */,
 				65AD187B2B4EAC6D0064E8B0 /* AboutusTVCell.xib in Resources */,
 				65AD18962B4EAC6E0064E8B0 /* AddAdultsOrGuestTVCell.xib in Resources */,
@@ -2886,6 +2885,7 @@
 				65AD18512B4EAC6D0064E8B0 /* TotalNoofTravellerTVCell.xib in Resources */,
 				65AD18642B4EAC6D0064E8B0 /* NewMulticityTVCell.xib in Resources */,
 				65AD18F92B4EAC6E0064E8B0 /* Poppins-Light.ttf in Resources */,
+				655A281E2B5005570060E12E /* SelectTabTVCell.xib in Resources */,
 				65AD18CE2B4EAC6E0064E8B0 /* LabelTVCell.xib in Resources */,
 				65AD18C12B4EAC6E0064E8B0 /* TextfieldTVCell.xib in Resources */,
 				65AD184D2B4EAC6D0064E8B0 /* CommonBookingItinearyTVCell.xib in Resources */,
@@ -3188,7 +3188,6 @@
 				65AD18E42B4EAC6E0064E8B0 /* ServiceManager.swift in Sources */,
 				65AD18112B4EAC6D0064E8B0 /* SelectCityModel.swift in Sources */,
 				65AD178A2B4EAC6C0064E8B0 /* Star.swift in Sources */,
-				65AD18482B4EAC6D0064E8B0 /* SelectTabTVCell.swift in Sources */,
 				65AD178D2B4EAC6C0064E8B0 /* Format_rm_comb_list.swift in Sources */,
 				65AD183C2B4EAC6D0064E8B0 /* CheckBoxTVCell.swift in Sources */,
 				65AD18892B4EAC6E0064E8B0 /* DualViewTVCell.swift in Sources */,
@@ -3343,6 +3342,7 @@
 				65AD17E52B4EAC6D0064E8B0 /* Session_expiry_details.swift in Sources */,
 				65AD18C62B4EAC6E0064E8B0 /* CreateAccountTVCell.swift in Sources */,
 				65AD17CC2B4EAC6D0064E8B0 /* SelectCurrencyViewModel.swift in Sources */,
+				655A281D2B5005570060E12E /* SelectTabTVCell.swift in Sources */,
 				65D9F8BF2B4FA7C000FE2118 /* SingleClass.swift in Sources */,
 				65AD17A92B4EAC6D0064E8B0 /* BookHotelVC.swift in Sources */,
 				65AD17FA2B4EAC6D0064E8B0 /* PublicFareBasisCodes.swift in Sources */,
@@ -3533,7 +3533,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Boookers/Info.plist;
@@ -3568,7 +3568,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Boookers/Info.plist;

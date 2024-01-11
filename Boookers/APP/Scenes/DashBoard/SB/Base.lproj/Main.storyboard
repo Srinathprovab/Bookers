@@ -92,14 +92,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iWM-ea-mLc">
-                                        <rect key="frame" x="0.0" y="200" width="414" height="696"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="iWM-ea-mLc" secondAttribute="bottom" id="Ha1-GU-Kco"/>
-                                    <constraint firstItem="iWM-ea-mLc" firstAttribute="top" secondItem="EvH-SP-kBv" secondAttribute="top" constant="200" id="Sha-JZ-8Iw"/>
+                                    <constraint firstItem="iWM-ea-mLc" firstAttribute="top" secondItem="EvH-SP-kBv" secondAttribute="top" id="Sha-JZ-8Iw"/>
                                     <constraint firstAttribute="trailing" secondItem="iWM-ea-mLc" secondAttribute="trailing" id="b7d-T9-7wb"/>
                                     <constraint firstItem="iWM-ea-mLc" firstAttribute="leading" secondItem="EvH-SP-kBv" secondAttribute="leading" id="dpi-31-ClP"/>
                                 </constraints>
@@ -133,8 +133,17 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-Xv-D2c" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newbg" translatesAutoresizingMaskIntoConstraints="NO" id="nmD-qO-UsJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="MenuBGColor"/>
                                 <constraints>
+                                    <constraint firstItem="nmD-qO-UsJ" firstAttribute="leading" secondItem="kPc-Xv-D2c" secondAttribute="leading" id="4VF-KK-WIm"/>
+                                    <constraint firstAttribute="trailing" secondItem="nmD-qO-UsJ" secondAttribute="trailing" id="Ljd-xU-Uhp"/>
+                                    <constraint firstItem="nmD-qO-UsJ" firstAttribute="top" secondItem="kPc-Xv-D2c" secondAttribute="top" id="eT3-R6-Kil"/>
+                                    <constraint firstAttribute="bottom" secondItem="nmD-qO-UsJ" secondAttribute="bottom" id="hDE-Ul-0fR"/>
                                     <constraint firstAttribute="height" constant="130" id="k4m-4b-t93"/>
                                 </constraints>
                             </view>
@@ -418,8 +427,17 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0O-Rg-N4a" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newbg" translatesAutoresizingMaskIntoConstraints="NO" id="JTU-aQ-brr">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="JTU-aQ-brr" secondAttribute="trailing" id="0tR-yu-RE2"/>
+                                            <constraint firstItem="JTU-aQ-brr" firstAttribute="leading" secondItem="n0O-Rg-N4a" secondAttribute="leading" id="4ue-Sz-Wxk"/>
+                                            <constraint firstAttribute="bottom" secondItem="JTU-aQ-brr" secondAttribute="bottom" id="G51-kg-IKA"/>
+                                            <constraint firstItem="JTU-aQ-brr" firstAttribute="top" secondItem="n0O-Rg-N4a" secondAttribute="top" id="Rsp-77-JGH"/>
                                             <constraint firstAttribute="height" constant="180" id="lzP-od-P16"/>
                                         </constraints>
                                     </view>
@@ -1668,9 +1686,18 @@
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-As-LtE" customClass="NavBar" customModule="Boookers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newbg" translatesAutoresizingMaskIntoConstraints="NO" id="6Zv-tY-EQM">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="6Zv-tY-EQM" firstAttribute="leading" secondItem="3zk-As-LtE" secondAttribute="leading" id="NDO-q2-AGC"/>
+                                            <constraint firstItem="6Zv-tY-EQM" firstAttribute="top" secondItem="3zk-As-LtE" secondAttribute="top" id="dgs-Mp-jJn"/>
                                             <constraint firstAttribute="height" constant="100" id="gaO-S4-hlG"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Zv-tY-EQM" secondAttribute="trailing" id="nTQ-Uq-Yu2"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Zv-tY-EQM" secondAttribute="bottom" id="rCn-Y4-J9V"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2214,32 +2241,12 @@
                                         <rect key="frame" x="0.0" y="130" width="414" height="766"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-Ho-oKp">
-                                        <rect key="frame" x="364" y="74" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="5Fz-sE-3Lj"/>
-                                            <constraint firstAttribute="height" constant="40" id="p10-GC-3Xf"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="multiply" catalog="system"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKQ-je-Tpb">
-                                        <rect key="frame" x="179.5" y="83" width="55.5" height="22"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
-                                    <constraint firstItem="Jod-Ho-oKp" firstAttribute="top" secondItem="5Xe-XC-EgB" secondAttribute="top" constant="74" id="DfJ-Sg-O7B"/>
-                                    <constraint firstItem="5fb-gz-eSA" firstAttribute="top" secondItem="Jod-Ho-oKp" secondAttribute="bottom" constant="16" id="HGE-Ze-Amd"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jod-Ho-oKp" secondAttribute="trailing" constant="10" id="JQo-2Q-Uwe"/>
-                                    <constraint firstItem="Jod-Ho-oKp" firstAttribute="centerY" secondItem="PKQ-je-Tpb" secondAttribute="centerY" id="VfW-Ul-eVd"/>
+                                    <constraint firstItem="5fb-gz-eSA" firstAttribute="top" secondItem="5Xe-XC-EgB" secondAttribute="top" constant="130" id="LYb-ia-XF5"/>
                                     <constraint firstAttribute="trailing" secondItem="5fb-gz-eSA" secondAttribute="trailing" id="YL1-WC-tV2"/>
                                     <constraint firstItem="5fb-gz-eSA" firstAttribute="leading" secondItem="5Xe-XC-EgB" secondAttribute="leading" id="g6a-jb-cKp"/>
-                                    <constraint firstItem="PKQ-je-Tpb" firstAttribute="centerX" secondItem="5Xe-XC-EgB" secondAttribute="centerX" id="jDN-1J-U2K"/>
                                     <constraint firstAttribute="bottom" secondItem="5fb-gz-eSA" secondAttribute="bottom" id="jPh-ye-7lf"/>
                                 </constraints>
                             </view>
@@ -2852,6 +2859,9 @@
         </namedColor>
         <namedColor name="AppLabelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MenuBGColor">
+            <color red="0.062745098039215685" green="0.094117647058823528" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="WhiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -10,6 +10,22 @@ import UIKit
 
 extension UIColor {
     
+    
+    
+    public static var PlaceHolderBGColor : UIColor {
+        
+        get {
+            return UIColor(named: "PlaceHolderBGColor")!
+        }
+    }
+    
+    public static var MenuBGColor : UIColor {
+        
+        get {
+            return UIColor(named: "MenuBGColor")!
+        }
+    }
+    
     public static var AppBackgroundColor : UIColor {
         
         get {
@@ -21,9 +37,9 @@ extension UIColor {
     public static var AppHolderViewColor : UIColor {
         
         get {
-           // return UIColor(named: "AppBGColor")!
+            // return UIColor(named: "AppBGColor")!
             return HexColor("#F2F2F2", alpha: 0.60)
-          //  return HexColor("#E6E8E7")
+            //  return HexColor("#E6E8E7")
         }
     }
     

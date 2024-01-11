@@ -44,7 +44,7 @@ class BookFlightVC: BaseTableVC {
     func setupUI() {
         
         commonTableView.registerTVCells(["EmptyTVCell",
-                                         "SearchFlightTVCell",
+                                         "SelectTabTVCell",
                                          "LabelTVCell",
                                          "HotelDealsTVCell",
                                          "FlightSearchTVCell",
@@ -60,6 +60,7 @@ class BookFlightVC: BaseTableVC {
         
         MySingleton.shared.tablerow.removeAll()
         commonTableView.isScrollEnabled = true
+        MySingleton.shared.tablerow.append(TableRow(key:"search",cellType:.SelectTabTVCell))
         MySingleton.shared.tablerow.append(TableRow(title:"Book your Flight",
                                                     key:"search",
                                                     cellType:.FlightSearchTVCell))
@@ -294,6 +295,16 @@ class BookFlightVC: BaseTableVC {
     
     override func didTapOnAdvanceOption(cell:FlightSearchTVCell){
         commonTableView.reloadData()
+    }
+    
+    
+    
+    override func didTapOnBackBtnAction(cell:SelectTabTVCell){
+        callapibool = true
+        guard let vc = DBTabbarController.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.selectedIndex = 0
+        self.present(vc, animated: false)
     }
 }
 

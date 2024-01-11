@@ -61,7 +61,6 @@ class MyBookingVC: BaseTableVC {
     
     func setupUI() {
         self.view.backgroundColor = .WhiteColor
-        nav.backgroundColor = .AppNavBackColor
         nav.titlelbl.text = "My Bookings"
         nav.backBtn.isHidden = true
         
