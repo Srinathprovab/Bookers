@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "IcOutlineArrowDropDown (2) 5.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "IcOutlineArrowDropDown (2) 5@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "add_circle_FILL0_wght400_GRAD0_opsz48 1.svg",
+      "filename" : "IcOutlineArrowDropDown (2) 5@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

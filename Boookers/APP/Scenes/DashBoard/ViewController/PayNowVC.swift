@@ -104,7 +104,7 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
     func setupUI() {
         
         if screenHeight > 835 {
-            navHeight.constant = 250
+            navHeight.constant = 230
         }else {
             navHeight.constant = 145
         }
@@ -123,11 +123,12 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
         viewFlightlbl.font = UIFont.poppinsRegular(size: 14)
         viewFlightsBtn.setTitle("", for: .normal)
         
-        setupViews(v: bookNowHolderView, radius: 0, color: .AppJournyTabSelectColor)
+       // setupViews(v: bookNowHolderView, radius: 0, color: .AppJournyTabSelectColor)
         setupViews(v: bookNowView, radius: 6, color: .AppNavBackColor)
         bookNowView.layer.cornerRadius = 20
         bookNowView.clipsToBounds = true
-        setupLabels(lbl: titlelbl, text: grandTotal, textcolor: .WhiteColor, font: .OpenSansMedium(size: 20))
+     //   setupLabels(lbl: titlelbl, text: grandTotal, textcolor: .WhiteColor, font: .OpenSansMedium(size: 20))
+        titlelbl.text = grandTotal
         setupLabels(lbl: bookNowlbl, text: "PAY NOW", textcolor: .WhiteColor, font: .OpenSansMedium(size: 16))
         bookNowBtn.setTitle("", for: .normal)
         

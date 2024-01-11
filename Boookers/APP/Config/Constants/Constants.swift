@@ -287,6 +287,9 @@ struct UserDefaultsKeys {
     static var tolocid = "to_loc_id"
     static var fromcityname = "fromcityname"
     static var tocityname = "tocityname"
+    static var fcity = "fcity"
+    static var tcity = "tcity"
+    
     
     //ROUND TRIP
 //    static var rlocationcity = "rlocation_city"

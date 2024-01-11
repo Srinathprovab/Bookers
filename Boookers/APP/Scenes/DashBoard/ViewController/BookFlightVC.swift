@@ -16,28 +16,9 @@ enum SelectCityCategory {
 
 class BookFlightVC: BaseTableVC {
     
-    @IBOutlet weak var nav: NavBar!
+    
     @IBOutlet weak var holderView: UIView!
-    @IBOutlet weak var buttonsView: UIView!
-    @IBOutlet weak var oneWayView: UIView!
-    @IBOutlet weak var oneWaylbl: UILabel!
-    @IBOutlet weak var oneWayBtn: UIButton!
-    @IBOutlet weak var roundTripView: UIView!
-    @IBOutlet weak var roundTriplbl: UILabel!
-    @IBOutlet weak var roundTripBtn: UIButton!
-    @IBOutlet weak var multicityView: UIView!
-    @IBOutlet weak var multicitylbl: UILabel!
-    @IBOutlet weak var multicityBtn: UIButton!
-    @IBOutlet weak var navHeight: NSLayoutConstraint!
-    @IBOutlet weak var btnsHolderiew: UIStackView!
     
-    
-    var payload = [String:Any]()
-    var payload1 = [String:Any]()
-    var payload2 = [String:Any]()
-    var isVcFrom = String()
-    var tablerow = [TableRow]()
-   
     
     static var newInstance: BookFlightVC? {
         let storyboard = UIStoryboard(name: Storyboard.Main.name,
@@ -48,34 +29,10 @@ class BookFlightVC: BaseTableVC {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        
-       
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(offline), name: NSNotification.Name("offline"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reload(notification:)), name: NSNotification.Name("calreloadTV"), object: nil)
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reload(notification:)), name: NSNotification.Name("AdvancedSearchTVCellreload"), object: nil)
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("addcity"), object: nil)
+        addObserver()
     }
     
     
-    @objc func offline(notificatio:UNNotification) {
-        callapibool = true
-        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false)
-    }
-    
-    
-    @objc func reload(notification: NSNotification){
-        commonTableView.reloadData()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,55 +43,14 @@ class BookFlightVC: BaseTableVC {
     
     func setupUI() {
         
-        
-        self.holderView.backgroundColor = .WhiteColor
-        nav.titlelbl.text = "Book Flight"
-        nav.backBtn.addTarget(self, action: #selector(backbtnAction(_:)), for: .touchUpInside)
-        nav.contentView.backgroundColor = .WhiteColor
-        nav.titlelbl.textColor = .AppLabelColor
-        nav.backBtn.tintColor = UIColor.AppLabelColor
-        
-        if screenHeight > 835 {
-            navHeight.constant = 140
-        }else {
-            navHeight.constant = 110
-        }
-        
-        
-        btnsHolderiew.addCornerRadiusWithShadow(color: .clear, borderColor: .AppBorderColor, cornerRadius: 20)
-        buttonsView.backgroundColor = .WhiteColor
-        //  setupViews(v: buttonsView, radius: 20, color: .WhiteColor)
-        setupViews(v: oneWayView, radius: 18, color: .AppJournyTabSelectColor)
-        setupViews(v: roundTripView, radius: 18, color: .WhiteColor)
-        setupViews(v: multicityView, radius: 18, color: .WhiteColor)
-        //  multicityView.isHidden = true
-        
-        setupLabels(lbl: oneWaylbl, text: "One Way", textcolor: .WhiteColor, font: .OpenSansRegular(size: 16))
-        setupLabels(lbl: roundTriplbl, text: "Round Trip", textcolor: .SubTitleColor, font: .OpenSansRegular(size: 16))
-        setupLabels(lbl: multicitylbl, text: "Multicity", textcolor: .SubTitleColor, font: .OpenSansRegular(size: 16))
-        
-        
-        oneWayBtn.setTitle("", for: .normal)
-        roundTripBtn.setTitle("", for: .normal)
-        multicityBtn.setTitle("", for: .normal)
-        
         commonTableView.registerTVCells(["EmptyTVCell",
                                          "SearchFlightTVCell",
                                          "LabelTVCell",
                                          "HotelDealsTVCell",
+                                         "FlightSearchTVCell",
                                          "AddCityTVCell"])
         
         appendTvcells(str: "oneway")
-        if let selectedJourneyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
-            if selectedJourneyType == "multicity" {
-                setupMulticity()
-            }else if selectedJourneyType == "circle" {
-                setupRoundTrip()
-            }else {
-                setupOneWay()
-            }
-        }
-        
         
         
     }
@@ -142,37 +58,18 @@ class BookFlightVC: BaseTableVC {
     
     func appendTvcells(str:String) {
         
-        tablerow.removeAll()
-        commonTableView.isScrollEnabled = false
-        tablerow.append(TableRow(key:str,cellType:.SearchFlightTVCell))
-        //   tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        //        tablerow.append(TableRow(title:"Best Deals Flights",key: "deals",cellType:.LabelTVCell))
-        //        tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        //        tablerow.append(TableRow(key1:"flight",cellType:.HotelDealsTVCell))
-        //        tablerow.append(TableRow(height:30,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        
-        
-        commonTVData = tablerow
+        MySingleton.shared.tablerow.removeAll()
+        commonTableView.isScrollEnabled = true
+        MySingleton.shared.tablerow.append(TableRow(title:"Book your Flight",
+                                                    key:"search",
+                                                    cellType:.FlightSearchTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        commonTVData =  MySingleton.shared.tablerow
         commonTableView.reloadData()
         
     }
     
     
-    func appendMulticityTvcells() {
-        tablerow.removeAll()
-        
-        //   tablerow.append(TableRow(cellType:.NewMulticityTVCell))
-        tablerow.append(TableRow(cellType:.AddCityTVCell))
-        //    tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        //        tablerow.append(TableRow(title:"Flight ",subTitle: "Popular International Flights From Kuwait",key: "deals",cellType:.LabelTVCell))
-        //        tablerow.append(TableRow(height:18,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        //        tablerow.append(TableRow(key1:"flight",cellType:.HotelDealsTVCell))
-        //        tablerow.append(TableRow(height:30,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        
-        commonTVData = tablerow
-        commonTableView.reloadData()
-        
-    }
     
     
     @objc func backbtnAction(_ sender:UIButton) {
@@ -184,190 +81,16 @@ class BookFlightVC: BaseTableVC {
         
     }
     
-    func setupViews(v:UIView,radius:CGFloat,color:UIColor) {
-        v.backgroundColor = color
-        v.layer.cornerRadius = radius
-        v.clipsToBounds = true
-        v.layer.borderWidth = 0.2
-        v.layer.borderColor = UIColor.AppBorderColor.cgColor
-    }
-    
-    func setupLabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont) {
-        lbl.text = text
-        lbl.textColor = textcolor
-        lbl.font = font
-    }
-    
-    
-    @IBAction func didTapOnOneWayBtn(_ sender: Any) {
-        setupOneWay()
-    }
-    
-    @IBAction func didTapOnRoundTripBtn(_ sender: Any) {
-        setupRoundTrip()
-    }
-    
-    
-    @IBAction func didTapOnMulticityBtn(_ sender: Any) {
-        setupMulticity()
-    }
-    
-    func setupOneWay() {
-        oneWaylbl.textColor = .WhiteColor
-        roundTriplbl.textColor = .SubTitleColor
-        multicitylbl.textColor = .SubTitleColor
-        
-        oneWayView.backgroundColor = .AppJournyTabSelectColor
-        roundTripView.backgroundColor = .WhiteColor
-        multicityView.backgroundColor = .WhiteColor
-        
-        defaults.set("oneway", forKey: UserDefaultsKeys.journeyType)
-        appendTvcells(str: "oneway")
-    }
-    
-    
-    func setupRoundTrip() {
-        oneWaylbl.textColor = .SubTitleColor
-        roundTriplbl.textColor = .WhiteColor
-        multicitylbl.textColor = .SubTitleColor
-        
-        oneWayView.backgroundColor = .WhiteColor
-        roundTripView.backgroundColor = .AppJournyTabSelectColor
-        multicityView.backgroundColor = .WhiteColor
-        
-        defaults.set("circle", forKey: UserDefaultsKeys.journeyType)
-        NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
-        appendTvcells(str: "roundtrip")
-    }
-    
-    
-    func setupMulticity() {
-        oneWaylbl.textColor = .SubTitleColor
-        roundTriplbl.textColor = .SubTitleColor
-        multicitylbl.textColor = .WhiteColor
-        
-        oneWayView.backgroundColor = .WhiteColor
-        roundTripView.backgroundColor = .WhiteColor
-        multicityView.backgroundColor = .AppJournyTabSelectColor
-        
-        defaults.set("multicity", forKey: UserDefaultsKeys.journeyType)
-        appendMulticityTvcells()
-    }
-    
-    
     
     override func didTapOnAddTravellerEconomy(cell: AddCityTVCell) {
         gotoAddTravelerVC()
     }
-    
-    
-    override func didTapOnFromCity(cell: HolderViewTVCell) {
-        gotoSelectCityVC(str: "From", tokey: "Tooo")
-    }
-    
-    override func didTapOnToCity(cell: HolderViewTVCell) {
-        gotoSelectCityVC(str: "To", tokey: "frommm")
-    }
-    
-    override func didTapOnSelectDepDateBtn(cell: DualViewTVCell) {
-        gotoCalenderVC()
-    }
-    override func didTapOnSelectRepDateBtn(cell: DualViewTVCell) {
-        gotoCalenderVC()
-    }
-    
-    
-    override func didTapOnSelectAirlines(){
-        gotoNationalityVC()
-    }
-    
     
     override func didTapOnAddRooms(cell:HolderViewTVCell){
         
     }
     
     
-    override func didTapOnSearchFlightsBtn(cell:SearchFlightTVCell) {
-        
-        payload.removeAll()
-        payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
-        payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
-        payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
-        payload["sector_type"] = "international"
-        payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
-        payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
-        payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
-        payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
-        payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
-        payload["carrier"] = ""
-        payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.airlinescode)
-        payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
-        payload["search_flight"] = "Search"
-        payload["search_source"] = "Mobile(I)"
-        payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-        payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
-        
-        
-        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if journyType == "oneway" {
-            payload["return"] = ""
-            
-            if defaults.string(forKey:UserDefaultsKeys.fromCity) == "" {
-                showToast(message: "Please Select From City")
-            }else if defaults.string(forKey:UserDefaultsKeys.toCity) == "" {
-                showToast(message: "Please Select To City")
-            }else if defaults.string(forKey:UserDefaultsKeys.toCity) == defaults.string(forKey:UserDefaultsKeys.fromCity) {
-                showToast(message: "Please Select Different Citys")
-            }else if defaults.string(forKey:UserDefaultsKeys.calDepDate) == "" {
-                showToast(message: "Please Select Departure Date")
-            }else if defaults.string(forKey:UserDefaultsKeys.travellerDetails) == "Add Details" {
-                showToast(message: "Add Traveller")
-            }else if defaults.string(forKey:UserDefaultsKeys.selectClass) == "Add Details" {
-                showToast(message: "Add Class")
-            }else if checkDepartureAndReturnDates1(payload, p1: "depature") == false {
-                showToast(message: "Invalid Date")
-            }else{
-                gotoSearchFlightResultVC(input: payload)
-            }
-            
-        }else if journyType == "circle"{
-            
-            payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
-            let departureDate = defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? ""
-            let returnDate = defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? ""
-
-            let isDepartureBeforeOrEqual = isDepartureBeforeOrEqualReturn(departureDateString: departureDate, returnDateString: returnDate)
-          
-            
-            if defaults.string(forKey:UserDefaultsKeys.fromCity) == "" {
-                showToast(message: "Please Select From City")
-            }else if defaults.string(forKey:UserDefaultsKeys.toCity) == "" {
-                showToast(message: "Please Select To City")
-            }
-//            else if defaults.string(forKey:UserDefaultsKeys.toCity) == defaults.string(forKey:UserDefaultsKeys.fromCity) {
-//                showToast(message: "Please Select Different Citys")
-//            }
-            else if defaults.string(forKey:UserDefaultsKeys.calDepDate) == "" {
-                showToast(message: "Please Select Departure Date")
-            }else if defaults.string(forKey:UserDefaultsKeys.calRetDate) == "" {
-                showToast(message: "Please Select Return Date")
-            }else if defaults.string(forKey:UserDefaultsKeys.travellerDetails) == "Add Details" {
-                showToast(message: "Add Traveller")
-            }else if defaults.string(forKey:UserDefaultsKeys.selectClass) == "Add Details" {
-                showToast(message: "Add Class")
-            }else if isDepartureBeforeOrEqual == false {
-                showToast(message: "Invalid Date")
-            }else{
-                gotoSearchFlightResultVC(input: payload)
-            }
-            
-        }
-        
-        
-        
-        
-    }
     
     override func didTapOnFromBtn(cell:MulticityFromToTVCell){
         selectCityCategory = SelectCityCategory.from
@@ -379,7 +102,7 @@ class BookFlightVC: BaseTableVC {
     }
     
     override func didTapOndateBtn(cell:MulticityFromToTVCell){
-       // gotoCalenderVC()
+        // gotoCalenderVC()
         commonTableView.reloadData()
     }
     override func didTapOnCloseBtn(cell:MulticityFromToTVCell){
@@ -390,7 +113,7 @@ class BookFlightVC: BaseTableVC {
     }
     
     override func didTapOnMultiCityTripSearchFlight(cell:ButtonTVCell){
-        gotoSearchFlightResultVC(input: payload)
+        gotoSearchFlightResultVC(input: MySingleton.shared.payload)
     }
     
     override func didTapOnAddTravelerEconomy(){
@@ -401,37 +124,37 @@ class BookFlightVC: BaseTableVC {
     
     override func didTapOnMultiCityTripSearchFlight(cell: AddCityTVCell) {
         
-        payload.removeAll()
-        payload1.removeAll()
-        payload2.removeAll()
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload1.removeAll()
+        MySingleton.shared.payload2.removeAll()
         finalInputArray.removeAll()
         for (index,_) in fromCityNameArray.enumerated() {
             
-            payload2["from"] = fromCityNameArray[index]
-            payload2["from_loc_id"] = fromlocidArray[index]
-            payload2["to"] = toCityNameArray[index]
-            payload2["to_loc_id"] = tolocidArray[index]
-            payload2["depature"] = depatureDatesArray[index]
+            MySingleton.shared.payload2["from"] = fromCityNameArray[index]
+            MySingleton.shared.payload2["from_loc_id"] = fromlocidArray[index]
+            MySingleton.shared.payload2["to"] = toCityNameArray[index]
+            MySingleton.shared.payload2["to_loc_id"] = tolocidArray[index]
+            MySingleton.shared.payload2["depature"] = depatureDatesArray[index]
             
-            finalInputArray.append(payload2)
+            finalInputArray.append(MySingleton.shared.payload2)
             
         }
         
-        payload["sector_type"] = "international"
-        payload["trip_type"] = defaults.string(forKey:UserDefaultsKeys.journeyType)
-        payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
-        payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
-        payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
-        payload["checkbox-group"] = "on"
-        payload["search_flight"] = "Search"
-        payload["anNonstopflight"] = "1"
-        payload["carrier"] = ""
-        payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.airlinescode)
-        payload["remngwd"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-        payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-        payload["user_id"] =  defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-        payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
-        payload["placeDetails"] = finalInputArray
+        MySingleton.shared.payload["sector_type"] = "international"
+        MySingleton.shared.payload["trip_type"] = defaults.string(forKey:UserDefaultsKeys.journeyType)
+        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
+        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
+        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
+        MySingleton.shared.payload["checkbox-group"] = "on"
+        MySingleton.shared.payload["search_flight"] = "Search"
+        MySingleton.shared.payload["anNonstopflight"] = "1"
+        MySingleton.shared.payload["carrier"] = ""
+        MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.airlinescode)
+        MySingleton.shared.payload["remngwd"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+        MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+        MySingleton.shared.payload["user_id"] =  defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+        MySingleton.shared.payload["placeDetails"] = finalInputArray
         
         
         
@@ -467,7 +190,7 @@ class BookFlightVC: BaseTableVC {
         if showToastMessage == nil {
             // Convert date strings to Date objects
             let dateObjects = depatureDatesArray.compactMap { stringToDate($0) }
-
+            
             // Check if dateObjects is in ascending order
             if dateObjects != dateObjects.sorted() {
                 showToastMessage = "Please Select Dates in Ascending Order"
@@ -475,13 +198,13 @@ class BookFlightVC: BaseTableVC {
                 showToastMessage = "Please Select Different Dates"
             }
         }
-
-
+        
+        
         
         if let message = showToastMessage {
             showToast(message: message)
         } else {
-            gotoSearchFlightResultVC(input: payload)
+            gotoSearchFlightResultVC(input: MySingleton.shared.payload)
         }
         
         
@@ -493,6 +216,178 @@ class BookFlightVC: BaseTableVC {
         return dateFormatter.date(from: dateString)
     }
     
+    
+    
+    override func donedatePicker(cell:AddCityTVCell){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy" // Adjust the format as needed
+        
+        let index = Int(defaults.string(forKey: UserDefaultsKeys.cellTag) ?? "0") ?? 0
+        depatureDatesArray[index] = dateFormatter.string(from: cell.depDatePicker.date)
+        
+        
+        NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
+        
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    
+    
+    override func cancelDatePicker(cell:AddCityTVCell){
+        self.view.endEditing(true)
+    }
+    
+    
+    override func didTapOnSelectAirlineBtnAction(cell:AddCityTVCell){
+        gotoNationalityVC()
+    }
+    
+    
+    //MARK: - FlightSearchTVCell Delegate Methods
+    
+    override func donedatePicker(cell: FlightSearchTVCell) {
+        
+        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        if journyType == "oneway" {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            defaults.set(formatter.string(from: cell.depDatePicker.date), forKey: UserDefaultsKeys.calDepDate)
+            
+        }else {
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            defaults.set(formatter.string(from: cell.retdepDatePicker.date), forKey: UserDefaultsKeys.calDepDate)
+            defaults.set(formatter.string(from: cell.retDatePicker.date), forKey: UserDefaultsKeys.calRetDate)
+        }
+        
+        commonTableView.reloadData()
+        self.view.endEditing(true)
+    }
+    override func cancelDatePicker(cell: FlightSearchTVCell) {
+        self.view.endEditing(true)
+    }
+    
+    
+    override func didTapOnFlightSearchBtnAction(cell: FlightSearchTVCell) {
+        flightSearchTap()
+    }
+    
+    override func didTapOnFromCityBtnAction(cell:FlightSearchTVCell){
+        gotoSelectCityVC(str: "From", tokey: "Tooo")
+    }
+    override func didTapOnToCityBtnAction(cell:FlightSearchTVCell){
+        gotoSelectCityVC(str: "To", tokey: "frommm")
+    }
+    
+    override func didTapOnSelectAirlineBtnAction(cell:FlightSearchTVCell){
+        gotoNationalityVC()
+    }
+    
+    
+    override func didTapOnClassBtnAction(cell:FlightSearchTVCell){
+        gotoAddTravelerVC()
+    }
+    
+    
+    override func didTapOnAdvanceOption(cell:FlightSearchTVCell){
+        commonTableView.reloadData()
+    }
+}
+
+
+
+
+extension BookFlightVC {
+    
+    func flightSearchTap() {
+        
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
+        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
+        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
+        MySingleton.shared.payload["sector_type"] = "international"
+        MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
+        MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
+        MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
+        MySingleton.shared.payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
+        MySingleton.shared.payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
+        MySingleton.shared.payload["carrier"] = ""
+        MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.airlinescode)
+        MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
+        MySingleton.shared.payload["search_flight"] = "Search"
+        MySingleton.shared.payload["search_source"] = "Mobile(I)"
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+        
+        
+        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        if journyType == "oneway" {
+            MySingleton.shared.payload["return"] = ""
+            
+            if defaults.string(forKey:UserDefaultsKeys.fromCity) == "" {
+                showToast(message: "Please Select From City")
+            }else if defaults.string(forKey:UserDefaultsKeys.toCity) == "" {
+                showToast(message: "Please Select To City")
+            }else if defaults.string(forKey:UserDefaultsKeys.toCity) == defaults.string(forKey:UserDefaultsKeys.fromCity) {
+                showToast(message: "Please Select Different Citys")
+            }else if defaults.string(forKey:UserDefaultsKeys.calDepDate) == "" {
+                showToast(message: "Please Select Departure Date")
+            }else if defaults.string(forKey:UserDefaultsKeys.travellerDetails) == "Add Details" {
+                showToast(message: "Add Traveller")
+            }else if defaults.string(forKey:UserDefaultsKeys.selectClass) == "Add Details" {
+                showToast(message: "Add Class")
+            }else if checkDepartureAndReturnDates1(MySingleton.shared.payload, p1: "depature") == false {
+                showToast(message: "Invalid Date")
+            }else{
+                gotoSearchFlightResultVC(input: MySingleton.shared.payload)
+            }
+            
+        }else if journyType == "circle"{
+            
+            MySingleton.shared.payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
+            let departureDate = defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? ""
+            let returnDate = defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? ""
+            
+            let isDepartureBeforeOrEqual = isDepartureBeforeOrEqualReturn(departureDateString: departureDate, returnDateString: returnDate)
+            
+            
+            if defaults.string(forKey:UserDefaultsKeys.fromCity) == "" {
+                showToast(message: "Please Select From City")
+            }else if defaults.string(forKey:UserDefaultsKeys.toCity) == "" {
+                showToast(message: "Please Select To City")
+            }
+            //            else if defaults.string(forKey:UserDefaultsKeys.toCity) == defaults.string(forKey:UserDefaultsKeys.fromCity) {
+            //                showToast(message: "Please Select Different Citys")
+            //            }
+            else if defaults.string(forKey:UserDefaultsKeys.calDepDate) == "" {
+                showToast(message: "Please Select Departure Date")
+            }else if defaults.string(forKey:UserDefaultsKeys.calRetDate) == "" {
+                showToast(message: "Please Select Return Date")
+            }else if defaults.string(forKey:UserDefaultsKeys.travellerDetails) == "Add Details" {
+                showToast(message: "Add Traveller")
+            }else if defaults.string(forKey:UserDefaultsKeys.selectClass) == "Add Details" {
+                showToast(message: "Add Class")
+            }else if isDepartureBeforeOrEqual == false {
+                showToast(message: "Invalid Date")
+            }else{
+                gotoSearchFlightResultVC(input: MySingleton.shared.payload)
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    func gotoNationalityVC(){
+        guard let vc = NationalityVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
     
     
     func gotoSearchFlightResultVC(input:[String:Any]) {
@@ -529,67 +424,44 @@ class BookFlightVC: BaseTableVC {
     }
     
     
-    
-    func gotoNationalityVC(){
-        guard let vc = NationalityVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+}
+
+
+
+extension BookFlightVC {
+    func addObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(offline), name: NSNotification.Name("offline"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload(notification:)), name: NSNotification.Name("reload"), object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload(notification:)), name: NSNotification.Name("AdvancedSearchTVCellreload"), object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("addcity"), object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(tripreload), name: Notification.Name("tripreload"), object: nil)
+        
     }
     
     
-    override func donedatePicker(cell:SearchFlightTVCell){
-        
-        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if journyType == "oneway" {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy"
-            defaults.set(formatter.string(from: cell.depDatePicker.date), forKey: UserDefaultsKeys.calDepDate)
-            
-        }else {
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy"
-            defaults.set(formatter.string(from: cell.retdepDatePicker.date), forKey: UserDefaultsKeys.calDepDate)
-            defaults.set(formatter.string(from: cell.retDatePicker.date), forKey: UserDefaultsKeys.calRetDate)
-        }
-        
+    
+    @objc func tripreload() {
         commonTableView.reloadData()
-        self.view.endEditing(true)
-    }
-    
-    override func cancelDatePicker(cell:SearchFlightTVCell){
-        self.view.endEditing(true)
     }
     
     
-    
-    override func donedatePicker(cell:AddCityTVCell){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy" // Adjust the format as needed
-
-        let index = Int(defaults.string(forKey: UserDefaultsKeys.cellTag) ?? "0") ?? 0
-        depatureDatesArray[index] = dateFormatter.string(from: cell.depDatePicker.date)
-
-       
-        NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
-
-        
-        self.view.endEditing(true)
-        
-    }
-    
-   
-    
-    override func cancelDatePicker(cell:AddCityTVCell){
-        self.view.endEditing(true)
+    @objc func offline(notificatio:UNNotification) {
+        callapibool = true
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false)
     }
     
     
-    override func didTapOnSelectAirlineBtnAction(cell:AddCityTVCell){
-        gotoNationalityVC()
+    @objc func reload(notification: NSNotification){
+        commonTableView.reloadData()
     }
-    
-    
-    
-    
 }

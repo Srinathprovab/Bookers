@@ -266,7 +266,6 @@ extension NationalityVC {
         
        
         
-        NotificationCenter.default.post(name: NSNotification.Name("calreloadTV"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
         self.dismiss(animated: true)
     }
