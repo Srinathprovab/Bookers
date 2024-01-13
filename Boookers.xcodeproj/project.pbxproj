@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		05D91191F6D782C5E7097CF8 /* Pods_Boookers_BoookersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344473AED61DF3B80C80ED04 /* Pods_Boookers_BoookersUITests.framework */; };
+		65336F6D2B528BDB00816FB4 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65336F682B528B5600816FB4 /* Inter-Bold.ttf */; };
+		65336F6E2B528BDB00816FB4 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65336F6C2B528B6B00816FB4 /* Inter-Light.ttf */; };
+		65336F6F2B528BDB00816FB4 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65336F6A2B528B6A00816FB4 /* Inter-Medium.ttf */; };
+		65336F702B528BDB00816FB4 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65336F692B528B6A00816FB4 /* Inter-Regular.ttf */; };
+		65336F712B528BDB00816FB4 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65336F6B2B528B6B00816FB4 /* Inter-SemiBold.ttf */; };
+		65336F722B528E0200816FB4 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65AD176E2B4EAC6A0064E8B0 /* OpenSans-Regular.ttf */; };
 		655A28102B4FC12F0060E12E /* FlightSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A280F2B4FC12E0060E12E /* FlightSearchVC.swift */; };
 		655A281D2B5005570060E12E /* SelectTabTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A281B2B5005560060E12E /* SelectTabTVCell.swift */; };
 		655A281E2B5005570060E12E /* SelectTabTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 655A281C2B5005570060E12E /* SelectTabTVCell.xib */; };
@@ -401,7 +407,6 @@
 		65AD19012B4EAC6E0064E8B0 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65AD176B2B4EAC6A0064E8B0 /* OpenSans-Semibold.ttf */; };
 		65AD19022B4EAC6E0064E8B0 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65AD176C2B4EAC6A0064E8B0 /* OpenSans-Light.ttf */; };
 		65AD19032B4EAC6E0064E8B0 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65AD176D2B4EAC6A0064E8B0 /* OpenSans-Bold.ttf */; };
-		65AD19042B4EAC6E0064E8B0 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65AD176E2B4EAC6A0064E8B0 /* OpenSans-Regular.ttf */; };
 		65AD19052B4EAC6E0064E8B0 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD176F2B4EAC6A0064E8B0 /* ColorManager.swift */; };
 		65AD19062B4EAC6E0064E8B0 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD17712B4EAC6A0064E8B0 /* DeviceName.swift */; };
 		65AD19072B4EAC6E0064E8B0 /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD17722B4EAC6A0064E8B0 /* NSObject+Helper.swift */; };
@@ -444,6 +449,11 @@
 		2325DBFE645BD920ACE77727 /* Pods-Boookers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boookers.release.xcconfig"; path = "Target Support Files/Pods-Boookers/Pods-Boookers.release.xcconfig"; sourceTree = "<group>"; };
 		344473AED61DF3B80C80ED04 /* Pods_Boookers_BoookersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boookers_BoookersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D29F1418C8A1CF2DD2076C0 /* Pods-BoookersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoookersTests.debug.xcconfig"; path = "Target Support Files/Pods-BoookersTests/Pods-BoookersTests.debug.xcconfig"; sourceTree = "<group>"; };
+		65336F682B528B5600816FB4 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		65336F692B528B6A00816FB4 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		65336F6A2B528B6A00816FB4 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		65336F6B2B528B6B00816FB4 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		65336F6C2B528B6B00816FB4 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		655A280F2B4FC12E0060E12E /* FlightSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchVC.swift; sourceTree = "<group>"; };
 		655A281B2B5005560060E12E /* SelectTabTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTabTVCell.swift; sourceTree = "<group>"; };
 		655A281C2B5005570060E12E /* SelectTabTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTabTVCell.xib; sourceTree = "<group>"; };
@@ -899,6 +909,18 @@
 				BAC790B14B3005CBB50A219B /* Pods_BoookersTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65336F672B528B4300816FB4 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				65336F682B528B5600816FB4 /* Inter-Bold.ttf */,
+				65336F6C2B528B6B00816FB4 /* Inter-Light.ttf */,
+				65336F6A2B528B6A00816FB4 /* Inter-Medium.ttf */,
+				65336F692B528B6A00816FB4 /* Inter-Regular.ttf */,
+				65336F6B2B528B6B00816FB4 /* Inter-SemiBold.ttf */,
+			);
+			path = Inter;
 			sourceTree = "<group>";
 		};
 		655A28112B4FCE200060E12E /* Flights */ = {
@@ -1513,13 +1535,13 @@
 				65AD16252B4EAC690064E8B0 /* BookFlightVC.swift */,
 				65AD16322B4EAC690064E8B0 /* ModifySearchVC.swift */,
 				65AD16232B4EAC690064E8B0 /* SearchFlightResultVC.swift */,
+				65AD161D2B4EAC690064E8B0 /* SelectedFlightInfoVC.swift */,
+				65AD16292B4EAC690064E8B0 /* PayNowVC.swift */,
 				65AD16192B4EAC690064E8B0 /* ContactUsVC.swift */,
 				65AD161A2B4EAC690064E8B0 /* ViewController.swift */,
 				65AD161B2B4EAC690064E8B0 /* LoadWebViewVC.swift */,
 				65AD161C2B4EAC690064E8B0 /* SideMenuVC.swift */,
-				65AD161D2B4EAC690064E8B0 /* SelectedFlightInfoVC.swift */,
 				65AD161E2B4EAC690064E8B0 /* SelectLanguageVC.swift */,
-				65AD16292B4EAC690064E8B0 /* PayNowVC.swift */,
 				65AD16202B4EAC690064E8B0 /* NoInternetConnectionVC.swift */,
 				65AD16212B4EAC690064E8B0 /* SelectFromCityVC.swift */,
 				65AD16222B4EAC690064E8B0 /* AboutUsVC.swift */,
@@ -2402,8 +2424,8 @@
 		65AD17252B4EAC6A0064E8B0 /* LabelTVCell */ = {
 			isa = PBXGroup;
 			children = (
-				65AD17262B4EAC6A0064E8B0 /* LabelTVCell.xib */,
 				65AD17272B4EAC6A0064E8B0 /* LabelTVCell.swift */,
+				65AD17262B4EAC6A0064E8B0 /* LabelTVCell.xib */,
 			);
 			path = LabelTVCell;
 			sourceTree = "<group>";
@@ -2550,6 +2572,7 @@
 		65AD17552B4EAC6A0064E8B0 /* UIFonts */ = {
 			isa = PBXGroup;
 			children = (
+				65336F672B528B4300816FB4 /* Inter */,
 				65AD176F2B4EAC6A0064E8B0 /* ColorManager.swift */,
 				65AD17562B4EAC6A0064E8B0 /* FontManager.swift */,
 				65AD17572B4EAC6A0064E8B0 /* UIColorManager.swift */,
@@ -2583,7 +2606,6 @@
 				65AD17632B4EAC6A0064E8B0 /* Poppins-Medium.ttf */,
 				65AD17642B4EAC6A0064E8B0 /* Oswald-Medium.ttf */,
 				65AD17652B4EAC6A0064E8B0 /* Poppins-ExtraBold.ttf */,
-				65AD17662B4EAC6A0064E8B0 /* OpenSans-Medium.ttf */,
 				65AD17672B4EAC6A0064E8B0 /* Poppins-Bold.ttf */,
 				65AD17682B4EAC6A0064E8B0 /* Poppins-Black.ttf */,
 				65AD17692B4EAC6A0064E8B0 /* Poppins-SemiBold.ttf */,
@@ -2594,6 +2616,7 @@
 		65AD176A2B4EAC6A0064E8B0 /* OpenSans */ = {
 			isa = PBXGroup;
 			children = (
+				65AD17662B4EAC6A0064E8B0 /* OpenSans-Medium.ttf */,
 				65AD176B2B4EAC6A0064E8B0 /* OpenSans-Semibold.ttf */,
 				65AD176C2B4EAC6A0064E8B0 /* OpenSans-Light.ttf */,
 				65AD176D2B4EAC6A0064E8B0 /* OpenSans-Bold.ttf */,
@@ -2790,6 +2813,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65336F722B528E0200816FB4 /* OpenSans-Regular.ttf in Resources */,
+				65336F6D2B528BDB00816FB4 /* Inter-Bold.ttf in Resources */,
+				65336F6E2B528BDB00816FB4 /* Inter-Light.ttf in Resources */,
+				65336F6F2B528BDB00816FB4 /* Inter-Medium.ttf in Resources */,
+				65336F702B528BDB00816FB4 /* Inter-Regular.ttf in Resources */,
+				65336F712B528BDB00816FB4 /* Inter-SemiBold.ttf in Resources */,
 				65AD19102B4EC9240064E8B0 /* Poppins-Regular.ttf in Resources */,
 				65AD186C2B4EAC6D0064E8B0 /* RoundTripInfoTVCell.xib in Resources */,
 				65AD18FA2B4EAC6E0064E8B0 /* Poppins-Medium.ttf in Resources */,
@@ -2906,7 +2935,6 @@
 				65AD18CC2B4EAC6E0064E8B0 /* UnderLineTVCell.xib in Resources */,
 				65AD15202B4EAC0F0064E8B0 /* Assets.xcassets in Resources */,
 				65AD18902B4EAC6E0064E8B0 /* CommonTVAddTravellerTVCell.xib in Resources */,
-				65AD19042B4EAC6E0064E8B0 /* OpenSans-Regular.ttf in Resources */,
 				65AD18692B4EAC6D0064E8B0 /* MulticityFromToTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

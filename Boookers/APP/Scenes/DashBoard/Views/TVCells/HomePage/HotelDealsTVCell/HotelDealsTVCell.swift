@@ -12,6 +12,7 @@ import SDWebImage
 class HotelDealsTVCell: TableViewCell {
     
     @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var dealsCV: UICollectionView!
     
     
@@ -30,7 +31,7 @@ class HotelDealsTVCell: TableViewCell {
     
     override func updateUI() {
         self.key = cellInfo?.key1 ?? ""
-       
+        titlelbl.text = cellInfo?.title ?? ""
         dealsCV.reloadData()
     }
     

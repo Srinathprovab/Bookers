@@ -50,7 +50,9 @@ class FlightSearchTVCell: TableViewCell {
     @IBOutlet weak var infantIncBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var onewayclassView: UIView!
+    @IBOutlet weak var directFlightCheckImg: UIImageView!
     
+    var directFlightBool = false
     let onewayclassDropdown = DropDown()
     var selectClassArray = ["Economy","Premium","First","Business"]
     var infoViewbool = false
@@ -148,6 +150,7 @@ class FlightSearchTVCell: TableViewCell {
         infantIncBtn.addTarget(self, action: #selector(didTapOnInfantIncrementBtnAction(_:)), for: .touchUpInside)
         infantDecBtn.addTarget(self, action: #selector(didTapOnInfantDecrementBtnAction(_:)), for: .touchUpInside)
         closebtn.addTarget(self, action: #selector(didTapOnCloseModifysearch), for: .touchUpInside)
+        directFlightCheckImg.image = UIImage(named: "uncheck")
 
     
         searchBtn.layer.cornerRadius = 4
@@ -253,7 +256,14 @@ class FlightSearchTVCell: TableViewCell {
     }
     
     
-   
+    @IBAction func didTapOnDirectFlightBtnAction(_ sender: Any) {
+        directFlightBool.toggle()
+        if directFlightBool {
+            directFlightCheckImg.image = UIImage(named: "chk")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
+        }else {
+            directFlightCheckImg.image = UIImage(named: "uncheck")
+        }
+    }
     
 }
 

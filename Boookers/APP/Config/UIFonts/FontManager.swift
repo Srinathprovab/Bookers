@@ -86,12 +86,38 @@ extension UIFont {
         return UIFont(name: "OpenSans-Bold", size: size)!
     }
     
-//    public static func OpenSansRegular(size: CGFloat) -> UIFont {
-//        return UIFont(name: "OpenSans-Regular", size: size)!
-//    }
     
     public static func OpenSansRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "Lato-Regular", size: size)!
+        return UIFont(name: "Inter-Regular", size: size)!
     }
+    
+    
+    
+    public static func InterRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Regular", size: size)!
+    }
+    
+    public static func InterLight(size: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Light", size: size)!
+    }
+    
+    
+    public static func InterMedium(size: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Medium", size: size)!
+    }
+    
+    public static func InterBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Bold", size: size)!
+    }
+    
+    
+    public static func InterSemiBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-SemiBold", size: size)!
+    }
+    
+    
+    
+    
+    
     
 }
