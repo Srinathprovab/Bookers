@@ -9,9 +9,6 @@ import UIKit
 
 class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerManagerDelegate {
     
-    
-    
-    
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var cvHolderView: UIView!
     @IBOutlet weak var itineraryCV: UICollectionView!
