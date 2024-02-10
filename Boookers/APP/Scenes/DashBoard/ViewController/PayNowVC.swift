@@ -10,10 +10,8 @@ import UIKit
 class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDelegate {
     
     
-
+    
     @IBOutlet weak var holderView: UIView!
-    @IBOutlet weak var nav: NavBar!
-    @IBOutlet weak var navHeight: NSLayoutConstraint!
     @IBOutlet weak var viewFlightsBtnView: UIView!
     @IBOutlet weak var viewFlightlbl: UILabel!
     @IBOutlet weak var viewFlightsBtn: UIButton!
@@ -22,6 +20,9 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
     @IBOutlet weak var bookNowView: UIView!
     @IBOutlet weak var bookNowlbl: UILabel!
     @IBOutlet weak var bookNowBtn: UIButton!
+    @IBOutlet weak var citylbl: UILabel!
+    @IBOutlet weak var datelbl: UILabel!
+    @IBOutlet weak var economylbl: UILabel!
     
     static var newInstance: PayNowVC? {
         let storyboard = UIStoryboard(name: Storyboard.Main.name,
@@ -103,19 +104,7 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
     
     func setupUI() {
         
-        if screenHeight > 835 {
-            navHeight.constant = 230
-        }else {
-            navHeight.constant = 145
-        }
-        
         holderView.backgroundColor = .WhiteColor
-        nav.titlelbl.text = "Booking Details"
-        nav.backBtn.addTarget(self, action: #selector(gotoBackScreen), for: .touchUpInside)
-        nav.citylbl.isHidden = false
-        nav.datelbl.isHidden = false
-        nav.travellerlbl.isHidden = false
-        
         
         viewFlightsBtnView.backgroundColor = .clear
         viewFlightsBtnView.addCornerRadiusWithShadow(color: .clear, borderColor: HexColor("#C5A47E"), cornerRadius: 15)
@@ -123,11 +112,9 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
         viewFlightlbl.font = UIFont.poppinsRegular(size: 14)
         viewFlightsBtn.setTitle("", for: .normal)
         
-       // setupViews(v: bookNowHolderView, radius: 0, color: .AppJournyTabSelectColor)
         setupViews(v: bookNowView, radius: 6, color: .AppNavBackColor)
         bookNowView.layer.cornerRadius = 20
         bookNowView.clipsToBounds = true
-     //   setupLabels(lbl: titlelbl, text: grandTotal, textcolor: .WhiteColor, font: .OpenSansMedium(size: 20))
         titlelbl.text = grandTotal
         setupLabels(lbl: bookNowlbl, text: "PAY NOW", textcolor: .WhiteColor, font: .OpenSansMedium(size: 16))
         bookNowBtn.setTitle("", for: .normal)
@@ -267,8 +254,8 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
             tablerow.append(TableRow(cellType:.PromocodeTVCell))
         }
         
-//        tablerow.append(TableRow(title:grandTotal,
-//                                 cellType:.PriceSummaryTVCell))
+        //        tablerow.append(TableRow(title:grandTotal,
+        //                                 cellType:.PriceSummaryTVCell))
         
         tablerow.append(TableRow(cellType:.FlightPriceSummeryTVCell))
         
@@ -348,7 +335,7 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
             DispatchQueue.main.async {[self] in
                 commonTableView.reloadData()
             }
-    
+            
         }else {
             showToast(message: "Invalid Promo Code")
             promocodeBool = false
@@ -373,11 +360,11 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
     
     
     override func didTapOnTAndCAction(cell: AcceptTermsAndConditionTVCell) {
-         gotoAboutUsVC(keystr: "terms")
+        gotoAboutUsVC(keystr: "terms")
     }
     
     override func didTapOnPrivacyPolicyAction(cell: AcceptTermsAndConditionTVCell) {
-         gotoAboutUsVC(keystr: "pp")
+        gotoAboutUsVC(keystr: "pp")
     }
     
     func gotoAboutUsVC(keystr:String) {
@@ -470,6 +457,15 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
         }
     }
     
+    
+    @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        MySingleton.shared.callboolapi = false
+        dismiss(animated: true)
+    }
+    
+    
+    
+    
 }
 
 extension PayNowVC {
@@ -535,7 +531,7 @@ extension PayNowVC {
             
         }
     }
-
+    
 }
 
 
@@ -759,7 +755,7 @@ extension PayNowVC {
         }else if checkTermsAndCondationStatus == false {
             showToast(message: "Please Accept T&C and Privacy Policy")
         }else {
-            vm?.CALL_PROCESS_PASSENGER_DETAIL_API(dictParam: payload)
+            // vm?.CALL_PROCESS_PASSENGER_DETAIL_API(dictParam: payload)
         }
         
         
@@ -921,7 +917,7 @@ extension PayNowVC:HotelMBViewModelDelegate {
         
         roompaxesdetails = response.data?.room_paxes_details ?? []
         titlelbl.text = "\(roompaxesdetails[0].currency ?? ""):\(roompaxesdetails[0].net ?? "")"
-        nav.travellerlbl.text = "Guests- \(roompaxesdetails[0].no_of_adults ?? 0) / Room - \(roompaxesdetails[0].no_of_rooms ?? 0))"
+        self.economylbl.text = "Guests- \(roompaxesdetails[0].no_of_adults ?? 0) / Room - \(roompaxesdetails[0].no_of_rooms ?? 0))"
         
         travelerArray.removeAll()
         
@@ -1154,7 +1150,7 @@ extension PayNowVC {
             searchMulticityAgain()
         }
         
-       
+        
         
         
     }
@@ -1244,7 +1240,7 @@ extension PayNowVC {
         if showToastMessage == nil {
             // Convert date strings to Date objects
             let dateObjects = depatureDatesArray.compactMap { stringToDate($0) }
-
+            
             // Check if dateObjects is in ascending order
             if dateObjects != dateObjects.sorted() {
                 showToastMessage = "Please Select Dates in Ascending Order"
@@ -1252,8 +1248,8 @@ extension PayNowVC {
                 showToastMessage = "Please Select Different Dates"
             }
         }
-
-
+        
+        
         
         if let message = showToastMessage {
             showToast(message: message)
@@ -1376,13 +1372,15 @@ extension PayNowVC {
                 
                 
                 viewFlightlbl.text = "View Flight Details"
-                nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
-                nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
+                
+                citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
+                datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
+                economylbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? ""
                 
                 
                 if let journeyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
                     if journeyType == "oneway" {
-                        nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? ""
+                        
                         
                         adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") ?? 0
                         childCount = Int(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") ?? 0
@@ -1391,14 +1389,12 @@ extension PayNowVC {
                         
                         
                     }else if journeyType == "circle"{
-                        nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? ""
                         
                         adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") ?? 0
                         childCount = Int(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") ?? 0
                         infantsCount = Int(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0") ?? 0
                         flighttotelCount = (adultsCount + childCount + infantsCount)
                     }else {
-                        nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? ""
                         
                         adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") ?? 0
                         childCount = Int(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") ?? 0
@@ -1422,8 +1418,11 @@ extension PayNowVC {
                 
                 adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "1") ?? 0
                 childCount = Int(defaults.string(forKey: UserDefaultsKeys.hotelchildcount) ?? "0") ?? 0
-                nav.citylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.locationcity) ?? "")"
-                nav.datelbl.text = "CheckIn - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "" , f1: "dd-MM-yyyy", f2: "dd MMM")) & CheckOut - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM"))"
+                
+                citylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.locationcity) ?? "")"
+                datelbl.text = "CheckIn - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "" , f1: "dd-MM-yyyy", f2: "dd MMM")) & CheckOut - \(convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "dd MMM"))"
+                
+                economylbl.text = ""
                 
                 
                 if callapibool == true {

@@ -9,12 +9,7 @@ import UIKit
 
 class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerManagerDelegate {
     
-    
-    
-    
     @IBOutlet weak var holderView: UIView!
-    @IBOutlet weak var nav: NavBar!
-    @IBOutlet weak var navHeight: NSLayoutConstraint!
     @IBOutlet weak var cvHolderView: UIView!
     @IBOutlet weak var itineraryCV: UICollectionView!
     @IBOutlet weak var bookNowHolderView: UIView!
@@ -130,16 +125,16 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
             if let adultsBasePriceString = response.priceDetails?.adultsBasePrice,
                let childsBasePriceString = response.priceDetails?.childBasePrice,
                let infantsBasePriceString = response.priceDetails?.infantBasePrice {
-
+                
                 // Convert strings to doubles, providing default values if conversion fails
                 let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
                 let childsBasePrice = Double(childsBasePriceString) ?? 0.0
                 let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
-
+                
                 // Calculate total base fare
-                 totalBaseFare = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
-               
-
+                totalBaseFare = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
+                
+                
             } else {
                 print("Error: One or more base prices are nil.")
             }
@@ -148,20 +143,20 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
             if let adultsBasePriceString = response.priceDetails?.adultsTaxPrice,
                let childsBasePriceString = response.priceDetails?.childTaxPrice,
                let infantsBasePriceString = response.priceDetails?.infantTaxPrice {
-
+                
                 // Convert strings to doubles, providing default values if conversion fails
                 let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
                 let childsBasePrice = Double(childsBasePriceString) ?? 0.0
                 let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
-
+                
                 // Calculate total base fare
-                 totaltax = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
-               
-
+                totaltax = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
+                
+                
             } else {
                 print("Error: One or more base prices are nil.")
             }
-
+            
             
             setupUI()
             
@@ -187,40 +182,10 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
         commonTableView.backgroundColor = .AppHolderViewColor
         
         setupCV()
-        
-        if screenHeight > 835 {
-            navHeight.constant = 250
-        }else {
-            navHeight.constant = 150
-        }
-        
-        
-        nav.titlelbl.text = "Flight Details"
-        nav.backBtn.addTarget(self, action: #selector(gotoBackScreen), for: .touchUpInside)
-        nav.citylbl.isHidden = false
-        nav.datelbl.isHidden = false
-        nav.travellerlbl.isHidden = false
-        nav.citylbl.text = defaults.string(forKey: UserDefaultsKeys.journeyCitys) ?? ""
-        nav.datelbl.text = defaults.string(forKey: UserDefaultsKeys.journeyDates) ?? ""
-        let jt = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if jt == "oneway" {
-            nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? ""
-        }else if jt == "circle" {
-            nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? ""
-        }else {
-            nav.travellerlbl.text = defaults.string(forKey: UserDefaultsKeys.travellerDetails) ?? ""
-        }
-        
         cellIndex = Int(defaults.string(forKey: UserDefaultsKeys.itinerarySelectedIndex) ?? "0") ?? 0
         print("cellIndex \(cellIndex)")
         itineraryCV.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
-        
-        
-        
-        
-       // setupViews(v: bookNowHolderView, radius: 0, color: .AppJournyTabSelectColor)
         setupViews(v: bookNowView, radius: 6, color: .AppNavBackColor)
-    //    setupLabels(lbl: titlelbl, text: grandTotal, textcolor: .WhiteColor, font: .OpenSansRegular(size: 20))
         titlelbl.text = grandTotal
         setupLabels(lbl: bookNowlbl, text: "BOOK NOW", textcolor: .WhiteColor, font: .OpenSansRegular(size: 16))
         bookNowBtn.setTitle("", for: .normal)
@@ -284,18 +249,15 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     func setupItineraryTVCells() {
         tablerow.removeAll()
         
-//        fd.forEach { i in
-//            tablerow.append(TableRow(moreData:i,cellType:.AddItineraryTVCell))
-//        }
         
         fd.enumerated().forEach { (index, element) in
             tablerow.append(TableRow(title:"\(index)",moreData: element, cellType: .AddItineraryTVCell))
         }
-
-
+        
+        
         
         tablerow.append(TableRow(height:50,bgColor: .AppHolderViewColor,cellType:.EmptyTVCell))
-
+        
         
         commonTVData = tablerow
         commonTableView.reloadData()
@@ -461,9 +423,12 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     
     
     
+    @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        dismiss(animated: true)
+    }
     
-
-
+    
+    
 }
 
 
@@ -546,7 +511,7 @@ extension SelectedFlightInfoVC {
         commonTableView.beginUpdates()
         commonTableView.endUpdates()
     }
-
+    
 }
 
 
@@ -566,7 +531,7 @@ extension SelectedFlightInfoVC {
     
     
     @objc func reloadTimer(){
-       // TimerManager.shared.delegate = self
+        // TimerManager.shared.delegate = self
     }
     
     @objc func nointernet(){
@@ -634,7 +599,7 @@ extension SelectedFlightInfoVC {
         let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
         if journyType == "oneway" {
             payload["return"] = ""
-           
+            
         }else if journyType == "circle"{
             payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
         }
@@ -668,7 +633,7 @@ extension SelectedFlightInfoVC {
         loderBool = true
         callapibool = true
         vc.payload = input
-        self.present(vc, animated: false)
+       // self.present(vc, animated: false)
     }
     
     

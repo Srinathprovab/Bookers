@@ -30,9 +30,10 @@ let screenHeight = UIScreen.main.bounds.size.height
 var loderBool = false
 var basicloderBool = false
 
-var BASE_URL = "https://kuwaitways.com/mobile_webservices/index.php/"
-var BASE_URL1 = "https://kuwaitways.com/mobile_webservices/index.php/"
+var BASE_URL = "https://btsafer.com/mobile_webservices/index.php/"
+var BASE_URL1 = "https://btsafer.com/mobile_webservices/index.php/"
 var accessToken = "e3VzZXJuYW1lOmFudWpob29kYSxwYXNzd29yZDprdXdhaXR3YXlzQG1vYmlsZWFwcCxhdXRodHlwZTp0ZXN0fQ=="
+
 var defaultCountryCode = "+91"
 var mobilenoMaxLength = Int()
 var mobilenoMaxLengthBool = false

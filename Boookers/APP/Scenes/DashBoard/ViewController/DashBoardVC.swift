@@ -136,15 +136,15 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
         tablerow.removeAll()
         
         tablerow.append(TableRow(key:"dash",cellType:.SelectTabTVCell))
-        tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(title:"BEST DEALS FLIGHTS ",key: "deals", text:imgPath, height:50,cellType:.LabelTVCell))
-        tablerow.append(TableRow(height:18,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(key1:"flight",cellType:.HotelDealsTVCell))
         
-        tablerow.append(TableRow(height:18,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(title:"BEST DEALS HOTELS ",key: "deals",text:imgPath,height:50,cellType:.LabelTVCell))
-        tablerow.append(TableRow(height:18,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(key1:"hotel",cellType:.HotelDealsTVCell))
+        tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
+        tablerow.append(TableRow(title:"Best Deals Flights ",key1:"flight",cellType:.HotelDealsTVCell))
+        tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
+        tablerow.append(TableRow(title:"Best Deals Hotels ",key1:"hotel",cellType:.HotelDealsTVCell))
+        
+        tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
+        tablerow.append(TableRow(title:"Best Offers ",key1:"offer",cellType:.HotelDealsTVCell))
+        
         tablerow.append(TableRow(height:30,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
         
         commonTVData = tablerow
@@ -317,7 +317,24 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
         return .lightContent
     }
     
-
+    
+    
+    //MARK: - HotelDealsTVCell Methods
+    override func didTapOnFlightOfferBtnAction(cell: HotelDealsTVCell) {
+        commonTableView.reloadData()
+    }
+    
+    override func didTapOnHoteOfferlBtnAction(cell: HotelDealsTVCell) {
+        commonTableView.reloadData()
+    }
+    
+    override func didTapOnSportsOfferBtnAction(cell: HotelDealsTVCell) {
+        commonTableView.reloadData()
+    }
+    
+    
+    
+    
 }
 
 
