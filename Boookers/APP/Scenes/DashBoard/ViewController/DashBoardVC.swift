@@ -102,16 +102,23 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
     //MARK: - CALL_INDEX_PAGE_API
     
     func callAPI() {
+        BASE_URL = ""
         vm?.CALL_INDEX_PAGE_API(dictParam: [:])
     }
     
     
     func indexPageDetails(response: IndexPageModel) {
-        imgPath = response.image_path ?? ""
-        sliderimagesflight = response.flight_top_destinations1 ?? []
-        sliderimageshotel = response.top_dest_hotel ?? []
-        currencyType = response.currency ?? ""
+       // imgPath = response.image_path ?? ""
         
+        
+        sliderimagesflight = response.flight_top_destinations ?? []
+        sliderimageshotel = response.hotel_top_destination ?? []
+         sports_top_destinations = response.sports_top_destinations ?? []
+         holiday_top_destinations = response.holiday_top_destinations ?? []
+        
+        
+       //currencyType = response.currency ?? ""
+        BASE_URL = BASE_URL1
         DispatchQueue.main.async {[self] in
             setupTV()
         }
@@ -127,6 +134,7 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
         commonTableView.registerTVCells(["EmptyTVCell",
                                          "SelectTabTVCell",
                                          "HotelDealsTVCell",
+                                         "BestHolidayOfferTVCell",
                                          "LabelTVCell"])
         appendTVCells()
     }
@@ -137,10 +145,9 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
         
         tablerow.append(TableRow(key:"dash",cellType:.SelectTabTVCell))
         
+
         tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(title:"Best Deals Flights ",key1:"flight",cellType:.HotelDealsTVCell))
-        tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(title:"Best Deals Hotels ",key1:"hotel",cellType:.HotelDealsTVCell))
+        tablerow.append(TableRow(title:"Best Holiday Offer ",cellType:.BestHolidayOfferTVCell))
         
         tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"Best Offers ",key1:"offer",cellType:.HotelDealsTVCell))

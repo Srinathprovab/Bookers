@@ -50,8 +50,11 @@ var userLogedDetails : LoginModel?
 //MARK: - COREDATE SAVE PASSENGER DETAILS
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context = appDelegate.persistentContainer.viewContext
-var sliderimagesflight = [Flight_top_destinations1]()
-var sliderimageshotel = [Top_dest_hotel]()
+var sliderimagesflight = [Flight_top_destinations]()
+var sliderimageshotel = [Hotel_top_destination]()
+
+var sports_top_destinations = [Sports_top_destinations]()
+var holiday_top_destinations = [Holiday_top_destinations]()
 var imgPath = String()
 var currencyType = String()
 

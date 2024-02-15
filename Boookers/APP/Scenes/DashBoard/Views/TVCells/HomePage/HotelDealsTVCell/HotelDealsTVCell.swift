@@ -41,7 +41,7 @@ class HotelDealsTVCell: TableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setuUI()
+       
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,6 +51,7 @@ class HotelDealsTVCell: TableViewCell {
     }
     
     override func updateUI() {
+        setuUI()
         self.key = cellInfo?.key1 ?? ""
         titlelbl.text = cellInfo?.title ?? ""
         dealsCV.reloadData()
@@ -62,28 +63,47 @@ class HotelDealsTVCell: TableViewCell {
     }
     
     
-    
-    
-    
     func setupCV() {
+        
         //  contentView.backgroundColor = .AppBGcolor
         holderView.backgroundColor = .AppBGcolor
-      
         dealsCV.backgroundColor = .AppBGcolor
-        let nib = UINib(nibName: "HotelDealsCVCell", bundle: nil)
-        dealsCV.register(nib, forCellWithReuseIdentifier: "cell")
-        dealsCV.delegate = self
-        dealsCV.dataSource = self
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 156, height: 190)
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 15
-        layout.minimumLineSpacing = 15
-        dealsCV.collectionViewLayout = layout
-        dealsCV.layer.cornerRadius = 4
-        dealsCV.clipsToBounds = true
-        dealsCV.showsHorizontalScrollIndicator = false
-        dealsCV.bounces = false
+        
+        if offercase == .flight {
+            let nib1 = UINib(nibName: "FlightDealsCVCell", bundle: nil)
+            dealsCV.register(nib1, forCellWithReuseIdentifier: "cell1")
+            setupCVAttributes(cv: dealsCV)
+        }else if offercase == .hotel {
+       
+            let nib2 = UINib(nibName: "HotelDealsCVCell", bundle: nil)
+            dealsCV.register(nib2, forCellWithReuseIdentifier: "cell2")
+            setupCVAttributes(cv: dealsCV)
+        
+
+        }else{
+            let nib3 = UINib(nibName: "SportDealsCVCell", bundle: nil)
+            dealsCV.register(nib3, forCellWithReuseIdentifier: "cell3")
+            setupCVAttributes(cv: dealsCV)
+        }
+            
+        
+        func setupCVAttributes(cv:UICollectionView) {
+            cv.delegate = self
+            cv.dataSource = self
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: 200, height: 200)
+            layout.scrollDirection = .horizontal
+            layout.minimumInteritemSpacing = 15
+            layout.minimumLineSpacing = 15
+            cv.collectionViewLayout = layout
+            cv.layer.cornerRadius = 4
+            cv.clipsToBounds = true
+            cv.showsHorizontalScrollIndicator = false
+            cv.bounces = false
+        }
+       
+        
+        
     }
     
     
@@ -113,104 +133,99 @@ extension HotelDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.key == "offer" {
-           
-            
-            if offercase == .flight {
-                return sliderimagesflight.count
-            }else  if offercase == .flight {
-                return sliderimageshotel.count
-            }else {
-                return sliderimageshotel.count
-            }
-                
-            
-            
-        }else if self.key == "flight" {
+        if offercase == .flight {
             return sliderimagesflight.count
-        }else {
+        }else  if offercase == .hotel {
             return sliderimageshotel.count
+        }else {
+            return sports_top_destinations.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var commonCell = UICollectionViewCell()
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HotelDealsCVCell {
+       
             
             if self.key == "offer" {
                 
                 
+                offerTabsView.isHidden = false
                 
                 switch offercase {
                 case .flight:
                     
-                    setSelectedColor(btn: flightBtn)
-                    setUnSelectedColor(btn: hotelbtn)
-                    setUnSelectedColor(btn: sportbtn)
+                    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? FlightDealsCVCell {
+                        
+                        setSelectedColor(btn: flightBtn)
+                        setUnSelectedColor(btn: hotelbtn)
+                        setUnSelectedColor(btn: sportbtn)
+                        
+                        let data = sliderimagesflight[indexPath.row]
+                       
+                        cell.img.sd_setImage(with: URL(string: "\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                        cell.fromlbl.text = "\(data.from_city_loc ?? "") -> \(data.to_city_loc ?? "")"
+                        cell.tolbl.text = "\(data.travel_date ?? "") -> \(data.return_date ?? "")"
+                        
+                        
+                        commonCell = cell
+                    }
                     
-                    let data = sliderimagesflight[indexPath.row]
-                    offerTabsView.isHidden = false
-                    cell.dealsImg.sd_setImage(with: URL(string: "\(imgPath )\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                    cell.citylbl.text = "\(data.from_city_name ?? "") - \(data.from_city_loc ?? "")"
-                    cell.countrylbl.text = data.from_country
-                    cell.kwdlbl.text = "\(currencyType) \(data.price ?? "")"
                     
-                    break
+                    
                     
                 case .hotel:
-                    setSelectedColor(btn: hotelbtn)
-                    setUnSelectedColor(btn: flightBtn)
-                    setUnSelectedColor(btn: sportbtn)
                     
                     
-                    let data = sliderimagesflight[indexPath.row]
                     
-                    cell.dealsImg.sd_setImage(with: URL(string: "\(imgPath )\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                    cell.citylbl.text = "\(data.from_city_name ?? "") - \(data.from_city_loc ?? "")"
-                    cell.countrylbl.text = data.from_country
-                    cell.kwdlbl.text = "\(currencyType) \(data.price ?? "")"
+                    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as? HotelDealsCVCell {
+                        
+                        setSelectedColor(btn: hotelbtn)
+                        setUnSelectedColor(btn: flightBtn)
+                        setUnSelectedColor(btn: sportbtn)
+                        
+                        
+                        let data = sliderimageshotel[indexPath.row]
+                        
+                        cell.img.sd_setImage(with: URL(string: "\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+   
+                        cell.titlelbl.text = "\(data.city_name ?? "")(\(data.country_name ?? ""))"
+                        cell.subTitlelbl.text = data.updated_at ?? ""
+                        cell.nightslbl.text = "3 Nights"
+                        commonCell = cell
+                    }
+                   
                     
                     
-                    break
                     
                 case .sports:
-                    setSelectedColor(btn: sportbtn)
-                    setUnSelectedColor(btn: hotelbtn)
-                    setUnSelectedColor(btn: flightBtn)
-                    
-                    let data = sliderimageshotel[indexPath.row]
-                    
-                    cell.dealsImg.sd_setImage(with: URL(string: "\(imgPath )\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                    cell.citylbl.text = "\(data.city_name ?? "")"
-                    cell.countrylbl.text = data.country_name
-                    cell.kwdlbl.text = "\(currencyType) \(data.price ?? "")"
                     
                     
-                    break
+                    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as? SportDealsCVCell {
+                        
+                        setSelectedColor(btn: sportbtn)
+                        setUnSelectedColor(btn: hotelbtn)
+                        setUnSelectedColor(btn: flightBtn)
+                        
+                        let data = sports_top_destinations[indexPath.row]
+                        
+                        cell.img.sd_setImage(with: URL(string: "\(imgPath )\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                        cell.titlelbl.text = data.country ?? ""
+                        cell.subTitlelbl.text = data.updated_at ?? ""
+                        commonCell = cell
+                    }
+                    
+                    
+                    
+                    
+                    
                     
                     
                 default:
                     break
                 }
                 
-            }else if self.key == "flight" {
-                let data = sliderimagesflight[indexPath.row]
-                
-                cell.dealsImg.sd_setImage(with: URL(string: "\(imgPath )\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                cell.citylbl.text = "\(data.from_city_name ?? "") - \(data.from_city_loc ?? "")"
-                cell.countrylbl.text = data.from_country
-                cell.kwdlbl.text = "\(currencyType) \(data.price ?? "")"
-            }else {
-                let data = sliderimageshotel[indexPath.row]
-                
-                cell.dealsImg.sd_setImage(with: URL(string: "\(imgPath )\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                cell.citylbl.text = "\(data.city_name ?? "")"
-                cell.countrylbl.text = data.country_name
-                cell.kwdlbl.text = "\(currencyType) \(data.price ?? "")"
-                
             }
-            commonCell = cell
-        }
+
         return commonCell
     }
     

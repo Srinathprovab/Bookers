@@ -1,8 +1,20 @@
+/* 
+Copyright (c) 2024 Swift Models Generated from JSON powered by http://www.json4swift.com
 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar
+
+*/
 
 import Foundation
-struct Flight_top_destinations1 : Codable {
+struct Flight_top_destinations : Codable {
 	let id : String?
+	let title : String?
 	let from_city : String?
 	let to_city : String?
 	let travel_date : String?
@@ -24,11 +36,14 @@ struct Flight_top_destinations1 : Codable {
 	let to_city_name : String?
 	let to_country : String?
 	let to_city_loc : String?
+	let widget_title : String?
 	let airport_name : String?
+	let hit_url : String?
 
 	enum CodingKeys: String, CodingKey {
 
 		case id = "id"
+		case title = "title"
 		case from_city = "from_city"
 		case to_city = "to_city"
 		case travel_date = "travel_date"
@@ -50,12 +65,15 @@ struct Flight_top_destinations1 : Codable {
 		case to_city_name = "to_city_name"
 		case to_country = "to_country"
 		case to_city_loc = "to_city_loc"
+		case widget_title = "widget_title"
 		case airport_name = "airport_name"
+		case hit_url = "hit_url"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		id = try values.decodeIfPresent(String.self, forKey: .id)
+		title = try values.decodeIfPresent(String.self, forKey: .title)
 		from_city = try values.decodeIfPresent(String.self, forKey: .from_city)
 		to_city = try values.decodeIfPresent(String.self, forKey: .to_city)
 		travel_date = try values.decodeIfPresent(String.self, forKey: .travel_date)
@@ -77,7 +95,9 @@ struct Flight_top_destinations1 : Codable {
 		to_city_name = try values.decodeIfPresent(String.self, forKey: .to_city_name)
 		to_country = try values.decodeIfPresent(String.self, forKey: .to_country)
 		to_city_loc = try values.decodeIfPresent(String.self, forKey: .to_city_loc)
+		widget_title = try values.decodeIfPresent(String.self, forKey: .widget_title)
 		airport_name = try values.decodeIfPresent(String.self, forKey: .airport_name)
+		hit_url = try values.decodeIfPresent(String.self, forKey: .hit_url)
 	}
 
 }

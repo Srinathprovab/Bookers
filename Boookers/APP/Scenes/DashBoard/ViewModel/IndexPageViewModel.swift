@@ -27,7 +27,7 @@ class IndexPageViewModel {
         
        // self.view?.showLoader()
         
-        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.indexpage, parameters: parms, resultType: IndexPageModel.self, p:dictParam) { sucess, result, errorMessage in
+        ServiceManager.postOrPutApiCall(endPoint: "https://boookers.com/webservice/", parameters: parms, resultType: IndexPageModel.self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
                 self.view?.hideLoader()

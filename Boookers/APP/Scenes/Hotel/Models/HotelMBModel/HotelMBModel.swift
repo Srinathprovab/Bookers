@@ -44,7 +44,7 @@ struct HotelMBData : Codable {
     let tax_service_sum : Int?
     let pre_booking_cancellation_policy : Pre_booking_cancellation_policy?
     let hotel_base_price : Double?
-    let currency_obj : Currency_obj?
+  //  let currency_obj : Currency_obj?
     let search_data : HotelMBSearchData?
     let token : String?
     let total_price : String?
@@ -64,7 +64,7 @@ struct HotelMBData : Codable {
         case tax_service_sum = "tax_service_sum"
         case pre_booking_cancellation_policy = "pre_booking_cancellation_policy"
         case hotel_base_price = "hotel_base_price"
-        case currency_obj = "currency_obj"
+    //    case currency_obj = "currency_obj"
         case search_data = "search_data"
         case token = "token"
         case total_price = "total_price"
@@ -85,7 +85,7 @@ struct HotelMBData : Codable {
         tax_service_sum = try values.decodeIfPresent(Int.self, forKey: .tax_service_sum)
         pre_booking_cancellation_policy = try values.decodeIfPresent(Pre_booking_cancellation_policy.self, forKey: .pre_booking_cancellation_policy)
         hotel_base_price = try values.decodeIfPresent(Double.self, forKey: .hotel_base_price)
-        currency_obj = try values.decodeIfPresent(Currency_obj.self, forKey: .currency_obj)
+    //    currency_obj = try values.decodeIfPresent(Currency_obj.self, forKey: .currency_obj)
         search_data = try values.decodeIfPresent(HotelMBSearchData.self, forKey: .search_data)
         token = try values.decodeIfPresent(String.self, forKey: .token)
         total_price = try values.decodeIfPresent(String.self, forKey: .total_price)
