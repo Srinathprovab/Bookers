@@ -46,7 +46,7 @@ class ViewFlightDetailsVC: BaseTableVC, FlightDetailsViewModelDelegate {
     
     
     func flightDetails(response: FlightDetailsModel) {
-        fd = response.flightDetails ?? [[]]
+        fd = response.flight_details?.flight_details
         DispatchQueue.main.async {[self] in
             holderView.isHidden = false
             setupUI()
@@ -86,7 +86,7 @@ class ViewFlightDetailsVC: BaseTableVC, FlightDetailsViewModelDelegate {
     func setupItineraryTVCells() {
         tablerow.removeAll()
         tablerow.append(TableRow(height:40,bgColor: .AppHolderViewColor,cellType:.EmptyTVCell))
-        fd.forEach { i in
+        fd?.details?.forEach { i in
             tablerow.append(TableRow(moreData:i,cellType:.AddItineraryTVCell))
         }
         commonTVData = tablerow

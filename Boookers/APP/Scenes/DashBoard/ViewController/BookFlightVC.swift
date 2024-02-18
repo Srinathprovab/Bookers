@@ -124,7 +124,7 @@ class BookFlightVC: BaseTableVC {
     
     
     override func didTapOnMultiCityTripSearchFlight(cell: AddCityTVCell) {
-        
+    
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload1.removeAll()
         MySingleton.shared.payload2.removeAll()
@@ -315,29 +315,27 @@ extension BookFlightVC {
     
     func flightSearchTap() {
         
+ 
+        
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
         MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
         MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
         MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
-        MySingleton.shared.payload["sector_type"] = "international"
-        MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
-        MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
-        MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
-        MySingleton.shared.payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
+        MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCityCode)
+        MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCityCode)
         MySingleton.shared.payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
-        MySingleton.shared.payload["carrier"] = ""
-        MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.airlinescode)
+        MySingleton.shared.payload["carrier"] = "ALL"
         MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "Economy"
         MySingleton.shared.payload["search_flight"] = "Search"
-        MySingleton.shared.payload["search_source"] = "Mobile(I)"
-        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+//        MySingleton.shared.payload["search_source"] = "Mobile(I)"
+//        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+//        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
         
         
         let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
         if journyType == "oneway" {
-            MySingleton.shared.payload["return"] = ""
+          //  MySingleton.shared.payload["return"] = ""
             
             if defaults.string(forKey:UserDefaultsKeys.fromCity) == "" {
                 showToast(message: "Please Select From City")
@@ -359,7 +357,7 @@ extension BookFlightVC {
             
         }else if journyType == "circle"{
             
-            MySingleton.shared.payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
+          //  MySingleton.shared.payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
             let departureDate = defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? ""
             let returnDate = defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? ""
             

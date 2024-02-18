@@ -34,16 +34,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="436" height="295"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsr-bL-bDF">
-                                <rect key="frame" x="0.0" y="200" width="436" height="95"/>
+                                <rect key="frame" x="2" y="198" width="432" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="3/4 N ights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-Hn-V3R">
-                                        <rect key="frame" x="10" y="71" width="326" height="14"/>
+                                        <rect key="frame" x="10" y="71" width="322" height="14"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYZ-hE-gRd">
-                                        <rect key="frame" x="346" y="65.5" width="80" height="25"/>
+                                        <rect key="frame" x="342" y="65.5" width="80" height="25"/>
                                         <color key="backgroundColor" name="AppBtnColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="beK-GL-so9"/>
@@ -56,13 +56,13 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4 N ights 3/4 N i 3/4 N ights 3/4 N i 3/4 N ights 3/4 N i3/4 N ights 3/4 N i3/4 N ights 3/4 N i3/4 N ights 3/4 N i" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSG-EK-siw">
-                                        <rect key="frame" x="10" y="3.5" width="416" height="34"/>
+                                        <rect key="frame" x="10" y="3.5" width="412" height="34"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="2023" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Um2-jU-jdo">
-                                        <rect key="frame" x="10" y="42.5" width="416" height="17"/>
+                                        <rect key="frame" x="10" y="42.5" width="412" height="17"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -90,10 +90,10 @@
                             <constraint firstItem="jsr-bL-bDF" firstAttribute="top" relation="lessThanOrEqual" secondItem="4Ga-0U-zNQ" secondAttribute="top" constant="200" id="1gg-Rh-TQl"/>
                             <constraint firstAttribute="bottom" secondItem="IjA-SD-0RR" secondAttribute="bottom" id="CgU-1b-H3M"/>
                             <constraint firstItem="IjA-SD-0RR" firstAttribute="top" secondItem="4Ga-0U-zNQ" secondAttribute="top" id="Fbc-3J-f7J"/>
-                            <constraint firstAttribute="bottom" secondItem="jsr-bL-bDF" secondAttribute="bottom" id="Ob0-cj-27K"/>
+                            <constraint firstAttribute="bottom" secondItem="jsr-bL-bDF" secondAttribute="bottom" constant="2" id="Ob0-cj-27K"/>
                             <constraint firstAttribute="trailing" secondItem="IjA-SD-0RR" secondAttribute="trailing" id="QPd-87-Ibl"/>
-                            <constraint firstAttribute="trailing" secondItem="jsr-bL-bDF" secondAttribute="trailing" id="VzG-RW-QiI"/>
-                            <constraint firstItem="jsr-bL-bDF" firstAttribute="leading" secondItem="4Ga-0U-zNQ" secondAttribute="leading" id="ixx-o6-SJq"/>
+                            <constraint firstAttribute="trailing" secondItem="jsr-bL-bDF" secondAttribute="trailing" constant="2" id="VzG-RW-QiI"/>
+                            <constraint firstItem="jsr-bL-bDF" firstAttribute="leading" secondItem="4Ga-0U-zNQ" secondAttribute="leading" constant="2" id="ixx-o6-SJq"/>
                             <constraint firstItem="IjA-SD-0RR" firstAttribute="leading" secondItem="4Ga-0U-zNQ" secondAttribute="leading" id="uff-Rz-sY8"/>
                         </constraints>
                     </view>

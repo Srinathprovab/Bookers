@@ -1,8 +1,7 @@
 
 
 import Foundation
-struct Search_params : Codable {
-	let search_source : String?
+struct Flight_search_params : Codable {
 	let trip_type : String?
 	let depature : String?
 	let trip_type_label : String?
@@ -21,13 +20,13 @@ struct Search_params : Codable {
 	let v_class : String?
 	let carrier : String?
 	let deal_type : String?
+	let cls : String?
 	let is_domestic : Bool?
-    let freturn : String?
-    
-    
+	let direct_flight : String?
+	let search_id : Int?
+
 	enum CodingKeys: String, CodingKey {
 
-		case search_source = "search_source"
 		case trip_type = "trip_type"
 		case depature = "depature"
 		case trip_type_label = "trip_type_label"
@@ -46,13 +45,14 @@ struct Search_params : Codable {
 		case v_class = "v_class"
 		case carrier = "carrier"
 		case deal_type = "deal_type"
+		case cls = "class"
 		case is_domestic = "is_domestic"
-        case freturn = "return"
+		case direct_flight = "direct_flight"
+		case search_id = "search_id"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		search_source = try values.decodeIfPresent(String.self, forKey: .search_source)
 		trip_type = try values.decodeIfPresent(String.self, forKey: .trip_type)
 		depature = try values.decodeIfPresent(String.self, forKey: .depature)
 		trip_type_label = try values.decodeIfPresent(String.self, forKey: .trip_type_label)
@@ -71,8 +71,10 @@ struct Search_params : Codable {
 		v_class = try values.decodeIfPresent(String.self, forKey: .v_class)
 		carrier = try values.decodeIfPresent(String.self, forKey: .carrier)
 		deal_type = try values.decodeIfPresent(String.self, forKey: .deal_type)
+        cls = try values.decodeIfPresent(String.self, forKey: .cls)
 		is_domestic = try values.decodeIfPresent(Bool.self, forKey: .is_domestic)
-        freturn = try values.decodeIfPresent(String.self, forKey: .freturn)
+		direct_flight = try values.decodeIfPresent(String.self, forKey: .direct_flight)
+		search_id = try values.decodeIfPresent(Int.self, forKey: .search_id)
 	}
 
 }

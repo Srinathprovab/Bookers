@@ -18,7 +18,7 @@ class AddItineraryTVCell: TableViewCell {
     
     
     var tripstring = String()
-    var fd = [FlightDetails]()
+    var fd = [Details]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,7 +35,7 @@ class AddItineraryTVCell: TableViewCell {
     override func updateUI() {
         
         tripstring = cellInfo?.title ?? ""
-        fd = cellInfo?.moreData as! [FlightDetails]
+        fd = cellInfo?.moreData as! [Details]
         updateHeight(height: 149)
     }
     
@@ -87,10 +87,12 @@ extension AddItineraryTVCell:UITableViewDelegate,UITableViewDataSource {
             
             cell.hourslbl.text = data.duration
             cell.noOfStopslbl.text = "\(data.no_of_stops ?? 0) stop"
-            cell.layoverCitylbl.text = "Layover duration \(data.destination?.city ?? "")(\(data.destination?.loc ?? "")) TIME \(data.layOverDuration ?? "")"
             
             
-            cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            cell.layoverCitylbl.text = "Layover duration \(data.destination?.city ?? "")(\(data.destination?.loc ?? "")) TIME layOverDuration"
+            
+            
+         //   cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
 
         
             switch data.no_of_stops {

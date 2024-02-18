@@ -9,42 +9,51 @@ import Foundation
 
 
 struct FlightDetailsModel : Codable {
-    let status : Bool?
-    let journeySummary : [JourneySummary]?
-    let flightDetails : [[FlightDetails]]?
-    let priceDetails : PriceDetails?
-    let fareRulehtml : [FareRulehtml]?
-    let fare_rule_ref_key : String?
-    let farerulesref_content : String?
-    let baggageAllowance : [BaggageAllowance]?
-    let booking_source : String?
-    
+    let flight_details : Itinary_Flight_details?
+
     enum CodingKeys: String, CodingKey {
-        
-        case status = "status"
-        case journeySummary = "journeySummary"
-        case flightDetails = "flightDetails"
-        case priceDetails = "priceDetails"
-        case fareRulehtml = "fareRulehtml"
-        case fare_rule_ref_key = "fare_rule_ref_key"
-        case farerulesref_content = "farerulesref_content"
-        case baggageAllowance = "BaggageAllowance"
-        case booking_source = "booking_source"
-        
+
+        case flight_details = "flight_details"
     }
-    
+
     init(from decoder: Decoder) throws {
-        
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        journeySummary = try values.decodeIfPresent([JourneySummary].self, forKey: .journeySummary)
-        flightDetails = try values.decodeIfPresent([[FlightDetails]].self, forKey: .flightDetails)
-        priceDetails = try values.decodeIfPresent(PriceDetails.self, forKey: .priceDetails)
-        fareRulehtml = try values.decodeIfPresent([FareRulehtml].self, forKey: .fareRulehtml)
-        fare_rule_ref_key = try values.decodeIfPresent(String.self, forKey: .fare_rule_ref_key)
-        farerulesref_content = try values.decodeIfPresent(String.self, forKey: .farerulesref_content)
-        baggageAllowance = try values.decodeIfPresent([BaggageAllowance].self, forKey: .baggageAllowance)
-        booking_source = try values.decodeIfPresent(String.self, forKey: .booking_source)
+        flight_details = try values.decodeIfPresent(Itinary_Flight_details.self, forKey: .flight_details)
     }
-    
+
+}
+
+
+
+struct Itinary_Flight_details : Codable {
+    let flight_details : Flight_details?
+    let price : Price?
+    let paxwise_price : Paxwise_price?
+    let access_key : String?
+    let faretype : Bool?
+    let booking_source : String?
+    let status : Bool?
+
+    enum CodingKeys: String, CodingKey {
+
+        case flight_details = "flight_details"
+        case price = "price"
+        case paxwise_price = "paxwise_price"
+        case access_key = "access_key"
+        case faretype = "faretype"
+        case booking_source = "booking_source"
+        case status = "status"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        flight_details = try values.decodeIfPresent(Flight_details.self, forKey: .flight_details)
+        price = try values.decodeIfPresent(Price.self, forKey: .price)
+        paxwise_price = try values.decodeIfPresent(Paxwise_price.self, forKey: .paxwise_price)
+        access_key = try values.decodeIfPresent(String.self, forKey: .access_key)
+        faretype = try values.decodeIfPresent(Bool.self, forKey: .faretype)
+        booking_source = try values.decodeIfPresent(String.self, forKey: .booking_source)
+        status = try values.decodeIfPresent(Bool.self, forKey: .status)
+    }
+
 }

@@ -26,6 +26,7 @@ class FlightDealsCVCell: UICollectionViewCell {
     func setupUI() {
         holderView.layer.cornerRadius = 4
         img.layer.cornerRadius = 4
+        img.clipsToBounds = true
         viewDetailsBtn.layer.cornerRadius = 4
     }
     

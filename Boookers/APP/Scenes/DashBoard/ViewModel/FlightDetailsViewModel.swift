@@ -27,7 +27,7 @@ class FlightDetailsViewModel {
         
         self.view?.showLoader()
         
-        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.getFlightDetails, parameters: parms, resultType: FlightDetailsModel.self, p:dictParam) { sucess, result, errorMessage in
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.indexphp_ajax_flight_details, parameters: parms, resultType: FlightDetailsModel.self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
                 self.view?.hideLoader()

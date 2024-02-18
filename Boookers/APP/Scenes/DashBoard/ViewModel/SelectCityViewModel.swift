@@ -21,7 +21,7 @@ class SelectCityViewModel {
         
         //  self.view?.showLoader()
         
-        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.getairportcodelist , urlParams: parms as? Dictionary<String, String>, parameters: parms, resultType: [SelectCityModel].self, p:dictParam) { sucess, result, errorMessage in
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.getairportcodelist , parameters: parms, resultType: [SelectCityModel].self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
                 //   self.view?.hideLoader()

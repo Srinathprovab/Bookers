@@ -7,7 +7,7 @@ struct Origin : Codable {
 	let datetime : String?
 	let date : String?
 	let time : String?
-	let airport_name : String?
+	//let fdtv : Int?
 	let terminal : String?
 
 	enum CodingKeys: String, CodingKey {
@@ -17,8 +17,8 @@ struct Origin : Codable {
 		case datetime = "datetime"
 		case date = "date"
 		case time = "time"
-		case airport_name = "airport_name"
-		case terminal = "terminal"
+		//case fdtv = "fdtv"
+		case terminal = "Terminal"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -28,7 +28,7 @@ struct Origin : Codable {
 		datetime = try values.decodeIfPresent(String.self, forKey: .datetime)
 		date = try values.decodeIfPresent(String.self, forKey: .date)
 		time = try values.decodeIfPresent(String.self, forKey: .time)
-		airport_name = try values.decodeIfPresent(String.self, forKey: .airport_name)
+		//fdtv = try values.decodeIfPresent(Int.self, forKey: .fdtv)
 		terminal = try values.decodeIfPresent(String.self, forKey: .terminal)
 	}
 

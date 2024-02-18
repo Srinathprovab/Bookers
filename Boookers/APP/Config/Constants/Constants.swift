@@ -30,8 +30,8 @@ let screenHeight = UIScreen.main.bounds.size.height
 var loderBool = false
 var basicloderBool = false
 
-var BASE_URL = "https://btsafer.com/mobile_webservices/index.php/"
-var BASE_URL1 = "https://btsafer.com/mobile_webservices/index.php/"
+var BASE_URL = "https://boookers.com/webservice/"
+var BASE_URL1 = "https://boookers.com/webservice/"
 var accessToken = "e3VzZXJuYW1lOmFudWpob29kYSxwYXNzd29yZDprdXdhaXR3YXlzQG1vYmlsZWFwcCxhdXRodHlwZTp0ZXN0fQ=="
 
 var defaultCountryCode = "+91"
@@ -71,10 +71,9 @@ var searchid = String()
 var bookingsource = String()
 var bookingsourcekey = String()
 var accesskey = String()
-var oneWayFlights = [[J_flight_list]]()
-var roundTripFlights = [[J_flight_list]]()
-var multicityFlights = [[J_flight_list]]()
-var fd = [[FlightDetails]]()
+var oneWayFlights = [Flight_result]()
+
+var fd:Flight_details?
 var baggageAllowance1 = [BaggageAllowance]()
 var selectedDate: Date = Date()
 
@@ -208,7 +207,7 @@ struct ApiEndpoints {
     static let getCurrencyList = "general/getCurrencyList"
     static let getairportcodelist = "ajax/get_airport_code_list"
     static let mobilepreflightsearch = "general/mobile_pre_flight_search"
-    static let getFlightDetails = "flight/getFlightDetails"
+    static let indexphp_ajax_flight_details = "index.php/ajax/flight_details"
     static let preprocessbooking = "flight/pre_process_booking"
     static let mobilebooking = "flight/booking"
     static let processpassengerdetail = "flight/process_passenger_detail"
@@ -232,7 +231,7 @@ struct ApiEndpoints {
     static let mobilehotelprebooking = "hotel/mobile_hotel_pre_booking"
     static let hotelsecurebooking = "hotel/secure_booking"
 
-    
+    static let general_pre_flight_search = "general/pre_flight_search"
     
     
 }
@@ -278,7 +277,9 @@ struct UserDefaultsKeys {
     
     //ONE WAY
     static var fromCity = "fromCity"
+    static var fromCityCode = "fromCityCode"
     static var toCity = "toCity"
+    static var toCityCode = "toCityCode"
     static var calDepDate = "calDepDate"
     static var calRetDate = "calRetDate"
     static var adultCount = "Adult_Count"

@@ -31,10 +31,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="418" height="316"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPP-Ie-RUk" customClass="BorderedView" customModule="Boookers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="236" width="418" height="80"/>
+                                <rect key="frame" x="2" y="234" width="414" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7E-CS-NDa">
-                                        <rect key="frame" x="328" y="50.666666666666686" width="80" height="25"/>
+                                        <rect key="frame" x="324" y="50.666666666666686" width="80" height="25"/>
                                         <color key="backgroundColor" name="AppBtnColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="VIO-1d-wAO"/>
@@ -47,13 +47,13 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Kuwait" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNO-rS-IhY">
-                                        <rect key="frame" x="15" y="5.6666666666666572" width="388" height="19.666666666666668"/>
+                                        <rect key="frame" x="15" y="5.6666666666666572" width="384" height="19.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kuwait" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abK-lJ-VrI">
-                                        <rect key="frame" x="15" y="27.333333333333314" width="388" height="17"/>
+                                        <rect key="frame" x="15" y="27.333333333333314" width="384" height="17"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -82,13 +82,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tPP-Ie-RUk" secondAttribute="trailing" id="Sj3-S9-lZw"/>
+                            <constraint firstAttribute="trailing" secondItem="tPP-Ie-RUk" secondAttribute="trailing" constant="2" id="Sj3-S9-lZw"/>
                             <constraint firstAttribute="bottom" secondItem="MPs-ct-2wM" secondAttribute="bottom" id="aHw-Ek-jyd"/>
                             <constraint firstItem="MPs-ct-2wM" firstAttribute="leading" secondItem="thY-YJ-2fQ" secondAttribute="leading" id="iY8-va-FoG"/>
                             <constraint firstAttribute="trailing" secondItem="MPs-ct-2wM" secondAttribute="trailing" id="u4y-dv-yIB"/>
                             <constraint firstItem="MPs-ct-2wM" firstAttribute="top" secondItem="thY-YJ-2fQ" secondAttribute="top" id="v9A-Xm-k4L"/>
-                            <constraint firstAttribute="bottom" secondItem="tPP-Ie-RUk" secondAttribute="bottom" id="vqK-UV-zz5"/>
-                            <constraint firstItem="tPP-Ie-RUk" firstAttribute="leading" secondItem="thY-YJ-2fQ" secondAttribute="leading" id="zdT-tW-ZBN"/>
+                            <constraint firstAttribute="bottom" secondItem="tPP-Ie-RUk" secondAttribute="bottom" constant="2" id="vqK-UV-zz5"/>
+                            <constraint firstItem="tPP-Ie-RUk" firstAttribute="leading" secondItem="thY-YJ-2fQ" secondAttribute="leading" constant="2" id="zdT-tW-ZBN"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

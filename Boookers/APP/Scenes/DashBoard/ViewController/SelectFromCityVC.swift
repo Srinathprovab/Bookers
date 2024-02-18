@@ -77,12 +77,12 @@ class SelectFromCityVC: BaseTableVC, SelectCityViewModelProtocal {
     
     
     func CallShowCityListAPI(str:String) {
-        payload["term"] = str
+        payload["reference"] = str
         cityViewModel?.CallShowCityListAPI(dictParam: payload)
     }
     
     func CallShowHotelorCityListAPI(str:String) {
-        payload["term"] = str
+        payload["reference"] = str
         cityViewModel?.CALL_GET_HOTEL_CITY_LIST_API(dictParam: payload)
     }
     
@@ -192,6 +192,7 @@ class SelectFromCityVC: BaseTableVC, SelectCityViewModelProtocal {
     
     func ShowCityList(response: [SelectCityModel]) {
         self.cityList = response
+        print(self.cityList)
         DispatchQueue.main.async {[self] in
             commonTableView.reloadData()
         }
@@ -267,22 +268,22 @@ extension SelectFromCityVC {
             if( isSearchBool == true){
                 
                 let dict = filtered[indexPath.row]
-                cell.titlelbl.text = dict.city
+                cell.titlelbl.text = dict.label
                 cell.label = dict.label ?? ""
                 cell.id = dict.id ?? ""
                 cell.citycode = dict.code ?? ""
-                cell.cityname = "\(dict.city ?? "") (\(dict.code ?? ""))"
-                cell.setAttributedString(str1: dict.airport_name ?? "", str2: " \(dict.code ?? "")")
+                cell.cityname = "\(dict.label ?? "")"
+                cell.setAttributedString(str1: dict.label ?? "", str2: "")
                 
             }else{
                 
                 let dict = cityList[indexPath.row]
-                cell.titlelbl.text = dict.city
+                cell.titlelbl.text = dict.label
                 cell.label = dict.label ?? ""
                 cell.id = dict.id ?? ""
                 cell.citycode = dict.code ?? ""
-                cell.cityname = "\(dict.city ?? "") (\(dict.code ?? ""))"
-                cell.setAttributedString(str1: dict.airport_name ?? "", str2: " \(dict.code ?? "")")
+                cell.cityname = "\(dict.label ?? "")"
+                cell.setAttributedString(str1: dict.label ?? "", str2: "")
             }
         }
         
@@ -306,6 +307,7 @@ extension SelectFromCityVC {
                                 
                                 tofromBool = false
                                 
+                                defaults.set(cell.citycode , forKey: UserDefaultsKeys.fromCityCode)
                                 defaults.set(cell.label , forKey: UserDefaultsKeys.fromCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.fromlocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.fromcityname)
@@ -313,6 +315,7 @@ extension SelectFromCityVC {
                                 
                                 tofromBool = true
                                 
+                                defaults.set(cell.citycode , forKey: UserDefaultsKeys.toCityCode)
                                 defaults.set(cell.label , forKey: UserDefaultsKeys.toCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.tolocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.tocityname)
@@ -323,6 +326,7 @@ extension SelectFromCityVC {
                                 
                                 tofromBool = false
                                 
+                                defaults.set(cell.citycode , forKey: UserDefaultsKeys.fromCityCode)
                                 defaults.set(cell.label, forKey: UserDefaultsKeys.fromCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.fromlocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.fromcityname)
@@ -330,6 +334,7 @@ extension SelectFromCityVC {
                                 
                                 tofromBool = true
                                 
+                                defaults.set(cell.citycode , forKey: UserDefaultsKeys.toCityCode)
                                 defaults.set(cell.label, forKey: UserDefaultsKeys.toCity)
                                 defaults.set(cell.id , forKey: UserDefaultsKeys.tolocid)
                                 defaults.set(cell.cityname , forKey: UserDefaultsKeys.tocityname)

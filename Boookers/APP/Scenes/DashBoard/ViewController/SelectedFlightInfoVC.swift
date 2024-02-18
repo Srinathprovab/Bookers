@@ -77,15 +77,9 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     
     func callAPI() {
         payload.removeAll()
-        payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if journyType == "multicity" {
-            payload["booking_source"] = bookingsource
-        }else {
-            payload["booking_source"] = bookingsource
-        }
+       
         payload["access_key"] = accesskey
-        payload["search_id"] = searchid
+        payload["booking_source"] = bookingsource
         
         vm?.CALL_GET_FLIGHT_DETAILS_API(dictParam: payload)
     }
@@ -94,76 +88,86 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     
     func flightDetails(response: FlightDetailsModel) {
         
+        holderView.isHidden = false
+        fd = response.flight_details?.flight_details
         
         
-        if response.status == true {
-            
-            holderView.isHidden = false
-            grandTotal = "\(response.priceDetails?.api_currency ?? ""):\(response.priceDetails?.grand_total ?? "")"
-            newGrandTotal = "\(response.priceDetails?.api_currency ?? ""):\(response.priceDetails?.grand_total ?? "")"
-            
-            jm = response.journeySummary ?? []
-            fd = response.flightDetails ?? [[]]
-            fareRulesData = response.fareRulehtml ?? []
-            farepricedetails = response.priceDetails
-            baggageAllowance1 = response.baggageAllowance ?? []
-            
-            Adults_Base_Price = String(response.priceDetails?.adultsBasePrice ?? "0")
-            Adults_Tax_Price = String(response.priceDetails?.adultsTaxPrice ?? "0")
-            Childs_Base_Price = String(response.priceDetails?.childBasePrice ?? "0")
-            Childs_Tax_Price = String(response.priceDetails?.childTaxPrice ?? "0")
-            Infants_Base_Price = String(response.priceDetails?.infantBasePrice ?? "0")
-            Infants_Tax_Price = String(response.priceDetails?.infantTaxPrice ?? "0")
-            AdultsTotalPrice = String(response.priceDetails?.adultsTotalPrice ?? "0")
-            ChildTotalPrice = String(response.priceDetails?.childTotalPrice ?? "0")
-            InfantTotalPrice = String(response.priceDetails?.infantTotalPrice ?? "0")
-            sub_total_adult = String(response.priceDetails?.sub_total_adult ?? "0")
-            sub_total_child = String(response.priceDetails?.sub_total_child ?? "0")
-            sub_total_infant = String(response.priceDetails?.sub_total_infant ?? "0")
-            
-            
-            if let adultsBasePriceString = response.priceDetails?.adultsBasePrice,
-               let childsBasePriceString = response.priceDetails?.childBasePrice,
-               let infantsBasePriceString = response.priceDetails?.infantBasePrice {
-                
-                // Convert strings to doubles, providing default values if conversion fails
-                let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
-                let childsBasePrice = Double(childsBasePriceString) ?? 0.0
-                let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
-                
-                // Calculate total base fare
-                totalBaseFare = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
-                
-                
-            } else {
-                print("Error: One or more base prices are nil.")
-            }
-            
-            
-            if let adultsBasePriceString = response.priceDetails?.adultsTaxPrice,
-               let childsBasePriceString = response.priceDetails?.childTaxPrice,
-               let infantsBasePriceString = response.priceDetails?.infantTaxPrice {
-                
-                // Convert strings to doubles, providing default values if conversion fails
-                let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
-                let childsBasePrice = Double(childsBasePriceString) ?? 0.0
-                let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
-                
-                // Calculate total base fare
-                totaltax = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
-                
-                
-            } else {
-                print("Error: One or more base prices are nil.")
-            }
-            
-            
-            setupUI()
-            
-            
-        }else {
-            gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
+        
+        DispatchQueue.main.async {
+            self.setupUI()
         }
+        
+//        if response.status == true {
+//            
+//            holderView.isHidden = false
+//            grandTotal = "\(response.priceDetails?.api_currency ?? ""):\(response.priceDetails?.grand_total ?? "")"
+//            newGrandTotal = "\(response.priceDetails?.api_currency ?? ""):\(response.priceDetails?.grand_total ?? "")"
+//            
+//            jm = response.journeySummary ?? []
+//            fd = response.flightDetails ?? [[]]
+//            fareRulesData = response.fareRulehtml ?? []
+//            farepricedetails = response.priceDetails
+//            baggageAllowance1 = response.baggageAllowance ?? []
+//            
+//            Adults_Base_Price = String(response.priceDetails?.adultsBasePrice ?? "0")
+//            Adults_Tax_Price = String(response.priceDetails?.adultsTaxPrice ?? "0")
+//            Childs_Base_Price = String(response.priceDetails?.childBasePrice ?? "0")
+//            Childs_Tax_Price = String(response.priceDetails?.childTaxPrice ?? "0")
+//            Infants_Base_Price = String(response.priceDetails?.infantBasePrice ?? "0")
+//            Infants_Tax_Price = String(response.priceDetails?.infantTaxPrice ?? "0")
+//            AdultsTotalPrice = String(response.priceDetails?.adultsTotalPrice ?? "0")
+//            ChildTotalPrice = String(response.priceDetails?.childTotalPrice ?? "0")
+//            InfantTotalPrice = String(response.priceDetails?.infantTotalPrice ?? "0")
+//            sub_total_adult = String(response.priceDetails?.sub_total_adult ?? "0")
+//            sub_total_child = String(response.priceDetails?.sub_total_child ?? "0")
+//            sub_total_infant = String(response.priceDetails?.sub_total_infant ?? "0")
+//            
+//            
+//            if let adultsBasePriceString = response.priceDetails?.adultsBasePrice,
+//               let childsBasePriceString = response.priceDetails?.childBasePrice,
+//               let infantsBasePriceString = response.priceDetails?.infantBasePrice {
+//                
+//                // Convert strings to doubles, providing default values if conversion fails
+//                let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
+//                let childsBasePrice = Double(childsBasePriceString) ?? 0.0
+//                let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
+//                
+//                // Calculate total base fare
+//                totalBaseFare = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
+//                
+//                
+//            } else {
+//                print("Error: One or more base prices are nil.")
+//            }
+//            
+//            
+//            if let adultsBasePriceString = response.priceDetails?.adultsTaxPrice,
+//               let childsBasePriceString = response.priceDetails?.childTaxPrice,
+//               let infantsBasePriceString = response.priceDetails?.infantTaxPrice {
+//                
+//                // Convert strings to doubles, providing default values if conversion fails
+//                let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
+//                let childsBasePrice = Double(childsBasePriceString) ?? 0.0
+//                let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
+//                
+//                // Calculate total base fare
+//                totaltax = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
+//                
+//                
+//            } else {
+//                print("Error: One or more base prices are nil.")
+//            }
+//            
+//            
+//            setupUI()
+//            
+//            
+//        }else {
+//            gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
+        //}
+        
+        
+        
         
     }
     
@@ -250,7 +254,7 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
         tablerow.removeAll()
         
         
-        fd.enumerated().forEach { (index, element) in
+        fd?.details?.enumerated().forEach { (index, element) in
             tablerow.append(TableRow(title:"\(index)",moreData: element, cellType: .AddItineraryTVCell))
         }
         

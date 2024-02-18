@@ -26,6 +26,7 @@ class SportDealsCVCell: UICollectionViewCell {
     func setupUI() {
         holderView.layer.cornerRadius = 6
         img.layer.cornerRadius = 4
+        img.clipsToBounds = true
         viewDetailsBtn.layer.cornerRadius = 4
     }
     

@@ -24,23 +24,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="246" height="212"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amu-En-ISE">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amu-En-ISE" customClass="BorderedView" customModule="Boookers" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="246" height="212"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zyn-SJ-bMf">
                                 <rect key="frame" x="0.0" y="0.0" width="246" height="212"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBK-Ax-JnF">
-                                <rect key="frame" x="0.0" y="141" width="246" height="71"/>
+                                <rect key="frame" x="2" y="139" width="242" height="71"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="3/4 N ights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnK-Ak-ras">
-                                        <rect key="frame" x="10" y="47" width="136" height="14"/>
+                                        <rect key="frame" x="10" y="47" width="132" height="14"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnb-A9-PAl">
-                                        <rect key="frame" x="156" y="41.666666666666657" width="80" height="25"/>
+                                        <rect key="frame" x="152" y="41.666666666666657" width="80" height="25"/>
                                         <color key="backgroundColor" name="AppBtnColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="1VS-8a-8sP"/>
@@ -53,7 +53,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4 N ights 3/4 N i 3/4 N ights 3/4 N i 3/4 N ights 3/4 N i3/4 N ights 3/4 N i3/4 N ights 3/4 N i3/4 N ights 3/4 N i" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7F-mb-RrR">
-                                        <rect key="frame" x="10" y="3.3333333333333428" width="226" height="33.666666666666664"/>
+                                        <rect key="frame" x="10" y="3.3333333333333428" width="222" height="33.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -77,13 +77,18 @@
                         <constraints>
                             <constraint firstItem="Zyn-SJ-bMf" firstAttribute="top" secondItem="Amu-En-ISE" secondAttribute="top" id="0Fs-nc-Xq4"/>
                             <constraint firstAttribute="trailing" secondItem="Zyn-SJ-bMf" secondAttribute="trailing" id="BOZ-hm-xn5"/>
-                            <constraint firstAttribute="bottom" secondItem="sBK-Ax-JnF" secondAttribute="bottom" id="Hua-q1-h8o"/>
-                            <constraint firstAttribute="trailing" secondItem="sBK-Ax-JnF" secondAttribute="trailing" id="Q6l-al-W7J"/>
-                            <constraint firstItem="sBK-Ax-JnF" firstAttribute="leading" secondItem="Amu-En-ISE" secondAttribute="leading" id="WFo-gW-gx0"/>
+                            <constraint firstAttribute="bottom" secondItem="sBK-Ax-JnF" secondAttribute="bottom" constant="2" id="Hua-q1-h8o"/>
+                            <constraint firstAttribute="trailing" secondItem="sBK-Ax-JnF" secondAttribute="trailing" constant="2" id="Q6l-al-W7J"/>
+                            <constraint firstItem="sBK-Ax-JnF" firstAttribute="leading" secondItem="Amu-En-ISE" secondAttribute="leading" constant="2" id="WFo-gW-gx0"/>
                             <constraint firstAttribute="bottom" secondItem="Zyn-SJ-bMf" secondAttribute="bottom" id="j9R-vy-s2X"/>
                             <constraint firstItem="Zyn-SJ-bMf" firstAttribute="leading" secondItem="Amu-En-ISE" secondAttribute="leading" id="kgz-SV-oF3"/>
                             <constraint firstItem="sBK-Ax-JnF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Amu-En-ISE" secondAttribute="top" constant="100" id="t7u-sJ-BHx"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -96,6 +101,7 @@
             </constraints>
             <size key="customSize" width="246" height="212"/>
             <connections>
+                <outlet property="bottomView" destination="sBK-Ax-JnF" id="AMP-sB-L2H"/>
                 <outlet property="holderView" destination="Amu-En-ISE" id="blK-gA-lnF"/>
                 <outlet property="img" destination="Zyn-SJ-bMf" id="NJQ-rT-6ql"/>
                 <outlet property="subTitlelbl" destination="BnK-Ak-ras" id="jfC-Bn-SdC"/>

@@ -80,7 +80,7 @@ extension CommonBookingItinearyTVCell:UITableViewDelegate,UITableViewDataSource 
             
             cell.airlinesnamelbl.text = data.operator_name
             cell.airlinescodelbl.text = "(\(data.operator_code ?? "")-\(data.flight_number ?? ""))"
-            cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+         //   cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
           //  cell.kwdlbl.text = cellInfo?.title
             
             cell.fromtimelbl.text = data.origin?.time

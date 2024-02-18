@@ -364,9 +364,9 @@ class ServiceManager {
         }
         
        
-        let headers: HTTPHeaders = [
-            "Token":"\(accessToken)"
-        ]
+//        let headers: HTTPHeaders = [
+//            "Token":"\(accessToken)"
+//        ]
         
         print("Headers for \(accessToken)")
         print("Request for \(request)")
@@ -376,7 +376,7 @@ class ServiceManager {
             method: .post,
             parameters: parameters as? Parameters,
             encoding: URLEncoding.default,
-            headers: headers).validate().responseJSON { resp in
+            headers: nil).validate().responseJSON { resp in
                 
               
                 print(resp.response?.statusCode as Any)

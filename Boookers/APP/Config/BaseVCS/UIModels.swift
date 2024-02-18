@@ -186,6 +186,7 @@ class TableRow {
     var airlinesCode: String?
     var kwdprice: String?
     var refundable: String?
+    var nonrefundable: Bool?
     var price:String?
     var travelTime:String?
     
@@ -204,6 +205,7 @@ class TableRow {
          airlinesCode: String? = nil,
          kwdprice: String? = nil ,
          refundable: String? = nil ,
+         nonrefundable: Bool? = nil ,
          price: String? = nil ,
          travelTime: String? = nil ,
          
@@ -228,6 +230,7 @@ class TableRow {
         self.airlinesCode = airlinesCode
         self.kwdprice = kwdprice
         self.refundable = refundable
+        self.nonrefundable = nonrefundable
         self.price = price
         self.travelTime = travelTime
         

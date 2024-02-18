@@ -22,12 +22,13 @@ class RoundTripTVcell: TableViewCell {
     @IBOutlet weak var kwdPricelbl: UILabel!
     @IBOutlet weak var viewDetailsbtn: UIButton!
     
-    
+    var refundableBool = Bool()
     var delegate:RoundTripTVcellDelegate?
     var count = Int()
     var summery1 = [Summary]()
     var msummery = [MSummary]()
     var access_key1 = String()
+    var bookingSource = String()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -44,16 +45,21 @@ class RoundTripTVcell: TableViewCell {
     override func updateUI() {
         
         access_key1 = cellInfo?.title ?? ""
+        bookingSource = cellInfo?.subTitle ?? ""
         count = cellInfo?.characterLimit ?? 0
         kwdPricelbl.text = cellInfo?.kwdprice
         refundlbl.text = cellInfo?.refundable
+      
         
-        
-        if refundlbl.text == "Refundable" {
-            refundlbl.textColor = .Refundcolor
-        }else {
+        if cellInfo?.nonrefundable == true {
             refundlbl.textColor = .AppBtnColor
+            refundlbl.text = "NonRefundable"
+        }else {
+            refundlbl.textColor = .Refundcolor
+            refundlbl.text = "Refundable"
         }
+        
+      
         
         summery1 = cellInfo?.moreData as! [Summary]
         tvHeight.constant = CGFloat((summery1.count * 115))
@@ -117,7 +123,7 @@ extension RoundTripTVcell:UITableViewDelegate,UITableViewDataSource {
             cell.airlinelbl.text = "\(data.operator_name ?? "")"
             
             
-            cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            cell.logoImg.sd_setImage(with: URL(string: "https://boookers.com/webservice\(data.operator_code_img ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             
             switch data.no_of_stops {
             case 0:

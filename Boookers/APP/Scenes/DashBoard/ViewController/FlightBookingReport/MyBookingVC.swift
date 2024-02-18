@@ -253,7 +253,7 @@ extension MyBookingVC:MyBookingViewModelDelegate {
                                          fromdate: k.origin?.date,
                                          todate: k.destination?.date,
                                          noosStops: "\(k.no_of_stops ?? 0) Stops",
-                                         airlineslogo: k.operator_image,
+                                   //      airlineslogo: k.operator_image,
                                          airlinesCode:"(\(k.operator_code ?? "")-\(k.flight_number ?? "")) \(k.operator_name ?? "")",
                                          kwdprice:"\(i.transaction?.currency ?? ""):\(i.transaction?.fare ?? "")",
                                          travelTime: k.duration,
