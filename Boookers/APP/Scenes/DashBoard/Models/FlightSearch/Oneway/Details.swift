@@ -5,6 +5,7 @@ struct Details : Codable {
 	let origin : Origin?
 	let destination : Destination?
 	let operator_code : String?
+    let operator_code_img : String?
 	let display_operator_code : String?
 	let operator_name : String?
 	let cabin_class : String?
@@ -24,6 +25,7 @@ struct Details : Codable {
 		case origin = "origin"
 		case destination = "destination"
 		case operator_code = "operator_code"
+        case operator_code_img = "operator_code_img"
 		case display_operator_code = "display_operator_code"
 		case operator_name = "operator_name"
 		case cabin_class = "cabin_class"
@@ -44,6 +46,7 @@ struct Details : Codable {
 		origin = try values.decodeIfPresent(Origin.self, forKey: .origin)
 		destination = try values.decodeIfPresent(Destination.self, forKey: .destination)
 		operator_code = try values.decodeIfPresent(String.self, forKey: .operator_code)
+        operator_code_img = try values.decodeIfPresent(String.self, forKey: .operator_code_img)
 		display_operator_code = try values.decodeIfPresent(String.self, forKey: .display_operator_code)
 		operator_name = try values.decodeIfPresent(String.self, forKey: .operator_name)
 		cabin_class = try values.decodeIfPresent(String.self, forKey: .cabin_class)
