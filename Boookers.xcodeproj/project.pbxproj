@@ -31,6 +31,9 @@
 		655A28102B4FC12F0060E12E /* FlightSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A280F2B4FC12E0060E12E /* FlightSearchVC.swift */; };
 		655A281D2B5005570060E12E /* SelectTabTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A281B2B5005560060E12E /* SelectTabTVCell.swift */; };
 		655A281E2B5005570060E12E /* SelectTabTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 655A281C2B5005570060E12E /* SelectTabTVCell.xib */; };
+		655AFBAC2B85D01B0071C869 /* Loder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655AFBAB2B85D01B0071C869 /* Loder.storyboard */; };
+		655AFBAE2B85D0310071C869 /* FlightLoderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655AFBAD2B85D0310071C869 /* FlightLoderVC.swift */; };
+		655AFBB02B85D5D20071C869 /* flightloding.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 655AFBAF2B85D5D20071C869 /* flightloding.jpeg */; };
 		65AD15172B4EAC0D0064E8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15162B4EAC0D0064E8B0 /* AppDelegate.swift */; };
 		65AD15192B4EAC0D0064E8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD15182B4EAC0D0064E8B0 /* SceneDelegate.swift */; };
 		65AD15202B4EAC0F0064E8B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65AD151F2B4EAC0F0064E8B0 /* Assets.xcassets */; };
@@ -478,6 +481,9 @@
 		655A280F2B4FC12E0060E12E /* FlightSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchVC.swift; sourceTree = "<group>"; };
 		655A281B2B5005560060E12E /* SelectTabTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTabTVCell.swift; sourceTree = "<group>"; };
 		655A281C2B5005570060E12E /* SelectTabTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTabTVCell.xib; sourceTree = "<group>"; };
+		655AFBAB2B85D01B0071C869 /* Loder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loder.storyboard; sourceTree = "<group>"; };
+		655AFBAD2B85D0310071C869 /* FlightLoderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightLoderVC.swift; sourceTree = "<group>"; };
+		655AFBAF2B85D5D20071C869 /* flightloding.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flightloding.jpeg; sourceTree = "<group>"; };
 		65AD15132B4EAC0D0064E8B0 /* Boookers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boookers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AD15162B4EAC0D0064E8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AD15182B4EAC0D0064E8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -999,6 +1005,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		655AFBA82B85CFED0071C869 /* Loder */ = {
+			isa = PBXGroup;
+			children = (
+				655AFBAA2B85D0040071C869 /* SB */,
+				655AFBA92B85CFFD0071C869 /* VC */,
+			);
+			path = Loder;
+			sourceTree = "<group>";
+		};
+		655AFBA92B85CFFD0071C869 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				655AFBAD2B85D0310071C869 /* FlightLoderVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		655AFBAA2B85D0040071C869 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				655AFBAB2B85D01B0071C869 /* Loder.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
 		65AD150A2B4EAC0D0064E8B0 = {
 			isa = PBXGroup;
 			children = (
@@ -1063,6 +1094,7 @@
 		65AD15472B4EAC680064E8B0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				655AFBA82B85CFED0071C869 /* Loder */,
 				655A28112B4FCE200060E12E /* Flights */,
 				65AD15482B4EAC680064E8B0 /* Hotel */,
 				65AD15AE2B4EAC680064E8B0 /* Calender */,
@@ -2580,6 +2612,7 @@
 		65AD173F2B4EAC6A0064E8B0 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				655AFBAF2B85D5D20071C869 /* flightloding.jpeg */,
 				65AD17402B4EAC6A0064E8B0 /* Constants.swift */,
 				65AD17412B4EAC6A0064E8B0 /* newloder.gif */,
 				65AD17422B4EAC6A0064E8B0 /* loderimg.gif */,
@@ -2995,6 +3028,7 @@
 				65AD18C72B4EAC6E0064E8B0 /* CreateAccountTVCell.xib in Resources */,
 				65AD18712B4EAC6D0064E8B0 /* CommonTVCell.xib in Resources */,
 				65AD190D2B4EAC6E0064E8B0 /* clist.json in Resources */,
+				655AFBB02B85D5D20071C869 /* flightloding.jpeg in Resources */,
 				65AD18F42B4EAC6E0064E8B0 /* Lato-Semibold.ttf in Resources */,
 				65AD181E2B4EAC6D0064E8B0 /* Main.storyboard in Resources */,
 				65AD18812B4EAC6D0064E8B0 /* FromCityTVCell.xib in Resources */,
@@ -3007,6 +3041,7 @@
 				65AD18CC2B4EAC6E0064E8B0 /* UnderLineTVCell.xib in Resources */,
 				65AD15202B4EAC0F0064E8B0 /* Assets.xcassets in Resources */,
 				65AD18902B4EAC6E0064E8B0 /* CommonTVAddTravellerTVCell.xib in Resources */,
+				655AFBAC2B85D01B0071C869 /* Loder.storyboard in Resources */,
 				65AD18692B4EAC6D0064E8B0 /* MulticityFromToTVCell.xib in Resources */,
 				6534888B2B7DF5FD00FF2A84 /* BestHolidayOfferTVCell.xib in Resources */,
 			);
@@ -3381,6 +3416,7 @@
 				65AD18B52B4EAC6E0064E8B0 /* ForgetPasswordViewModel.swift in Sources */,
 				65AD187F2B4EAC6D0064E8B0 /* HolderViewTVCell.swift in Sources */,
 				65AD17992B4EAC6D0064E8B0 /* HItinerary_details.swift in Sources */,
+				655AFBAE2B85D0310071C869 /* FlightLoderVC.swift in Sources */,
 				65AD186D2B4EAC6D0064E8B0 /* RoundTripInfoTVCell.swift in Sources */,
 				65AD18862B4EAC6E0064E8B0 /* TravellerEconomyTVCell.swift in Sources */,
 				65AD15192B4EAC0D0064E8B0 /* SceneDelegate.swift in Sources */,

@@ -24,45 +24,32 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? SelectedFlightInfoVC
         return vc
     }
+    
+    
+    var journysummery  = [Summary]()
+    var adult_sub_total = Double()
+    var child_sub_total = Double()
+    var infant_sub_total = Double()
+    
+    var adult_total = Double()
+    var child_total = Double()
+    var infant_total = Double()
+    
+    var currency = String()
+    var totaltripcost = String()
     var isVcFrom = String()
     var itineraryArray = ["Itinerary","Fare Breakdown","Fare Rules","Baggage Info"]
     var city = String()
     var date = String()
-    var traveller = String()
     var tablerow = [TableRow]()
     var cellIndex = Int()
-    let refreshControl = UIRefreshControl()
-    var farepricedetails:PriceDetails?
-    var jm = [JourneySummary]()
-    var adultsCount = Int()
-    var childCount = Int()
-    var infantsCount = Int()
-    var fareRulesData = [FareRulehtml]()
+    var paxwise_price:Paxwise_price?
+  
     var payload = [String:Any]()
     var vm:FlightDetailsViewModel?
     override func viewWillAppear(_ animated: Bool) {
         
         addObserver()
-        
-        if let journeyType = defaults.string(forKey: UserDefaultsKeys.journeyType) {
-            if journeyType == "oneway" {
-                adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") ?? 0
-                childCount = Int(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") ?? 0
-                infantsCount = Int(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0") ?? 0
-                
-                
-            }else if journeyType == "circle"{
-                adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") ?? 0
-                childCount = Int(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") ?? 0
-                infantsCount = Int(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0") ?? 0
-            }else {
-                
-                adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") ?? 0
-                childCount = Int(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") ?? 0
-                infantsCount = Int(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0") ?? 0
-            }
-        }
-        
         
         if  callapibool == true {
             
@@ -89,86 +76,27 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     func flightDetails(response: FlightDetailsModel) {
         
         holderView.isHidden = false
-        fd = response.flight_details?.flight_details
+        fd = response.flight_details
+        journysummery = response.flight_details?.summary ?? []
+        let doubleStr = String(format: "%.2f", response.price?.api_total_display_fare ?? 0.0)
+        grandTotal = "\(response.price?.api_currency ?? ""):\(doubleStr)"
+        newGrandTotal = "\(response.price?.api_currency ?? ""):\(doubleStr)"
+        self.bookNowlbl.text = grandTotal
+        paxwise_price = response.paxwise_price
+        currency = response.price?.api_currency ?? ""
+        totaltripcost = doubleStr
         
-        
+
         
         DispatchQueue.main.async {
             self.setupUI()
         }
+       
         
-//        if response.status == true {
-//            
-//            holderView.isHidden = false
-//            grandTotal = "\(response.priceDetails?.api_currency ?? ""):\(response.priceDetails?.grand_total ?? "")"
-//            newGrandTotal = "\(response.priceDetails?.api_currency ?? ""):\(response.priceDetails?.grand_total ?? "")"
-//            
-//            jm = response.journeySummary ?? []
-//            fd = response.flightDetails ?? [[]]
-//            fareRulesData = response.fareRulehtml ?? []
-//            farepricedetails = response.priceDetails
-//            baggageAllowance1 = response.baggageAllowance ?? []
-//            
-//            Adults_Base_Price = String(response.priceDetails?.adultsBasePrice ?? "0")
-//            Adults_Tax_Price = String(response.priceDetails?.adultsTaxPrice ?? "0")
-//            Childs_Base_Price = String(response.priceDetails?.childBasePrice ?? "0")
-//            Childs_Tax_Price = String(response.priceDetails?.childTaxPrice ?? "0")
-//            Infants_Base_Price = String(response.priceDetails?.infantBasePrice ?? "0")
-//            Infants_Tax_Price = String(response.priceDetails?.infantTaxPrice ?? "0")
-//            AdultsTotalPrice = String(response.priceDetails?.adultsTotalPrice ?? "0")
-//            ChildTotalPrice = String(response.priceDetails?.childTotalPrice ?? "0")
-//            InfantTotalPrice = String(response.priceDetails?.infantTotalPrice ?? "0")
-//            sub_total_adult = String(response.priceDetails?.sub_total_adult ?? "0")
-//            sub_total_child = String(response.priceDetails?.sub_total_child ?? "0")
-//            sub_total_infant = String(response.priceDetails?.sub_total_infant ?? "0")
-//            
-//            
-//            if let adultsBasePriceString = response.priceDetails?.adultsBasePrice,
-//               let childsBasePriceString = response.priceDetails?.childBasePrice,
-//               let infantsBasePriceString = response.priceDetails?.infantBasePrice {
-//                
-//                // Convert strings to doubles, providing default values if conversion fails
-//                let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
-//                let childsBasePrice = Double(childsBasePriceString) ?? 0.0
-//                let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
-//                
-//                // Calculate total base fare
-//                totalBaseFare = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
-//                
-//                
-//            } else {
-//                print("Error: One or more base prices are nil.")
-//            }
-//            
-//            
-//            if let adultsBasePriceString = response.priceDetails?.adultsTaxPrice,
-//               let childsBasePriceString = response.priceDetails?.childTaxPrice,
-//               let infantsBasePriceString = response.priceDetails?.infantTaxPrice {
-//                
-//                // Convert strings to doubles, providing default values if conversion fails
-//                let adultsBasePrice = Double(adultsBasePriceString) ?? 0.0
-//                let childsBasePrice = Double(childsBasePriceString) ?? 0.0
-//                let infantsBasePrice = Double(infantsBasePriceString) ?? 0.0
-//                
-//                // Calculate total base fare
-//                totaltax = "\(adultsBasePrice + childsBasePrice + infantsBasePrice)"
-//                
-//                
-//            } else {
-//                print("Error: One or more base prices are nil.")
-//            }
-//            
-//            
-//            setupUI()
-//            
-//            
-//        }else {
-//            gotoNoInternetConnectionVC(key: "noresult", titleStr: "NO AVAILABILITY FOR THIS REQUEST")
-        //}
-        
-        
-        
-        
+    }
+    
+    func addPaxValues(v1:Double,v2:Double) -> Double {
+        return v1 + v2
     }
     
     
@@ -283,95 +211,84 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
         
         
         
-        if adultsCount > 0 && childCount == 0 && infantsCount == 0 {
+        if (paxwise_price?.adult_pax_count ?? 0) > 0 && (paxwise_price?.child_pax_count ?? 0) == 0 && (paxwise_price?.infant_pax_count ?? 0) == 0 {
             tablerow.append(TableRow(title:"Adult",
-                                     subTitle: "X\(String(adultsCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.adultsBasePrice,
-                                     headerText: farepricedetails?.sub_total_adult,
-                                     buttonTitle:farepricedetails?.adultsTotalPrice,
-                                     errormsg:farepricedetails?.adultsTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.adultsTaxPrice,
+                                     subTitle: "X\(String(paxwise_price?.adult_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.adult_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.adult_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.adult_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.adult_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
             
-        }else if adultsCount > 0 && childCount > 0 && infantsCount == 0 {
+        }else  if (paxwise_price?.adult_pax_count ?? 0) > 0 && (paxwise_price?.child_pax_count ?? 0) > 0 && (paxwise_price?.infant_pax_count ?? 0) == 0 {
             tablerow.append(TableRow(title:"Adult",
-                                     subTitle: "X\(String(adultsCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.adultsBasePrice,
-                                     headerText: farepricedetails?.sub_total_adult,
-                                     buttonTitle:farepricedetails?.adultsTotalPrice,
-                                     errormsg:farepricedetails?.adultsTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.adultsTaxPrice,
+                                     subTitle: "X\(String(paxwise_price?.adult_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.adult_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.adult_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.adult_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.adult_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
             
             tablerow.append(TableRow(title:"Child",
-                                     subTitle: "X\(String(childCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.childBasePrice,
-                                     headerText: farepricedetails?.sub_total_child,
-                                     buttonTitle:farepricedetails?.childTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.childTaxPrice,
+                                     subTitle: "X\(String(paxwise_price?.child_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.child_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.child_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.child_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.child_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
             
-        }else if adultsCount > 0 && childCount == 0 && infantsCount > 0 {
+        }else if (paxwise_price?.adult_pax_count ?? 0) > 0 && (paxwise_price?.child_pax_count ?? 0) == 0 && (paxwise_price?.infant_pax_count ?? 0) > 0 {
             tablerow.append(TableRow(title:"Adult",
-                                     subTitle: "X\(String(adultsCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.adultsBasePrice,
-                                     headerText: farepricedetails?.sub_total_adult,
-                                     buttonTitle:farepricedetails?.adultsTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.adultsTaxPrice,
+                                     subTitle: "X\(String(paxwise_price?.adult_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.adult_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.adult_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.adult_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.adult_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
             
             tablerow.append(TableRow(title:"Infanta",
-                                     subTitle: "X\(String(infantsCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.infantBasePrice,
-                                     headerText: farepricedetails?.sub_total_infant,
-                                     buttonTitle:farepricedetails?.infantTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.infantTaxPrice,
+                                     subTitle: "X\(String(paxwise_price?.infant_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.infant_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.infant_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.infant_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.infant_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
         }else {
             tablerow.append(TableRow(title:"Adult",
-                                     subTitle: "X\(String(adultsCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.adultsBasePrice,
-                                     headerText: farepricedetails?.sub_total_adult,
-                                     buttonTitle:farepricedetails?.adultsTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.adultsTaxPrice,
+                                     subTitle: "X\(String(paxwise_price?.adult_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.adult_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.adult_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.adult_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.adult_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
             
             tablerow.append(TableRow(title:"Child",
-                                     subTitle: "X\(String(childCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.childBasePrice,
-                                     headerText: farepricedetails?.sub_total_child,
-                                     buttonTitle:farepricedetails?.childTotalPrice,
-                                     errormsg:farepricedetails?.childTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.childTaxPrice,
+                                     subTitle: "X\(String(paxwise_price?.child_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.child_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.child_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.child_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.child_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
             
-            tablerow.append(TableRow(title:"Infant",
-                                     subTitle: "X\(String(infantsCount))",
-                                     key:farepricedetails?.api_currency,
-                                     text: farepricedetails?.infantBasePrice,
-                                     headerText: farepricedetails?.sub_total_infant,
-                                     buttonTitle:farepricedetails?.infantTotalPrice,
-                                     key1:farepricedetails?.grand_total,
-                                     tempText: farepricedetails?.infantTaxPrice,
+            tablerow.append(TableRow(title:"Infanta",
+                                     subTitle: "X\(String(paxwise_price?.infant_pax_count ?? 0))",
+                                     key:currency,
+                                     text: "\(String(format: "%.2f", paxwise_price?.infant_base_fare ?? 0.0))",
+                                     headerText: "\(String(format: "%.2f", paxwise_price?.infant_total_fare ?? 0.0))",
+                                     buttonTitle:"\(String(format: "%.2f", paxwise_price?.infant_sub_fare ?? 0.0))",
+                                     tempText: "\(String(format: "%.2f", paxwise_price?.infant_tax_fare ?? 0.0))",
                                      cellType:.FareBreakdownTVCell))
         }
         
         
-        tablerow.append(TableRow(title:"Total Trip Cost",subTitle: farepricedetails?.grand_total,key: "totalcost",cellType:.TitleLblTVCell))
+        tablerow.append(TableRow(title:"Total Trip Cost",subTitle: totaltripcost,key: "totalcost",cellType:.TitleLblTVCell))
         tablerow.append(TableRow(height:50,bgColor: .AppHolderViewColor,cellType:.EmptyTVCell))
         
         
@@ -386,15 +303,15 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
         
         tablerow.removeAll()
         
-        if fareRulesData.count == 0 {
-            TableViewHelper.EmptyMessage(message: "No Data Found", tableview: commonTableView, vc: self)
-        }else {
-            TableViewHelper.EmptyMessage(message: "", tableview: commonTableView, vc: self)
-            
-            self.fareRulesData.forEach { i in
-                tablerow.append(TableRow(title:i.rule_heading,subTitle: i.rule_content?.htmlToString,cellType:.FareRulesTVCell))
-            }
-        }
+//        if fareRulesData.count == 0 {
+//            TableViewHelper.EmptyMessage(message: "No Data Found", tableview: commonTableView, vc: self)
+//        }else {
+//            TableViewHelper.EmptyMessage(message: "", tableview: commonTableView, vc: self)
+//            
+//            self.fareRulesData.forEach { i in
+//                tablerow.append(TableRow(title:i.rule_heading,subTitle: i.rule_content?.htmlToString,cellType:.FareRulesTVCell))
+//            }
+//        }
         
         
         
@@ -407,18 +324,7 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     func setupBaggageInfoTVCells() {
         tablerow.removeAll()
         
-        tablerow.append(TableRow(title:"Baggage Information",subTitle: "",key: "baggage",cellType:.TitleLblTVCell))
-        
-        baggageAllowance1.forEach { i in
-            tablerow.append(TableRow(title:i.journeySummary,
-                                     subTitle: i.cabin_baggage ?? "",
-                                     text: i.aDT ?? "",
-                                     key1: i.cNN ?? "",
-                                     tempText: i.iNF ?? "",
-                                     cellType:.BaggageInfoTVCell))
-        }
-        
-        
+            tablerow.append(TableRow(cellType:.BaggageInfoTVCell))
         
         commonTVData = tablerow
         commonTableView.reloadData()

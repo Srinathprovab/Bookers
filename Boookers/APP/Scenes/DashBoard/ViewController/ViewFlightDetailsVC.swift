@@ -46,7 +46,7 @@ class ViewFlightDetailsVC: BaseTableVC, FlightDetailsViewModelDelegate {
     
     
     func flightDetails(response: FlightDetailsModel) {
-        fd = response.flight_details?.flight_details
+        fd = response.flight_details
         DispatchQueue.main.async {[self] in
             holderView.isHidden = false
             setupUI()

@@ -84,6 +84,15 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
             callAPI()
         }
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(flighttopdetails), name: NSNotification.Name("flighttopdetails"), object: nil)
+        
+    }
+    
+    
+    @objc func flighttopdetails(ns:NSNotification) {
+        var hiturl = ns.object as? String
+        print("hiturl : \(BASE_URL)\(hiturl ?? "")")
     }
     
     

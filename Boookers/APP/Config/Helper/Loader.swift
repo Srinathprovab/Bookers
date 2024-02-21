@@ -14,7 +14,7 @@ class Loader {
         DispatchQueue.main.async {
             
             
-          
+            
             
             
             if basicloderBool == true {
@@ -26,17 +26,13 @@ class Loader {
                 }
                 
             }else {
-//                if loderBool == false {
-//                    loaderShow(loder:"newloder",v:view)
-//                }else {
-//                    loaderShow(loder:"loderimg",v:view)
-//                }
-                
-                DispatchQueue.main.async {
-                    ProgressHUD.animationType = .lineSpinFade
-                    ProgressHUD.colorAnimation = .AppNavBackColor
-                    ProgressHUD.show()
+                if loderBool == false {
+                    //                    loaderShow(loder:"newloder",v:view)
+                }else {
+                    //  loaderShow(loder:"loderimg",v:view)
                 }
+                
+                
             }
             
             
@@ -50,7 +46,7 @@ class Loader {
             let imageViewAnimatedGif = UIImageView()
             //The key here is to save the GIF file or URL download directly into a NSData instead of making it a UIImage. Bypassing UIImage will let the GIF file keep the animation.
             
-            var filePath = Bundle.main.path(forResource: loder, ofType: "gif") ?? ""
+            let filePath = Bundle.main.path(forResource: loder, ofType: "gif") ?? ""
             
             let gifData = NSData(contentsOfFile: filePath) as Data?
             imageViewAnimatedGif.image = UIImage.sd_image(withGIFData: gifData)

@@ -102,9 +102,11 @@ class HotelDealsTVCell: TableViewCell {
             cv.bounces = false
         }
        
-        
-        
     }
+    
+    
+ 
+
     
     
     @IBAction func didTapOnFlightOfferBtnAction(_ sender: Any) {
@@ -165,8 +167,8 @@ extension HotelDealsTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
                         cell.img.sd_setImage(with: URL(string: "\(data.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
                         cell.fromlbl.text = "\(data.from_city_loc ?? "") -> \(data.to_city_loc ?? "")"
                         cell.tolbl.text = "\(data.travel_date ?? "") -> \(data.return_date ?? "")"
-                        
-                        
+                        cell.hit_url = data.hit_url ?? ""
+                       
                         commonCell = cell
                     }
                     

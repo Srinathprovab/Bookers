@@ -5,6 +5,22 @@
     "data": [
         {
             "origin": "1",
+            "symbol": "AED",
+            "type": "AED",
+            "value": "373",
+            "name": "United Arab Emirates dirham",
+            "icon": "https://holidayscenter.com/extras/system/template_list/template_v1/images/flag/AED.png"
+        },
+        {
+            "origin": "1",
+            "symbol": "BHD",
+            "type": "BHD",
+            "value": "373",
+            "name": "Bahraini Dinar",
+            "icon": "https://www.shutterstock.com/image-photo/flag-bahrain-coins-2308754721"
+        },
+        {
+            "origin": "1",
             "symbol": "AUD",
             "type": "AUD",
             "value": "373",
@@ -14,7 +30,7 @@
         {
             "origin": "8",
             "symbol": "USD",
-            "type": "USD",
+            "type": "$",
             "value": "520",
             "name": "US Dollars",
             "icon": "https://holidayscenter.com/extras/system/template_list/template_v1/images/flag/USD.png"

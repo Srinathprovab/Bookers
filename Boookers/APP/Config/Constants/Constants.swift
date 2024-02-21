@@ -28,7 +28,7 @@ var key = ""
 let screenHeight = UIScreen.main.bounds.size.height
 //var data : Data?
 var loderBool = false
-var basicloderBool = false
+var basicloderBool = true
 
 var BASE_URL = "https://boookers.com/webservice/"
 var BASE_URL1 = "https://boookers.com/webservice/"
@@ -57,7 +57,7 @@ var sports_top_destinations = [Sports_top_destinations]()
 var holiday_top_destinations = [Holiday_top_destinations]()
 var imgPath = String()
 var currencyType = String()
-
+var search_params:Flight_search_params?
 
 //MARK: - Filters
 var filterModel = FlightFilterModel()
