@@ -24,6 +24,9 @@ struct Flight_search_params : Codable {
 	let is_domestic : Bool?
 	let direct_flight : String?
 	let search_id : Int?
+    let flight_return : String?
+ 
+    
 
 	enum CodingKeys: String, CodingKey {
 
@@ -49,6 +52,7 @@ struct Flight_search_params : Codable {
 		case is_domestic = "is_domestic"
 		case direct_flight = "direct_flight"
 		case search_id = "search_id"
+        case flight_return = "return"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -75,6 +79,7 @@ struct Flight_search_params : Codable {
 		is_domestic = try values.decodeIfPresent(Bool.self, forKey: .is_domestic)
 		direct_flight = try values.decodeIfPresent(String.self, forKey: .direct_flight)
 		search_id = try values.decodeIfPresent(Int.self, forKey: .search_id)
+        flight_return = try values.decodeIfPresent(String.self, forKey: .flight_return)
 	}
 
 }

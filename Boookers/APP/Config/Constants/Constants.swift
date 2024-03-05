@@ -209,7 +209,7 @@ struct ApiEndpoints {
     static let mobilepreflightsearch = "general/mobile_pre_flight_search"
     static let indexphp_ajax_flight_details = "index.php/ajax/flight_details"
     static let preprocessbooking = "flight/pre_process_booking"
-    static let mobilebooking = "flight/booking"
+    static let mobilebooking = "index.php/flight/booking"
     static let processpassengerdetail = "flight/process_passenger_detail"
     static let prebooking = "flight/pre_booking/"
     static let prepaymentconfirmation = "flight/pre_payment_confirmation/"

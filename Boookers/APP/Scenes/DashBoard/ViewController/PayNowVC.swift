@@ -70,7 +70,7 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
     var roompaxesdetails = [Room_paxes_details]()
     var passportExpiryBoolString = String()
     
-    var priceDetails :PriceDetails?
+    var priceDetails :Price?
     var payemail = String()
     var paymobile = String()
     var paycountryCode = String()
@@ -311,7 +311,7 @@ class PayNowVC: BaseTableVC, PreProcessBookingViewModelDelegate, TimerManagerDel
         payload.removeAll()
         payload["moduletype"] = "flight"
         payload["promocode"] = promocodeStr
-        payload["total_amount_val"] = priceDetails?.grand_total ?? ""
+        payload["total_amount_val"] = "\(priceDetails?.api_total_display_fare ?? 0.0)"
         payload["convenience_fee"] = "0"
         payload["email"] = payemail
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
@@ -474,7 +474,7 @@ extension PayNowVC {
     func callAPI() {
         payload.removeAll()
         payload["search_id"] = searchid
-        payload["booking_source"] = bookingsourcekey
+        payload["booking_source"] = bookingsource
         payload["access_key"] = accesskey
         payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid)
         
@@ -483,9 +483,10 @@ extension PayNowVC {
     
     func preProcessBookingDetails(response: PreProcessBookingModel) {
         
-        
-        promoinfoArray = response.promo_info ?? []
-        tokenkey1 = response.form_params?.token_key ?? ""
+        searchid = response.search_id ?? ""
+        bookingsource = response.booking_source ?? ""
+        accesskey = response.access_key ?? ""
+    
         callMobileBookingAPI(res: response)
         
     }
@@ -496,10 +497,8 @@ extension PayNowVC {
         
         payload.removeAll()
         payload["search_id"] = searchid
-        payload["booking_source"] = bookingsourcekey
-        payload["promocode_val"] = ""
+        payload["booking_source"] = bookingsource
         payload["access_key"] = accesskey
-        payload["booking_id"] = res.form_params?.booking_id
         
         
         vm?.CALL_MOBILE_BOOKING_API(dictParam: payload)
@@ -507,24 +506,27 @@ extension PayNowVC {
     
     
     func mobileBookingDetails(response: MobileBookingModel) {
-        if response.status == 1 {
+        if response.status == true {
             
             holderView.isHidden = false
             activepaymentoptions = response.active_payment_options?[0] ?? ""
             tmpFlightPreBookingId = response.tmp_flight_pre_booking_id ?? ""
-            accesskey = response.access_key_tp ?? ""
-            bookingsource = response.booking_source ?? ""
             
-            specialAssistancelist1 = response.special_allowance ?? []
-            meallist = response.meal_list ?? []
-            travelerArray.removeAll()
-            
-            
-            priceDetails = response.priceDetails
+//            accesskey = response.access_key_tp ?? ""
+//            bookingsource = response.booking_source ?? ""
+//            
+//            specialAssistancelist1 = response.special_allowance ?? []
+//            meallist = response.meal_list ?? []
+//            travelerArray.removeAll()
+//            
+//
+            priceDetails = response.price
+            self.bookNowlbl.text = "\(response.price?.api_currency ?? ""):\(String(format: "%.2f", response.price?.api_total_display_fare ?? 0.0))"
             
             DispatchQueue.main.async {[self] in
                 setupTVCells()
             }
+            
         }else {
             
             gotoNoInternetConnectionVC(key: "noresult", titleStr: "Due to Technical issue Booking Process has been aborted. Sorry for inconvenience.")

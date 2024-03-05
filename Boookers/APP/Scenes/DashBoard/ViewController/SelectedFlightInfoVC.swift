@@ -67,6 +67,7 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
        
         payload["access_key"] = accesskey
         payload["booking_source"] = bookingsource
+        payload["search_id"] = searchid
         
         vm?.CALL_GET_FLIGHT_DETAILS_API(dictParam: payload)
     }
@@ -87,6 +88,11 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
         totaltripcost = doubleStr
         
 
+        
+        accesskey = response.access_key ?? ""
+        bookingsource = response.booking_source ?? ""
+        searchid = response.search_id ?? ""
+        
         
         DispatchQueue.main.async {
             self.setupUI()

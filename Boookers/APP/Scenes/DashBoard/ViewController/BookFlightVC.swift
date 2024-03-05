@@ -357,7 +357,7 @@ extension BookFlightVC {
             
         }else if journyType == "circle"{
             
-          //  MySingleton.shared.payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
+            MySingleton.shared.payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
             let departureDate = defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? ""
             let returnDate = defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? ""
             
@@ -383,6 +383,8 @@ extension BookFlightVC {
             }else if isDepartureBeforeOrEqual == false {
                 showToast(message: "Invalid Date")
             }else{
+                
+                
                 gotoSearchFlightResultVC(input: MySingleton.shared.payload)
             }
             
