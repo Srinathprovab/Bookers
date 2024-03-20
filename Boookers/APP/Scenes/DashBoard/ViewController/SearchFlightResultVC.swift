@@ -39,6 +39,9 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
     var vm:FlightListViewModel?
     let dateFormatter = DateFormatter()
     var journyType = String()
+    var newHitUrl = String()
+    var isFromVC = String()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +59,19 @@ class SearchFlightResultVC: BaseTableVC,TimerManagerDelegate {
         addObserver()
         dateFormatter.dateFormat = "HH:mm"
         
-        if callapibool == true {
-            DispatchQueue.main.async {[self] in
-                TimerManager.shared.sessionStop()
-                callAPI()
+        
+        if isFromVC == "dash" {
+            CALL_GET_HIT_URL_API(hiturlstr: newHitUrl)
+        }else {
+            if callapibool == true {
+                DispatchQueue.main.async {[self] in
+                    TimerManager.shared.sessionStop()
+                    callAPI()
+                }
+                
             }
-            
         }
+        
         
     }
     
@@ -216,6 +225,16 @@ extension SearchFlightResultVC {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTimer), name: NSNotification.Name("reloadTimer"), object: nil)
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(flighttopdetails), name: Notification.Name("flighttopdetails"), object: nil)
+
+    }
+    
+    
+    
+    @objc func flighttopdetails(ns:NSNotification) {
+        var hiturl = ns.object as? String
+        CALL_GET_HIT_URL_API(hiturlstr: "\(BASE_URL)\(hiturl ?? "")")
     }
     
     
@@ -290,10 +309,15 @@ extension SearchFlightResultVC {
     
     
     func preFlightSearchResponse(response : pre_flight_search_Model){
+        CALL_GET_HIT_URL_API(hiturlstr: response.hit_url ?? "")
+    }
+    
+    
+    
+    func CALL_GET_HIT_URL_API(hiturlstr:String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.vm?.CALL_GET_HIT_URL_API(dictParam: [:], url: response.hit_url ?? "")
+            self.vm?.CALL_GET_HIT_URL_API(dictParam: [:], url: hiturlstr)
         }
-        
     }
     
     func getHitUrlResponse(response : Flight_search_hit_url_Model){
@@ -526,9 +550,6 @@ extension SearchFlightResultVC:AppliedFilters {
             print("==== cancellationTypeFA ==== \(cancellationTypeFA)")
             print("==== connectingFlightsFA ==== \(connectingFlightsFA)")
             print("==== connectingAirportsFA ==== \(connectingAirportsFA)")
-    
-    
-    
     
     
     

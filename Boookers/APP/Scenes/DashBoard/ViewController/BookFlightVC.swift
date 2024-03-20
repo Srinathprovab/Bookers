@@ -408,6 +408,7 @@ extension BookFlightVC {
         loderBool = true
         callapibool = true
         vc.payload = input
+        vc.isFromVC = "bookflight"
         self.present(vc, animated: true)
     }
     

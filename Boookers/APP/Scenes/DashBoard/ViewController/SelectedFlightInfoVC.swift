@@ -203,10 +203,12 @@ class SelectedFlightInfoVC: BaseTableVC, FlightDetailsViewModelDelegate, TimerMa
     
     
     @IBAction func didTapOnBookNowBtn(_ sender: Any) {
-        guard let vc = PayNowVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true)
+//        guard let vc = PayNowVC.newInstance.self else {return}
+//        vc.modalPresentationStyle = .overCurrentContext
+//        self.present(vc, animated: true)
         
+        
+        showToast(message: "Still Work Is Going On...")
     }
     
     

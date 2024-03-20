@@ -194,7 +194,7 @@ class MyBookingVC: BaseTableVC {
     
     override func didTapOnViewVocherBtnAction(cell:MyBookingsTVCells){
         
-        let vocherpdf = "https://kuwaitways.com/mobile_webservices/index.php/voucher/flight/\(self.resdata[cell.indexPath?.row ?? 0].app_reference ?? "")/\(self.resdata[cell.indexPath?.row ?? 0].booking_source ?? "")/show_pdf"
+        let vocherpdf = "https://boookers.com/mvoucher/flight/\(self.resdata[cell.indexPath?.row ?? 0].app_reference ?? "")/\(self.resdata[cell.indexPath?.row ?? 0].booking_source ?? "")/show_pdf"
                 
         gotoAboutUsVC(url: vocherpdf)
     }

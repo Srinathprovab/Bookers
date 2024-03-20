@@ -97,9 +97,10 @@ class SideMenuVC: BaseTableVC, ProfileUpdateViewModelDelegate {
         tablerow.removeAll()
         tablerow.append(TableRow(cellType:.MenuBGTVCell))
         tablerow.append(TableRow(height:30,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(title:"Bookings",key: "ourproducts", image: "",cellType:.MenuTitleTVCell))
+        tablerow.append(TableRow(title:"Quick Links",key: "ourproducts", image: "",cellType:.MenuTitleTVCell))
         tablerow.append(TableRow(title:"Flights",key: "menu", image: "m1",cellType:.checkOptionsTVCell))
         tablerow.append(TableRow(title:"Hotels",key: "menu", image: "m2",cellType:.checkOptionsTVCell))
+      //  tablerow.append(TableRow(title:"Sports",key: "menu", image: "m2",cellType:.checkOptionsTVCell))
         tablerow.append(TableRow(title:"Holidays",key: "menu", image: "m3",cellType:.checkOptionsTVCell))
         tablerow.append(TableRow(title:"Insurence",key: "menu", image: "m4",cellType:.checkOptionsTVCell))
         
@@ -108,13 +109,7 @@ class SideMenuVC: BaseTableVC, ProfileUpdateViewModelDelegate {
             tablerow.append(TableRow(title:"Check My Bookings",key: "menu22", image: "menu1",cellType:.checkOptionsTVCell))
         }
         
-        //        tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-        //        tablerow.append(TableRow(title:"Traveler Tools",key: "ourproducts", image: "",cellType:.MenuTitleTVCell))
-        //        tablerow.append(TableRow(title:"Customer Support",key: "menu", image: "menu2",cellType:.checkOptionsTVCell))
-        //        tablerow.append(TableRow(title:"Travel Guides",key: "menu", image: "menu2",cellType:.checkOptionsTVCell))
-        //        tablerow.append(TableRow(title:"Client Testimonial",key: "menu", image: "menu2",cellType:.checkOptionsTVCell))
-        //        tablerow.append(TableRow(title:"FAQ's",key: "menu", image: "menu2",cellType:.checkOptionsTVCell))
-        
+       
         
         tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"Legal",key: "ourproducts", image: "",cellType:.MenuTitleTVCell))

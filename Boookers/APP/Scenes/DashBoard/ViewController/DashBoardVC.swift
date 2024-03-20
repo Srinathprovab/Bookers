@@ -90,9 +90,13 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
     }
     
     
+    //MARK: - Call Pre Flight search API
     @objc func flighttopdetails(ns:NSNotification) {
-        var hiturl = ns.object as? String
-        print("hiturl : \(BASE_URL)\(hiturl ?? "")")
+                var hiturl = ns.object as? String
+                print("hiturl : \(BASE_URL)\(hiturl ?? "")")
+                callPreFlightBooking(urlStr: "\(BASE_URL)\(hiturl ?? "")")
+
+       
     }
     
     
@@ -117,16 +121,16 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
     
     
     func indexPageDetails(response: IndexPageModel) {
-       // imgPath = response.image_path ?? ""
+        // imgPath = response.image_path ?? ""
         
         
         sliderimagesflight = response.flight_top_destinations ?? []
         sliderimageshotel = response.hotel_top_destination ?? []
-         sports_top_destinations = response.sports_top_destinations ?? []
-         holiday_top_destinations = response.holiday_top_destinations ?? []
+        sports_top_destinations = response.sports_top_destinations ?? []
+        holiday_top_destinations = response.holiday_top_destinations ?? []
         
         
-       //currencyType = response.currency ?? ""
+        //currencyType = response.currency ?? ""
         BASE_URL = BASE_URL1
         DispatchQueue.main.async {[self] in
             setupTV()
@@ -154,14 +158,14 @@ class DashBoardVC: BaseTableVC, IndexPageViewModelDelegate {
         
         tablerow.append(TableRow(key:"dash",cellType:.SelectTabTVCell))
         
-
+        
         tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"Best Holiday Offer ",cellType:.BestHolidayOfferTVCell))
         
         tablerow.append(TableRow(height:10,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"Best Offers ",key1:"offer",cellType:.HotelDealsTVCell))
         
-        tablerow.append(TableRow(height:30,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
+        tablerow.append(TableRow(height:60,bgColor: .AppBGcolor,cellType:.EmptyTVCell))
         
         commonTVData = tablerow
         commonTableView.reloadData()
@@ -491,5 +495,32 @@ extension DashBoardVC {
         vc.key = key
         vc.titleStr = titleStr
         self.present(vc, animated: false)
+    }
+}
+
+
+
+extension DashBoardVC {
+    
+    
+    func callPreFlightBooking(urlStr:String) {
+        vm?.CALL_PRE_FLIGHT_SEARCH_API(dictParam: [:], url: urlStr)
+    }
+    
+    func preFlightSearchResponse(response: pre_flight_search_Model) {
+        gotoSearchFlightResultVC(hiturl: response.hit_url ?? "")
+    }
+    
+    
+    func gotoSearchFlightResultVC(hiturl:String) {
+
+        defaults.set(false, forKey: "flightfilteronce")
+        guard let vc = SearchFlightResultVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        loderBool = true
+        callapibool = false
+        vc.isFromVC = "dash"
+        vc.newHitUrl = hiturl
+        self.present(vc, animated: true)
     }
 }

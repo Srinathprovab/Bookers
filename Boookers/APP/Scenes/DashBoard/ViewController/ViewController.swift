@@ -36,7 +36,7 @@ class ViewController: UIViewController {
                 
                 
                 //                                                defaults.set("Flight", forKey: UserDefaultsKeys.tabselect)
-                //                                                self.gotoBookingConfirmedVC(url: "https://kuwaitways.com/mobile_webservices/index.php/voucher/flight/KWA-F-TP-1201-7553/PTBSID0000000016/show_voucher")
+                //                                                self.gotoBookingConfirmedVC(url: "https://boookers.com/mobile_webservices/index.php/voucher/flight/KWA-F-TP-1201-7553/PTBSID0000000016/show_voucher")
             })
             
             

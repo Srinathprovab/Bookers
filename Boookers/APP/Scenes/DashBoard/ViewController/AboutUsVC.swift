@@ -51,21 +51,21 @@ class AboutUsVC: BaseTableVC,AboutusViewModelDelegate {
         switch keystr {
             
         case "aboutus":
-            vm?.CALL_ABOUTUS_API(dictParam: [:], url: "https://kuwaitways.com/mobile_webservices/index.php/general/cms/Bottom/8")
+            vm?.CALL_ABOUTUS_API(dictParam: [:], url: "\(BASE_URL1)general/cms/Bottom/8")
             break
             
             
         case "contactus":
-            vm?.CALL_ABOUTUS_API(dictParam: [:], url: "https://kuwaitways.com/mobile_webservices/index.php/general/cms/Bottom/3")
+            //vm?.CALL_ABOUTUS_API(dictParam: [:], url: "\(BASE_URL1)general/cms/Bottom/3")
             break
             
             
         case "terms":
-            vm?.CALL_ABOUTUS_API(dictParam: [:], url: "https://kuwaitways.com/mobile_webservices/index.php/general/cms/Bottom/3")
+            vm?.CALL_ABOUTUS_API(dictParam: [:], url: "\(BASE_URL1)general/cms/Bottom/3")
             break
             
         case "pp":
-            vm?.CALL_ABOUTUS_API(dictParam: [:], url: "https://kuwaitways.com/mobile_webservices/index.php/general/cms/Bottom/2")
+            vm?.CALL_ABOUTUS_API(dictParam: [:], url: "\(BASE_URL1)general/cms/Bottom/2")
             break
             
         default:
